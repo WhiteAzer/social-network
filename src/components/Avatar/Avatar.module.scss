@@ -1,0 +1,21 @@
+.avatar{
+  border-radius: 6px;
+  background-color: var(--ui-color-primary);
+  &_size-xs{
+
+  }
+
+  &_size-s{
+    width: 37px;
+    height: 37px;
+  }
+
+
+  &_size-m{
+
+  }
+
+  &_size-l{
+
+  }
+}

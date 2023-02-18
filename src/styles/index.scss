@@ -1,0 +1,25 @@
+@import 'normalize';
+
+:root {
+  --ui-color-primary: #1178f2;
+  --ui-color-secondary: #FFFFFF;
+  --ui-color-grey: #f4f5f8;
+  --ui-color-light-grey: #f8f9fa;
+  --ui-color-dark-blue: #02213b;
+  --ui-color-light-blue: #657891;
+  --ui-color-extralight-grey: #fcfcfd;
+  --ui-color-extralight-blue: #a7b6c7;
+}
+
+body {
+  font-family: 'Baloo 2', cursive;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px;
+  background-color: var(--ui-color-light-grey);
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+}

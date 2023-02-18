@@ -1,0 +1,21 @@
+@use '@styles/variables.scss';
+
+.panel {
+  padding: 0;
+}
+
+.nav {
+  color: var(--ui-color-dark-blue);
+}
+
+.nav li:not(:last-child) {
+  border-bottom: 2px solid var(--ui-color-grey);
+}
+
+.nav li:first-child {
+  border-radius: 0 variables.$global-border-radius 0 0;
+}
+
+.nav li:last-child {
+  border-radius: 0 0 variables.$global-border-radius 0;
+}

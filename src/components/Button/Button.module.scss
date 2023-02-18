@@ -1,0 +1,26 @@
+@use '@styles/variables.scss';
+
+.button{
+  border-radius: variables.$global-border-radius;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  &_size-s{
+    padding: 10px;
+  }
+  &_size-m{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  &_size-l{
+    width: 100%;
+  }
+  &_primary{
+    background: var(--ui-color-primary);
+    color: var(--ui-color-secondary);
+  }
+  &_secondary{
+    background: var(--ui-color-secondary);
+    color: var(--ui-color-dark-blue);
+    border: 2px solid var(--ui-color-grey);
+  }
+}

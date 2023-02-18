@@ -1,0 +1,7 @@
+@use '@styles/variables.scss';
+
+.main {
+  display: grid;
+  grid-template-columns: 255px 2fr 255px;
+  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
+}

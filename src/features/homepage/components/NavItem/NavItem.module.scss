@@ -1,0 +1,25 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.item {
+  padding: 12px variables.$global-horizontal-padding;
+  cursor: pointer;
+}
+
+.info {
+  column-gap: 1em;
+}
+
+.item, .info {
+  @include mixins.flexible(flex-start, center, row);
+}
+
+.selected{
+  border-left: 2px solid var(--ui-color-primary);
+  background: rgba(245, 245, 245);
+  color: var(--ui-color-primary);
+}
+
+.text{
+  color: inherit;
+}
