@@ -1,0 +1,15 @@
+@use '@styles/variables.scss';
+@use '@styles/mixins.scss';
+
+.stripe{
+  @include mixins.flexible(flex-start, center, row);
+}
+
+.avatar{
+  margin-right: 1.2em;
+}
+
+.button{
+  @include mixins.flexible(center, center, row);
+  margin-left: auto;
+}

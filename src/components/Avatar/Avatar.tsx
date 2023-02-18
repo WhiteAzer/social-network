@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
-import { AvatarSize } from '../../types';
+import { Size } from '../../types';
 import classNames from 'classnames';
 import styles from './Avatar.module.scss';
 
 type Props = {
-	size: AvatarSize;
+	size: Size;
+	className?: string;
 };
 
-export const Avatar: FC<Props> = ({ size }) => {
-	return <div className={classNames(styles.avatar, styles[size])} />;
+export const Avatar: FC<Props> = ({ size, className }) => {
+	return <div className={classNames(styles.avatar, styles[`avatar_${size}`], className)} />;
 };

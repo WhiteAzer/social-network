@@ -11,7 +11,7 @@ export const UserBadge: FC<Props> = ({ user }) => {
 	return (
 		<Panel>
 			<div className={styles.badge}>
-				<Avatar size={'avatar_size-s'} />
+				<Avatar size={'size-s'} />
 				<div className={styles.info}>
 					<div className={styles.name}>Alica Newman</div>
 					<div className={styles.username}>@alicanewman</div>

@@ -1,0 +1,13 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.search{
+  @include mixins.flexible(flex-start, center, row);
+  border-radius: variables.$global-border-radius;
+  background: var(--ui-color-grey);
+  padding: 0 15px;
+}
+
+.input{
+  background: inherit;
+}

@@ -1,0 +1,15 @@
+@use '@styles/variables.scss';
+
+.input{
+  background: var(--ui-color-grey);
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: variables.$global-border-radius;
+  &_size-l{
+    width: 100%;
+  }
+}
+.input::placeholder{
+  color: #c4ccd6;
+}

@@ -3,5 +3,9 @@
 
 .section{
   @include mixins.flexible(flex-start, stretch, column);
-  row-gap: variables.$global-vertical-padding;
+  row-gap: 17px;
+}
+
+.middle_section{
+  padding: 0 variables.$global-horizontal-padding;
 }

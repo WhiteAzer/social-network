@@ -7,6 +7,7 @@ import { Icon28Users3Outline as IconPeople } from '@vkontakte/icons';
 import { Icon28PictureOutline as IconPhotos } from '@vkontakte/icons';
 import { Icon28UserOutline as IconProfile } from '@vkontakte/icons';
 import { Icon28SettingsOutline as IconSettings } from '@vkontakte/icons';
+import { Icon28MailOutline as IconMessages } from '@vkontakte/icons';
 import styles from './NavSection.module.scss';
 
 const icons: Array<{ text: string; component: FC<SVGProps<SVGSVGElement>> }> = [
@@ -17,6 +18,10 @@ const icons: Array<{ text: string; component: FC<SVGProps<SVGSVGElement>> }> = [
 	{
 		component: IconNews,
 		text: 'News',
+	},
+	{
+		component: IconMessages,
+		text: 'Messages',
 	},
 	{
 		component: IconPeople,
