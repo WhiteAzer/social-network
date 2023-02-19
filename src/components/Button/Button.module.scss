@@ -15,11 +15,11 @@
     width: 100%;
   }
   &_primary{
-    background: var(--ui-color-primary);
+    background-color: var(--ui-color-primary);
     color: var(--ui-color-secondary);
   }
   &_secondary{
-    background: var(--ui-color-secondary);
+    background-color: var(--ui-color-secondary);
     color: var(--ui-color-dark-blue);
     border: 2px solid var(--ui-color-grey);
   }

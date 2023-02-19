@@ -3,9 +3,9 @@ import { Size } from '../../types';
 import styles from './Input.module.scss';
 import classNames from 'classnames';
 
-type Props = {
+type Props = HTMLAttributes<HTMLInputElement> & {
 	size: Size;
-} & HTMLAttributes<HTMLInputElement>;
+};
 
 export const Input: FC<Props> = ({ size, className, ...props }) => {
 	return (

@@ -5,12 +5,12 @@ import { InputSearch } from '@components/InputSearch/InputSearch';
 
 export const Header: FC = () => {
 	return (
-		<div className={styles.header}>
+		<header className={styles.header}>
 			<div className={styles.logo_wrapper}>
 				<Avatar size={'size-s'} />
 				<h1>Network</h1>
 			</div>
 			<InputSearch placeholder={'Search'} />
-		</div>
+		</header>
 	);
 };

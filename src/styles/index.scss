@@ -6,6 +6,7 @@
   --ui-color-grey: #f4f5f8;
   --ui-color-light-grey: #f8f9fa;
   --ui-color-extralight-grey: #fcfcfd;
+  --ui-color-grey-1: #c4ccd6;
   --ui-color-dark-blue: #02213b;
   --ui-color-light-blue: #657891;
   --ui-color-extralight-blue: #a7b6c7;
@@ -14,6 +15,7 @@
 body {
   font-family: 'Baloo 2', cursive;
   font-size: 16px;
+  font-weight: 500;
   background-color: var(--ui-color-light-grey);
 }
 

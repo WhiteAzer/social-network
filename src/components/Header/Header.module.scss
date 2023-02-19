@@ -2,18 +2,14 @@
 @use '@styles/mixins.scss';
 
 .header{
+  @include mixins.flexible(space-between, center, row);
   border-radius: variables.$global-border-radius variables.$global-border-radius 0 0;
   padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
   background-color: var(--ui-color-extralight-grey);
-  @include mixins.flexible(space-between, center, row);
   border-bottom: 2px solid var(--ui-color-grey);
 }
 
 .logo_wrapper{
   @include mixins.flexible(flex-start, center, row);
   column-gap: 0.5em;
-  h1{
-    font-weight: inherit;
-    font-size: 18px;
-  }
 }

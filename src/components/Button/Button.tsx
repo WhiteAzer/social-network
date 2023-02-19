@@ -17,6 +17,6 @@ export const Button: FC<Props> = ({ theme, size, className, ...props }) => {
 				styles[`button_${theme}`]
 			)}
 			{...props}
-		></button>
+		/>
 	);
 };
