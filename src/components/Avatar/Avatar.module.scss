@@ -1,12 +1,16 @@
 .avatar{
   border-radius: 6px;
-  background-color: var(--ui-color-primary);
-  &_size-xs{}
-
+  background: url('../../assets/image.jpg') no-repeat center/cover;
   &_size-s{
     width: 37px;
     height: 37px;
   }
-  &_size-m{}
-  &_size-l{}
+  &_size-m{
+    width: 65px;
+    height: 65px;
+  }
+  &_size-l{
+    width: 115px;
+    height: 145px;
+  }
 }
