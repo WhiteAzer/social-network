@@ -2,19 +2,23 @@
 @use '@styles/variables.scss';
 
 .item {
-  padding: 12px variables.$global-horizontal-padding;
+  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
   cursor: pointer;
 }
 
+.text {
+  color: var(--ui-color-light-blue);
+}
+
 .info {
-  column-gap: 1em;
+  column-gap: variables.$global-gap;
 }
 
 .item, .info {
   @include mixins.flexible(flex-start, center, row);
 }
 
-.selected{
+.selected {
   border-left: 2px solid var(--ui-color-primary);
   background: rgba(245, 245, 245);
   color: var(--ui-color-primary);

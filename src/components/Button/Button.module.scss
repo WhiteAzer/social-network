@@ -1,7 +1,8 @@
 @use '@styles/variables.scss';
 
 .button{
-  border-radius: variables.$global-border-radius;
+  display: block;
+  border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
   &_size-s{
@@ -21,6 +22,6 @@
   &_secondary{
     background-color: var(--ui-color-secondary);
     color: var(--ui-color-dark-blue);
-    border: 2px solid var(--ui-color-grey);
+    border: 1px solid var(--ui-color-extralight-blue);
   }
 }

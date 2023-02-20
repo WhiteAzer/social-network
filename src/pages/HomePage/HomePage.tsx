@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { Header } from '@components/Header/Header';
 import { Main } from '@components/Main/Main';
-import { UserBadge } from '../../features/homepage/components/UserBadge/UserBadge';
+import { UserLabel } from '../../features/homepage/components/UserLabel/UserLabel';
 import { NavSection } from '../../features/homepage/components/NavSection/NavSection';
 import styles from './HomePage.module.scss';
-import { TitleBadge } from '../../features/homepage/components/TitleBadge/TitleBadge';
+import { TitleCounter } from '../../features/homepage/components/TitleCounter/TitleCounter';
 import { Panel } from '@components/Panel/Panel';
 import { UserStripe } from '../../features/homepage/components/UserStripe/UserStripe';
+import { user } from '../../data';
 import classNames from 'classnames';
 
 export const HomePage: FC = () => {
@@ -15,14 +16,14 @@ export const HomePage: FC = () => {
 			<Header />
 			<Main>
 				<div className={styles.section}>
-					<UserBadge />
+					<UserLabel user={user} />
 					<NavSection />
 				</div>
 				<div className={classNames(styles.section, styles.middle_section)}></div>
 				<div className={styles.section}>
-					<TitleBadge>Contacts</TitleBadge>
+					<TitleCounter count={0}>Contacts</TitleCounter>
 					<Panel>
-						<UserStripe user={undefined} size={'size-s'} />
+						<UserStripe user={user} size={'size-s'} />
 					</Panel>
 				</div>
 			</Main>

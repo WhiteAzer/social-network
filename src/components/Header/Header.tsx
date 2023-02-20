@@ -6,10 +6,7 @@ import { InputSearch } from '@components/InputSearch/InputSearch';
 export const Header: FC = () => {
 	return (
 		<header className={styles.header}>
-			<div className={styles.logo_wrapper}>
-				<Avatar size={'size-s'} />
-				<h1>Network</h1>
-			</div>
+			<div className={styles.logo_wrapper} />
 			<InputSearch placeholder={'Search'} />
 		</header>
 	);

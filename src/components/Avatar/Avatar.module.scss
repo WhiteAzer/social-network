@@ -1,16 +1,20 @@
+@use '@styles/variables.scss';
+
 .avatar{
   border-radius: 6px;
   background: url('../../assets/image.jpg') no-repeat center/cover;
   &_size-s{
-    width: 37px;
-    height: 37px;
+    width: 45px;
+    height: 45px;
   }
   &_size-m{
     width: 65px;
     height: 65px;
+    border-radius: variables.$global-border-radius;
   }
   &_size-l{
-    width: 115px;
-    height: 145px;
+    width: 155px;
+    height: 195px;
+    border-radius: variables.$global-border-radius;
   }
 }

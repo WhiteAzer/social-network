@@ -2,8 +2,8 @@
 @use '@styles/variables.scss';
 
 .wrapper{
-  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
   @include mixins.flexible(flex-end, center, row);
+  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
 }
 
 .title{
@@ -12,13 +12,11 @@
 }
 
 .badge{
+  @include mixins.flexible();
   background: var(--ui-color-primary);
   color: var(--ui-color-secondary);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
-  @include mixins.flexible();
   margin-left: auto;
 }
