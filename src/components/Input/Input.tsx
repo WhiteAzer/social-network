@@ -4,7 +4,7 @@ import styles from './Input.module.scss';
 import classNames from 'classnames';
 
 type Props = HTMLAttributes<HTMLInputElement> & {
-	size: Size;
+	size: Extract<Size, 'size-m' | 'size-l'>;
 };
 
 export const Input: FC<Props> = ({ size, className, ...props }) => {

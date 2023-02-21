@@ -3,9 +3,9 @@
 
 .header{
   @include mixins.flexible(space-between, center, row);
+  background: #FFFFFF;
   border-radius: variables.$global-border-radius variables.$global-border-radius 0 0;
   padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
-  background-color: var(--ui-color-extralight-grey);
   border-bottom: 2px solid var(--ui-color-grey);
 }
 

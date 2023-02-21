@@ -8,7 +8,7 @@ export const InputSearch: FC<HTMLAttributes<HTMLInputElement>> = ({ className, .
 	return (
 		<div className={classNames(styles.search, className)}>
 			<IconSearch fill={'#c4ccd6'} />
-			<Input className={styles.input} size={'size-m'} {...props} />
+			<Input className={styles.input} size={'size-l'} {...props} />
 		</div>
 	);
 };

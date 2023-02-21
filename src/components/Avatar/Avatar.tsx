@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Avatar.module.scss';
 
 type Props = {
-	size: Size;
+	size: Exclude<Size, 'size-xs'>;
 	className?: string;
 };
 

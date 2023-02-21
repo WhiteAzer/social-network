@@ -4,7 +4,7 @@ import { Size, Theme } from '../../types';
 import styles from './Button.module.scss';
 
 type Props = HTMLAttributes<HTMLButtonElement> & {
-	size: Size;
+	size: Exclude<Size, 'size-xs'>;
 	theme: Theme;
 };
 

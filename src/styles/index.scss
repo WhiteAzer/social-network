@@ -8,8 +8,12 @@
   --ui-color-extralight-grey: #fcfcfd;
   --ui-color-grey-1: #c4ccd6;
   --ui-color-dark-blue: #02213b;
-  --ui-color-light-blue: #657891;
+  --ui-color-light-blue: #516784;
   --ui-color-extralight-blue: #a7b6c7;
+}
+
+*{
+  box-sizing: border-box;
 }
 
 body {
@@ -22,4 +26,8 @@ body {
 .container {
   max-width: 1440px;
   margin: auto;
+}
+
+.components > *{
+  margin-bottom: 20px;
 }

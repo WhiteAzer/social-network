@@ -1,14 +1,12 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
-.badge {
+.label {
   @include mixins.flexible(flex-start, center, row);
-  column-gap: 1.2em;
-  color: var(--ui-color-dark-blue);
 }
 
-.info {
-  .name {}
+.wrapper {
+  margin: auto;
   .username {
     font-weight: 400;
     color: var(--ui-color-light-blue);
