@@ -3,11 +3,11 @@ import { Avatar } from '@components/Avatar/Avatar';
 import { Button } from '@components/Button/Button';
 import { Input } from '@components/Input/Input';
 import { InputSearch } from '@components/InputSearch/InputSearch';
-import { UserLabel } from '../features/homepage/components/UserLabel/UserLabel';
+import { UserLabel } from '../features/homepage-components/components/UserLabel/UserLabel';
 import { Panel } from '@components/Panel/Panel';
-import { TitleCounter } from '../features/homepage/components/TitleCounter/TitleCounter';
-import { NavSection } from '../features/homepage/components/NavSection/NavSection';
-import { UserStripe } from '../features/homepage/components/UserStripe/UserStripe';
+import { TitleCounter } from '../features/homepage-components/components/TitleCounter/TitleCounter';
+import { NavSection } from '../features/homepage-components/components/NavSection/NavSection';
+import { UserStripe } from '../features/homepage-components/components/UserStripe/UserStripe';
 import { user } from '../data';
 
 export const Components: FC = () => {
@@ -43,7 +43,7 @@ export const Components: FC = () => {
 
 			{/*<Input size={'size-m'} placeholder={'Search'} />*/}
 			{/*<Input size={'size-l'} placeholder={'Search'} />*/}
-			{/*<InputSearch placeholder={'Search'} />*/}
+			<InputSearch placeholder={'Search'} />
 		</div>
 	);
 };

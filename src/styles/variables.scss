@@ -1,8 +1,16 @@
 $ui-border-radius: 12px;
 $ui-border-radius-s: 10px;
 
+$ui-padding-y-inline-component: 14.5px;
+$ui-padding-x-inline-component: 15px;
+
+$ui-gap-x: 20px;
+$ui-gap-y: 20px;
+
 $ui-padding-x: 35px;
 $ui-padding-y: 22px;
+
+$ui-box-shadow: rgba(17, 17, 26, 0.04) 0px 0px 15px;
 
 %theme-light {
   color: var(--ui-color-secondary-light);

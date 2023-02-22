@@ -5,15 +5,15 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { BrowserRouter } from 'react-router-dom';
 import '@styles/index.scss';
-import { ThemeProvider } from './context/ThemeContext/ThemeProvider';
+import { ColorProvider } from './context/ColorContext/ColorProvider';
 
 const root = ReactDom.createRoot(document.getElementById('root'));
 root.render(
 	<Provider store={store}>
 		<BrowserRouter>
-			<ThemeProvider>
+			<ColorProvider>
 				<App />
-			</ThemeProvider>
+			</ColorProvider>
 		</BrowserRouter>
 	</Provider>
 );

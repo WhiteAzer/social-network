@@ -1,13 +1,18 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC, InputHTMLAttributes, useContext } from 'react';
 import { Icon16Search as IconSearch } from '@vkontakte/icons';
-import styles from './InputSearch.module.scss';
 import { Input } from '@components/Input/Input';
+import { ColorContext } from '../../context/ColorContext/ColorProvider';
 import classNames from 'classnames';
+import styles from './InputSearch.module.scss';
 
-export const InputSearch: FC<HTMLAttributes<HTMLInputElement>> = ({ className, ...props }) => {
+type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>;
+
+export const InputSearch: FC<Props> = ({ className, ...props }) => {
+	const { svg } = useContext(ColorContext);
+
 	return (
 		<div className={classNames(styles.search, className)}>
-			<IconSearch fill={'#c4ccd6'} />
+			<IconSearch fill={svg.color} />
 			<Input className={styles.input} size={'size-l'} {...props} />
 		</div>
 	);

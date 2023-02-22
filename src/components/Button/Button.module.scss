@@ -3,7 +3,9 @@
 .button {
   display: block;
   border-radius: variables.$ui-border-radius;
-  padding: 10px 0;
+  box-shadow: var(--ui-color-grey-0) 0 0 10px;
+  padding: variables.$ui-padding-y-inline-component 0;
+  font-size: 14px;
   font-weight: 700;
 
   &_size-s {
@@ -24,7 +26,6 @@
 
   &_secondary_light {
     color: var(--ui-color-darkblue);
-    border: 1px solid var(--ui-color-grey-0);
   }
 
   &_primary_dark {

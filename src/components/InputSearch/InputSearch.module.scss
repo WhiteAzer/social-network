@@ -3,7 +3,7 @@
 
 .search{
   @include mixins.flexible(flex-start, center, row);
-  border-radius: 8px;
-  background: var(--ui-color-grey);
-  padding: 0 15px;
+  border-radius: variables.$ui-border-radius;
+  background: var(--ui-color-grey-3);
+  padding: 0 variables.$ui-padding-x-inline-component;
 }

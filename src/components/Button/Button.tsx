@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes, FC, useContext } from 'react';
 import classNames from 'classnames';
 import { ColorType, PropsWithSize, Theme } from '../../types';
 import styles from './Button.module.scss';
-import { ThemeContext } from '../../context/ThemeContext/ThemeProvider';
+import { ColorContext } from '../../context/ColorContext/ColorProvider';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> &
 	PropsWithSize<'size-s' | 'size-m' | 'size-l'> & {
@@ -10,7 +10,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> &
 	};
 
 export const Button: FC<Props> = ({ size, className, colorType = 'primary', ...props }) => {
-	const { theme } = useContext(ThemeContext);
+	const { theme } = useContext(ColorContext);
 
 	return (
 		<button
