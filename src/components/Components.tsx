@@ -13,42 +13,37 @@ import { user } from '../data';
 export const Components: FC = () => {
 	return (
 		<div className={'components'}>
-			<Panel>
-				<UserStripe user={user} size={'size-s'} />
-			</Panel>
-			<div style={{ width: '275px' }}>
-				<NavSection />
-			</div>
-			<div style={{ width: '275px' }}>
-				<UserLabel user={user} />
-			</div>
-			<TitleCounter count={0}>FRIENDS</TitleCounter>
-			<TitleCounter count={5}>CONTACTS</TitleCounter>
-			<UserLabel user={user} />
 			<Avatar size={'size-s'} />
 			<Avatar size={'size-m'} />
 			<Avatar size={'size-l'} />
-			<Button size={'size-s'} theme={'primary'}>
+			<Button size={'size-s'}>Accept</Button>
+			<Button size={'size-m'}>Accept</Button>
+			<Button size={'size-l'}>Accept</Button>
+			<Button size={'size-s'} colorType={'secondary'}>
 				Accept
 			</Button>
-			<Button size={'size-m'} theme={'primary'}>
+			<Button size={'size-m'} colorType={'secondary'}>
 				Accept
 			</Button>
-			<Button size={'size-l'} theme={'primary'}>
+			<Button size={'size-l'} colorType={'secondary'}>
 				Accept
 			</Button>
-			<Button size={'size-s'} theme={'secondary'}>
-				Accept
-			</Button>
-			<Button size={'size-m'} theme={'secondary'}>
-				Accept
-			</Button>
-			<Button size={'size-l'} theme={'secondary'}>
-				Accept
-			</Button>
-			<Input size={'size-m'} placeholder={'Search'} />
-			<Input size={'size-l'} placeholder={'Search'} />
-			<InputSearch placeholder={'Search'} />
+			<Panel>
+				<Button size={'size-l'}>Accept</Button>
+			</Panel>
+			{/*<div style={{ width: '275px' }}>*/}
+			{/*	<NavSection />*/}
+			{/*</div>*/}
+			{/*<div style={{ width: '275px' }}>*/}
+			{/*	<UserLabel user={user} />*/}
+			{/*</div>*/}
+			{/*<TitleCounter count={0}>FRIENDS</TitleCounter>*/}
+			{/*<TitleCounter count={5}>CONTACTS</TitleCounter>*/}
+			{/*<UserLabel user={user} />*/}
+
+			{/*<Input size={'size-m'} placeholder={'Search'} />*/}
+			{/*<Input size={'size-l'} placeholder={'Search'} />*/}
+			{/*<InputSearch placeholder={'Search'} />*/}
 		</div>
 	);
 };

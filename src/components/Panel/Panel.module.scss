@@ -1,8 +1,8 @@
 @use '@styles/variables.scss';
 
 .panel{
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-  background: #ffffff;
-  border-radius: variables.$global-border-radius;
-  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
+  box-shadow: rgba(17, 17, 26, 0.04) 0px 0px 15px;
+  background: var(--ui-color-white);
+  border-radius: variables.$ui-border-radius;
+  padding: variables.$ui-padding-y variables.$ui-padding-x;
 }

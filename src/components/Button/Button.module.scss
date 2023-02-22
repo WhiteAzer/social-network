@@ -1,27 +1,35 @@
 @use '@styles/variables.scss';
 
-.button{
+.button {
   display: block;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  &_size-s{
-    padding: 10px;
+  border-radius: variables.$ui-border-radius;
+  padding: 10px 0;
+  font-weight: 700;
+
+  &_size-s {
+    width: 55px;
   }
-  &_size-m{
-    padding-left: 30px;
-    padding-right: 30px;
+
+  &_size-m {
+    width: 125px;
   }
-  &_size-l{
+
+  &_size-l {
     width: 100%;
   }
-  &_primary{
-    background-color: var(--ui-color-primary);
-    color: var(--ui-color-secondary);
+
+  &_primary_light {
+    @extend %theme-light;
   }
-  &_secondary{
-    background-color: var(--ui-color-secondary);
-    color: var(--ui-color-dark-blue);
-    border: 1px solid var(--ui-color-extralight-blue);
+
+  &_secondary_light {
+    color: var(--ui-color-darkblue);
+    border: 1px solid var(--ui-color-grey-0);
+  }
+
+  &_primary_dark {
+  }
+
+  &_secondary_dark {
   }
 }

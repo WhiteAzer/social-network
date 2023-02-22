@@ -1,4 +1,15 @@
-$global-border-radius: 12px;
-$global-vertical-padding: 22px;
-$global-horizontal-padding: 22px;
-$global-gap: 17px;
+$ui-border-radius: 12px;
+$ui-border-radius-s: 10px;
+
+$ui-padding-x: 35px;
+$ui-padding-y: 22px;
+
+%theme-light {
+  color: var(--ui-color-secondary-light);
+  background: var(--ui-color-primary-light);
+}
+
+%theme-dark {
+  color: var(--ui-color-secondary-dark);
+  background: var(--ui-color-primary-dark);
+}
