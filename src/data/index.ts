@@ -1,6 +1,6 @@
-import { IUser } from '../types';
+import { User } from '../types';
 
-export const user: IUser = {
+export const user: User = {
 	name: 'Alicia Newman',
 	username: '@alicianewman',
 };

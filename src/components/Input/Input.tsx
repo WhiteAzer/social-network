@@ -1,5 +1,5 @@
 import React, { FC, InputHTMLAttributes } from 'react';
-import { PropsWithClass, PropsWithSize } from '../../types';
+import { PropsWithSize } from '../../types';
 import classNames from 'classnames';
 import styles from './Input.module.scss';
 

@@ -1,0 +1,24 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.wrapper{
+  @include mixins.flexible(flex-end, center, row);
+  padding: 0 variables.$ui-padding-x;
+  font-weight: 700;
+
+  & > span{
+    text-transform: uppercase;
+    color: var(--ui-color-grey-5);
+  }
+}
+
+.badge{
+  @include mixins.flexible();
+  background: var(--ui-color-primary-light);
+  font-size: 14px;
+  color: var(--ui-color-secondary-light);
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: auto;
+}

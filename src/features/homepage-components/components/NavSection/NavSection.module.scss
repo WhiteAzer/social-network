@@ -1,0 +1,17 @@
+@use '@styles/variables.scss';
+
+.panel {
+  padding: 0;
+
+  & > nav li:not(:last-child) {
+    border-bottom: 1px solid var(--ui-color-grey-3);
+  }
+
+  & > nav li:first-child {
+    border-radius: 0 variables.$ui-border-radius 0 0;
+  }
+
+  & > nav li:last-child {
+    border-radius: 0 0 variables.$ui-border-radius 0;
+  }
+}

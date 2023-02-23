@@ -3,7 +3,7 @@
 
 .section{
   @include mixins.flexible(flex-start, stretch, column);
-  row-gap: 35px;
+  row-gap: variables.$ui-section-gap-y;
 }
 
 .middle{

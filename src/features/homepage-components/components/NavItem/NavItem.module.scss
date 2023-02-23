@@ -1,0 +1,30 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.item {
+  padding: variables.$ui-padding-y variables.$ui-padding-x;
+  cursor: pointer;
+}
+
+.info {
+  column-gap: variables.$ui-gap-x;
+
+  & > span {
+    color: var(--ui-color-darkblue);
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.item, .info {
+  @include mixins.flexible(flex-start, center, row);
+}
+
+.selected {
+  border-left: 2px solid var(--ui-color-primary-light);
+  background: rgba(245, 245, 245);
+
+  & > .info > span{
+    color: var(--ui-color-primary-light);
+  }
+}

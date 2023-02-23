@@ -2,6 +2,6 @@
 
 .main {
   display: grid;
-  grid-template-columns: 285px 2fr 285px;
-  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
+  grid-template-columns: 265px auto 300px;
+  padding: variables.$ui-padding-y variables.$ui-padding-x;
 }

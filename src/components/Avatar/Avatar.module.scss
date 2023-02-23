@@ -4,15 +4,21 @@
   border-radius: variables.$ui-border-radius;
   background: url('../../assets/image.jpg') no-repeat center/cover;
   &_size-s{
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
   }
   &_size-m{
     width: 65px;
     height: 65px;
+    min-width: 65px;
+    min-height: 65px;
   }
   &_size-l{
-    width: 211px;
+    width: 215px;
     height: 247px;
+    min-width: 215px;
+    min-height: 247px;
   }
 }

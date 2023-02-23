@@ -1,0 +1,20 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.label {
+  @include mixins.flexible(flex-start, center, row);
+  font-weight: 700;
+  font-size: 16px;
+  column-gap: variables.$ui-gap-x;
+
+  & > span{
+    line-height: 22px;
+    color: var(--ui-color-darkblue);
+  }
+}
+
+.username{
+  color: var(--ui-color-grey-7);
+  font-weight: 500;
+}
+

@@ -6,6 +6,7 @@ type SVGProperties = {
 };
 
 type ContextType = { theme: Theme; toggle: () => void; svg: SVGProperties };
+
 const value: ContextType = {
 	theme: 'light',
 	toggle: () => undefined,

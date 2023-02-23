@@ -2,6 +2,7 @@ import React from 'react';
 import { FC, ReactElement } from 'react';
 import { HomePage } from '../pages/HomePage/HomePage';
 import { AuthorizationPage } from '../pages/AuthorizationPage/AuthorizationPage';
+import { Components } from '@components/Components';
 
 const App: FC = (): ReactElement | null => {
 	return (

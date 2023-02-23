@@ -1,15 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import styles from './TitleCounter.module.scss';
 
-type Props = {
-	children: string;
+type Props = PropsWithChildren & {
 	count: number;
 };
 
 export const TitleCounter: FC<Props> = ({ children, count }) => {
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.title}>{children}</div>
+			<span>{children}</span>
 			{!!count && <div className={styles.badge}>{<span>{count}</span>}</div>}
 		</div>
 	);

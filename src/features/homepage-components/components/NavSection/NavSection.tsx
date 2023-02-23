@@ -20,20 +20,8 @@ const icons: Array<{ text: string; component: FC<SVGProps<SVGSVGElement>> }> = [
 		text: 'News',
 	},
 	{
-		component: IconMessages,
-		text: 'Messages',
-	},
-	{
-		component: IconPeople,
-		text: 'People',
-	},
-	{
 		component: IconPhotos,
 		text: 'Photos',
-	},
-	{
-		component: IconProfile,
-		text: 'Profile',
 	},
 	{
 		component: IconSettings,
@@ -46,7 +34,7 @@ export const NavSection: FC = () => {
 
 	return (
 		<Panel className={styles.panel}>
-			<nav className={styles.nav}>
+			<nav>
 				<ul>
 					{icons.map(({ component, text }) => {
 						return (
