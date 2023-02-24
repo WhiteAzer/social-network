@@ -14,7 +14,8 @@ export const UserLabel: FC<Props> = ({ user, className }) => {
 			<div className={styles.label}>
 				<Avatar size={'size-s'} />
 				<span>
-					{user.name + '\n'}
+					{user.firstname + ' ' + user.lastname}
+					<br />
 					<span className={styles.username}>{user.username}</span>
 				</span>
 			</div>

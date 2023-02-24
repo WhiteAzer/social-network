@@ -3,6 +3,11 @@
 .avatar{
   border-radius: variables.$ui-border-radius;
   background: url('../../assets/image.jpg') no-repeat center/cover;
+  &_size-xs{
+    width: 35px;
+    height: 35px;
+  }
+
   &_size-s{
     width: 46px;
     height: 46px;

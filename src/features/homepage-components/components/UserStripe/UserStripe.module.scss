@@ -8,6 +8,11 @@
     @include mixins.flexible(center, center, row);
     margin-left: auto;
   }
+
+  &_size-xs .info{
+    font-size: 12px;
+    line-height: 17px;
+  }
 }
 
 .info{
@@ -15,6 +20,10 @@
   font-size: 16px;
   color: var(--ui-color-darkblue);
   font-weight: 700;
+  & > .extra{
+    color: var(--ui-color-grey-7);
+    font-weight: 400;
+  }
 }
 
 .avatar{

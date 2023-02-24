@@ -7,7 +7,7 @@ import { Panel } from '@components/Panel/Panel';
 import { NavSection } from '../features/homepage-components/components/NavSection/NavSection';
 import { TitleCounter } from '../features/homepage-components/components/TitleCounter/TitleCounter';
 import { UserLabel } from '../features/homepage-components/components/UserLabel/UserLabel';
-import { user } from '../data';
+import { users } from '../data';
 import { UserStripe } from '../features/homepage-components/components/UserStripe/UserStripe';
 
 export const Components: FC = () => {
@@ -44,10 +44,12 @@ export const Components: FC = () => {
 				<TitleCounter count={0}>NOTIFICATIONS</TitleCounter>
 			</Panel>
 			<div style={{ width: '275px' }}>
-				<UserLabel user={user} />
+				<UserLabel user={users[0]} />
 			</div>
 			<Panel>
-				<UserStripe size={'size-s'} user={user} />
+				<UserStripe size={'size-xs'} user={users[0]}>
+					20 min ago
+				</UserStripe>
 			</Panel>
 			<InputSearch placeholder={'Search'} />
 		</div>
