@@ -1,29 +1,43 @@
 @use '@styles/variables.scss';
 
+$width-size-xs: 35px;
+$height-size-xs: 35px;
+
+$width-size-s: calc(#{variables.$ui-text-font-size} + (#{variables.$ui-padding-y-inline-component} * 2));
+$height-size-s: $width-size-s;
+
+$width-size-m: 65px;
+$height-size-m: 65px;
+
+$width-size-l: 190px;
+$height-size-l: 230px;
+
 .avatar{
   border-radius: variables.$ui-border-radius;
   background: url('../../assets/image.jpg') no-repeat center/cover;
   &_size-xs{
-    width: 35px;
-    height: 35px;
+    width: $width-size-xs;
+    height: $height-size-xs;
+    min-width: $width-size-xs;
+    min-height: $height-size-xs;
   }
 
   &_size-s{
-    width: 46px;
-    height: 46px;
-    min-width: 46px;
-    min-height: 46px;
+    width: $width-size-s;
+    height: $height-size-s;
+    min-width: $width-size-s;
+    min-height: $height-size-s;
   }
   &_size-m{
-    width: 65px;
-    height: 65px;
-    min-width: 65px;
-    min-height: 65px;
+    width: $width-size-m;
+    height: $height-size-m;
+    min-width: $width-size-m;
+    min-height: $height-size-m;
   }
   &_size-l{
-    width: 215px;
-    height: 247px;
-    min-width: 215px;
-    min-height: 247px;
+    width: $width-size-l;
+    height: $height-size-l;
+    min-width: $width-size-l;
+    min-height: $height-size-l;
   }
 }

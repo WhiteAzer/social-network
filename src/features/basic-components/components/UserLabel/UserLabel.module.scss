@@ -3,18 +3,16 @@
 
 .label {
   @include mixins.flexible(flex-start, center, row);
-  font-weight: 700;
-  font-size: 16px;
   column-gap: variables.$ui-gap-x;
 
   & > span{
-    line-height: 22px;
+    line-height: variables.$ui-title-line-height;
     color: var(--ui-color-darkblue);
   }
 }
 
 .username{
   color: var(--ui-color-grey-7);
-  font-weight: 400;
+  font-weight: variables.$ui-font-weight-light;
 }
 

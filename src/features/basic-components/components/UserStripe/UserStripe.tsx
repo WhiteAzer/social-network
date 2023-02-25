@@ -1,10 +1,10 @@
 import React, { FC, useContext } from 'react';
 import classNames from 'classnames';
-import { User, Size, PropsWithSize, PropsWithClass, DefaultProps } from '../../../../types';
+import { User, PropsWithSize, PropsWithClass } from '../../../../types';
 import { Avatar } from '@components/Avatar/Avatar';
 import { Icon24MoreHorizontal as IconMore } from '@vkontakte/icons';
-import styles from './UserStripe.module.scss';
 import { ColorContext } from '../../../../context/ColorContext/ColorProvider';
+import styles from './UserStripe.module.scss';
 
 type Props = PropsWithSize &
 	PropsWithClass & {

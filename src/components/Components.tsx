@@ -4,11 +4,12 @@ import { Button } from '@components/Button/Button';
 import { Input } from '@components/Input/Input';
 import { InputSearch } from '@components/InputSearch/InputSearch';
 import { Panel } from '@components/Panel/Panel';
-import { NavSection } from '../features/homepage-components/components/NavSection/NavSection';
-import { TitleCounter } from '../features/homepage-components/components/TitleCounter/TitleCounter';
-import { UserLabel } from '../features/homepage-components/components/UserLabel/UserLabel';
+import { NavSection } from '../features/basic-components/components/NavSection/NavSection';
+import { TitleCounter } from '../features/basic-components/components/TitleCounter/TitleCounter';
+import { UserLabel } from '../features/basic-components/components/UserLabel/UserLabel';
 import { users } from '../data';
-import { UserStripe } from '../features/homepage-components/components/UserStripe/UserStripe';
+import { UserStripe } from '../features/basic-components/components/UserStripe/UserStripe';
+import { RequestCard } from '../features/basic-components/components/RequestCard/RequestCard';
 
 export const Components: FC = () => {
 	return (
@@ -44,7 +45,7 @@ export const Components: FC = () => {
 				<TitleCounter count={0}>NOTIFICATIONS</TitleCounter>
 			</Panel>
 			<div style={{ width: '275px' }}>
-				<UserLabel user={users[0]} />
+				<RequestCard user={users[0]} />
 			</div>
 			<Panel>
 				<UserStripe size={'size-xs'} user={users[0]}>
