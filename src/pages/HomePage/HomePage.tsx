@@ -13,20 +13,17 @@ import { UserStripe } from '../../features/homepage-components/components/UserSt
 export const HomePage: FC = () => {
 	return (
 		<>
-			<Header />
-			<Main>
-				<div className={styles.section}>
-					<UserLabel user={users[0]} />
-					<NavSection />
-				</div>
-				<div className={classNames(styles.section, styles.middle)} />
-				<div className={styles.section}>
-					<TitleCounter count={0}>Contacts</TitleCounter>
-					<Panel>
-						<UserStripe user={users[0]} size={'size-s'} />
-					</Panel>
-				</div>
-			</Main>
+			<div className={styles.section}>
+				<UserLabel user={users[0]} />
+				<NavSection />
+			</div>
+			<div className={classNames(styles.section, styles.middle)} />
+			<div className={styles.section}>
+				<TitleCounter count={0}>Contacts</TitleCounter>
+				<Panel>
+					<UserStripe user={users[0]} size={'size-s'} />
+				</Panel>
+			</div>
 		</>
 	);
 };

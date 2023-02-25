@@ -9,7 +9,7 @@ export const TitleCounter: FC<Props> = ({ children, count }) => {
 	return (
 		<div className={styles.wrapper}>
 			<span>{children}</span>
-			{!!count && <div className={styles.badge}>{<span>{count}</span>}</div>}
+			{count > 0 && <div className={styles.badge}>{<span>{count}</span>}</div>}
 		</div>
 	);
 };
