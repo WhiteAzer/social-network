@@ -16,11 +16,11 @@ $ui-section-gap-y: 35px;
 $ui-box-shadow: rgba(17, 17, 26, 0.04) 0px 0px 15px;
 
 %theme-light {
-  color: var(--ui-color-secondary-light);
-  background: var(--ui-color-primary-light);
+	color: var(--ui-color-secondary-light);
+	background: var(--ui-color-grey-7);
 }
 
 %theme-dark {
-  color: var(--ui-color-secondary-dark);
-  background: var(--ui-color-primary-dark);
+	color: var(--ui-color-secondary-dark);
+	background: var(--ui-color-primary-dark);
 }
