@@ -6,26 +6,26 @@ import { useFormFields } from './hooks/useFormFields'
 import { ValidationError } from './components/ValidationError/ValidationError'
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
+import { login } from '../../store/user/thunks'
+import { AppDispatch } from '../../store'
 
 export const Authorization: FC = () => {
 	const formState = useFormFields()
-	const dispatch = useDispatch()
+	const dispatch = useDispatch<AppDispatch>()
 
 	const handleSubmit = useCallback(
 		(e: React.FormEvent) => {
 			e.preventDefault()
 
-			const emailRegExp =
-				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			const passwordRegExp = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+			const email = formState.email.value
+			const password = formState.password.value
+			console.log({
+				email,
+				password,
+			})
 
-			if (
-				formState.email.value.match(emailRegExp) &&
-				formState.password.value.match(passwordRegExp)
-			) {
-				console.log(formState.email.value)
-				console.log(formState.password.value)
-				dispatch()
+			if (email && password) {
+				dispatch(login({ email, password }))
 			} else {
 				toast.error('Bad inputs')
 			}
