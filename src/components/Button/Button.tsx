@@ -17,7 +17,8 @@ export const Button: FC<Props> = ({ size, className, color = 'primary', ...props
 			className={classNames(
 				styles.button,
 				styles[`button_${size}`],
-				styles[`button_${color}_${theme}`]
+				styles[`button_${color}_${theme}`],
+				className
 			)}
 			{...props}
 		/>

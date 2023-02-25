@@ -4,9 +4,8 @@
   display: block;
   border-radius: variables.$ui-border-radius;
   box-shadow: var(--ui-color-grey-0) 0 0 10px;
+  font-weight: inherit;
   padding: variables.$ui-padding-y-inline-component 0;
-  font-size: 16px;
-  font-weight: 700;
 
   &_size-s {
     width: 65px;

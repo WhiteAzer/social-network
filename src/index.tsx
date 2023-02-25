@@ -6,9 +6,6 @@ import store from './store';
 import { BrowserRouter } from 'react-router-dom';
 import '@styles/index.scss';
 import { ColorProvider } from './context/ColorContext/ColorProvider';
-import { users } from './data';
-
-console.log(users);
 
 const root = ReactDom.createRoot(document.getElementById('root'));
 root.render(

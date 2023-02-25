@@ -53,16 +53,30 @@ export type Entry = {
 	updatedAt: Date;
 };
 
+export type UserLinks = {
+	twitter: string;
+	instagram: string;
+	facebook: string;
+	site: string;
+};
+
+export type UserInfo = {
+	links: UserLinks;
+	birthdate: Date;
+	location: Location;
+	phone: string;
+	status: string;
+	education: string;
+};
+
 export type User = {
 	id: ID;
 	firstname: string;
 	lastname: string;
 	username: string;
-	birthdate: Date;
 	gender: Gender;
 	avatar: ID;
-	location: Location;
-	phone: string;
+	info: UserInfo;
 	role: Role;
 	entries: UserEntries;
 	likes: UserEntries;

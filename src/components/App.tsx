@@ -6,7 +6,7 @@ import { Components } from '@components/Components';
 const App: FC = (): ReactElement | null => {
 	return (
 		<div className={'container'}>
-			<Components />
+			<HomePage />
 		</div>
 	);
 };
