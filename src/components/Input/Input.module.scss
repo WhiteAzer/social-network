@@ -1,21 +1,21 @@
 @use '@styles/variables.scss';
 
 .input {
-  background: var(--ui-color-grey-3);
-  padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
-  border-radius: variables.$ui-border-radius;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ui-color-darkblue);
+	background: var(--ui-color-grey-4);
+	padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
+	border-radius: variables.$ui-border-radius;
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--ui-color-darkblue);
 
-  &_size-m {
-  }
+	&_size-m {
+	}
 
-  &_size-l {
-    width: 100%;
-  }
+	&_size-l {
+		width: 100%;
+	}
 }
 
 .input::placeholder {
-  color: var(--ui-color-grey-5);
+	color: var(--ui-color-grey-5);
 }
