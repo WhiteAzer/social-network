@@ -12,18 +12,18 @@ type Props = PropsWithClass & {
 }
 
 export const RequestCard: FC<Props> = ({ user, className }) => {
-    return (
-        <Panel className={classNames(styles.card, className)}>
-            <div className={styles.image}>
-                <Avatar size={'size-l'} />
-                <span className={styles.name}>{user.firstname + ' ' + user.lastname}</span>
-            </div>
-            <div className={styles.buttons}>
-                <Button size={'size-l'}>Accept</Button>
-                <button className={styles.button}>
-                    <IconClose fill={'#212F3C'} />
-                </button>
-            </div>
-        </Panel>
-    );
+	return (
+		<Panel className={classNames(styles.card, className)}>
+			<div className={styles.image}>
+				<Avatar size={'size-l'} />
+				<span className={styles.name}>{user.firstname + ' ' + user.lastname}</span>
+			</div>
+			<div className={styles.buttons}>
+				<Button size={'size-l'}>Accept</Button>
+				<button className={styles.button}>
+					<IconClose fill={'#212F3C'} />
+				</button>
+			</div>
+		</Panel>
+	);
 };

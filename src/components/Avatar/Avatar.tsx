@@ -6,5 +6,5 @@ import styles from './Avatar.module.scss';
 type Props = PropsWithSize & PropsWithClass
 
 export const Avatar: FC<Props> = ({ size, className }) => {
-    return <div className={classNames(styles.avatar, styles[`avatar_${size}`], className)} />;
+	return <div className={classNames(styles.avatar, styles[`avatar_${size}`], className)} />;
 };

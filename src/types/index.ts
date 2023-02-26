@@ -107,10 +107,6 @@ export interface UserLinks {
 	site: string;
 }
 
-export interface UserL {
-	nameL: string;
-}
-
 export interface Credentials {
 	email: string;
 	password: string;

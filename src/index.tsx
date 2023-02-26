@@ -9,11 +9,11 @@ import { ColorProvider } from './context/ColorContext/ColorProvider';
 
 const root = ReactDom.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <ColorProvider>
-                <App />
-            </ColorProvider>
-        </BrowserRouter>
-    </Provider>
+	<Provider store={store}>
+		<BrowserRouter>
+			<ColorProvider>
+				<App />
+			</ColorProvider>
+		</BrowserRouter>
+	</Provider>
 );

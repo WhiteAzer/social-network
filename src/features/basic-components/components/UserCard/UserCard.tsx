@@ -11,10 +11,10 @@ type Props = PropsWithClass & {
 }
 
 export const UserCard: FC<Props> = ({ user, className }) => {
-    return (
-        <Panel className={classNames(styles.card, className)}>
-            <Avatar size={'size-l'} />
-            <UserInfo user={user} className={styles.info} />
-        </Panel>
-    );
+	return (
+		<Panel className={classNames(styles.card, className)}>
+			<Avatar size={'size-l'} />
+			<UserInfo user={user} className={styles.info} />
+		</Panel>
+	);
 };
