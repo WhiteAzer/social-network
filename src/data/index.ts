@@ -6,81 +6,81 @@ const generateID = (): string => uuidv4();
 
 // Generate a random date within the past year
 const generateDate = (): Date => {
-	const now = new Date();
-	const pastYear = now.getTime() - 365 * 24 * 60 * 60 * 1000;
-	return new Date(pastYear + Math.random() * (now.getTime() - pastYear));
+    const now = new Date();
+    const pastYear = now.getTime() - 365 * 24 * 60 * 60 * 1000;
+    return new Date(pastYear + Math.random() * (now.getTime() - pastYear));
 };
 
 // Generate a random location
 const generateLocation = (): Location => ({
-	city: 'New York',
-	country: 'USA',
-	coordinates: {
-		x: Math.random().toString(),
-		y: Math.random().toString(),
-	},
+    city: 'New York',
+    country: 'USA',
+    coordinates: {
+        x: Math.random().toString(),
+        y: Math.random().toString(),
+    },
 });
 
 // Generate a random content object
 const generateContent = (): Content => ({
-	text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	images: [generateID(), generateID(), generateID()],
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    images: [generateID(), generateID(), generateID()],
 });
 
 // Generate a random entry object
 const generateEntry = (): Entry => ({
-	id: generateID(),
-	author: generateID(),
-	likes: Math.floor(Math.random() * 100),
-	comments: [],
-	createdAt: generateDate(),
-	updatedAt: generateDate(),
+    id: generateID(),
+    author: generateID(),
+    likes: Math.floor(Math.random() * 100),
+    comments: [],
+    createdAt: generateDate(),
+    updatedAt: generateDate(),
 });
 
 // Generate a random user object
 const generateUser = (): User => ({
-	id: generateID(),
-	firstname: 'John',
-	lastname: 'Doe',
-	username: '@johndoe',
-	birthdate: new Date('1990-01-01'),
-	gender: 'male',
-	avatar: generateID(),
-	location: generateLocation(),
-	phone: '555-555-5555',
-	role: 'user',
-	entries: {
-		posts: [generateID(), generateID(), generateID()],
-		comments: [generateID(), generateID(), generateID()],
-		photos: [generateID(), generateID(), generateID()],
-	},
-	likes: {
-		posts: [generateID(), generateID(), generateID()],
-		comments: [generateID(), generateID(), generateID()],
-		photos: [generateID(), generateID(), generateID()],
-	},
-	friends: [generateID(), generateID(), generateID()],
-	following: [generateID(), generateID(), generateID()],
-	followers: [generateID(), generateID(), generateID()],
+    id: generateID(),
+    firstname: 'John',
+    lastname: 'Doe',
+    username: '@johndoe',
+    birthdate: new Date('1990-01-01'),
+    gender: 'male',
+    avatar: generateID(),
+    location: generateLocation(),
+    phone: '555-555-5555',
+    role: 'user',
+    entries: {
+        posts: [generateID(), generateID(), generateID()],
+        comments: [generateID(), generateID(), generateID()],
+        photos: [generateID(), generateID(), generateID()],
+    },
+    likes: {
+        posts: [generateID(), generateID(), generateID()],
+        comments: [generateID(), generateID(), generateID()],
+        photos: [generateID(), generateID(), generateID()],
+    },
+    friends: [generateID(), generateID(), generateID()],
+    following: [generateID(), generateID(), generateID()],
+    followers: [generateID(), generateID(), generateID()],
 });
 
 // Generate a random post object
 const generatePost = (): Post => ({
-	...generateEntry(),
-	content: generateContent(),
+    ...generateEntry(),
+    content: generateContent(),
 });
 
 // Generate a random comment object
 const generateComment = (postID: ID): Comment => ({
-	...generateEntry(),
-	content: generateContent(),
-	post: postID,
+    ...generateEntry(),
+    content: generateContent(),
+    post: postID,
 });
 
 // Generate a random photo object
 const generatePhoto = (): Photo => ({
-	...generateEntry(),
-	path: 'https://example.com/image.jpg',
+    ...generateEntry(),
+    path: 'https://example.com/image.jpg',
 });
 
 // Generate an array of users
@@ -91,7 +91,7 @@ const posts: Post[] = Array.from({ length: 10 }, () => generatePost());
 
 // Generate an array of comments
 const comments: Comment[] = Array.from({ length: 10 }, () =>
-	generateComment(posts[Math.floor(Math.random() * posts.length)].id)
+    generateComment(posts[Math.floor(Math.random() * posts.length)].id)
 );
 
 // Generate an array of photos

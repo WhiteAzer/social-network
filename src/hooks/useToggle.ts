@@ -6,13 +6,13 @@ export function useToggle(initialState: boolean): {
 	setTrue: () => void;
 	setFalse: () => void;
 } {
-	const [state, setState] = useState(initialState);
+    const [state, setState] = useState(initialState);
 
-	const toggle = useCallback(() => setState((current) => !current), []);
+    const toggle = useCallback(() => setState((current) => !current), []);
 
-	const setTrue = useCallback(() => setState(true), []);
+    const setTrue = useCallback(() => setState(true), []);
 
-	const setFalse = useCallback(() => setState(false), []);
+    const setFalse = useCallback(() => setState(false), []);
 
-	return { state, toggle, setTrue, setFalse };
+    return { state, toggle, setTrue, setFalse };
 }

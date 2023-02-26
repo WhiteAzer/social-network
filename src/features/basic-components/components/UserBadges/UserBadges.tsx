@@ -12,18 +12,18 @@ type Props = PropsWithClass & {
 };
 
 export const UserBadges: FC<Props> = ({ user, className }) => {
-	const { svg } = useContext(ColorContext);
+    const { svg } = useContext(ColorContext);
 
-	return (
-		<div className={classNames(styles.badges, className)}>
-			<Badge>
-				<IconJob fill={svg.color} />
-				{'Яндекс'}
-			</Badge>
-			<Badge>
-				<IconEducation fill={svg.color} />
-				{'БГТУ Военмех им. Д.Ф. Устинова'}
-			</Badge>
-		</div>
-	);
+    return (
+        <div className={classNames(styles.badges, className)}>
+            <Badge>
+                <IconJob fill={svg.color} />
+                {'Яндекс'}
+            </Badge>
+            <Badge>
+                <IconEducation fill={svg.color} />
+                {'БГТУ Военмех им. Д.Ф. Устинова'}
+            </Badge>
+        </div>
+    );
 };

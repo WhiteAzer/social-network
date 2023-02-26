@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react';
 
 export type PropsWithoutClassName<P> = P extends { className?: unknown } ? Omit<P, 'className'> : P
 

@@ -3,12 +3,12 @@ import { WebpackEnvironmentalVariable, WebpackPaths } from './configuration/type
 import createConfig from './configuration';
 
 const paths: WebpackPaths = {
-	src: path.resolve(__dirname, 'src'),
-	build: path.resolve(__dirname, 'build'),
-	extra: {
-		html: path.resolve(__dirname, 'public'),
-	},
+    src: path.resolve(__dirname, 'src'),
+    build: path.resolve(__dirname, 'build'),
+    extra: {
+        html: path.resolve(__dirname, 'public'),
+    }
 };
 
 export default ({ mode }: WebpackEnvironmentalVariable) =>
-	createConfig({ mode, paths, isDev: mode === 'development' });
+    createConfig({ mode, paths, isDev: mode === 'development' });

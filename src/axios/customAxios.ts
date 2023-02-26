@@ -1,9 +1,9 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export const serverURL = 'http://localhost:2000'
+export const serverURL = 'http://localhost:2000';
 
-const RESTAPI_URL = serverURL + '/api'
+const RESTAPI_URL = serverURL + '/api';
 export const serverAPI = axios.create({
-	baseURL: RESTAPI_URL,
-	withCredentials: true,
-})
+    baseURL: RESTAPI_URL,
+    withCredentials: true,
+});

@@ -8,23 +8,23 @@ type Props = PropsWithClass & {
 };
 
 export const UserStats: FC<Props> = ({ user }) => {
-	return (
-		<div className={styles.stats}>
-			<div>
-				{getShortNumber(user.friends.length)}
-				<br />
-				<span>Friends</span>
-			</div>
-			<div>
-				{getShortNumber(user.followers.length)}
-				<br />
-				<span>Followers</span>
-			</div>
-			<div>
-				{getShortNumber(user.entries.photos.length)}
-				<br />
-				<span>Photos</span>
-			</div>
-		</div>
-	);
+    return (
+        <div className={styles.stats}>
+            <div>
+                {getShortNumber(user.friends.length)}
+                <br />
+                <span>Friends</span>
+            </div>
+            <div>
+                {getShortNumber(user.followers.length)}
+                <br />
+                <span>Followers</span>
+            </div>
+            <div>
+                {getShortNumber(user.entries.photos.length)}
+                <br />
+                <span>Photos</span>
+            </div>
+        </div>
+    );
 };
