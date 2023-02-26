@@ -9,16 +9,16 @@ type Props = PropsWithClass & {
 }
 
 export const UserLabel: FC<Props> = ({ user, className }) => {
-	return (
-		<Panel className={className}>
-			<div className={styles.label}>
-				<Avatar size={'size-s'} />
-				<span>
-					{user.firstname + ' ' + user.lastname}
-					<br />
-					<span className={styles.username}>{user.username}</span>
-				</span>
-			</div>
-		</Panel>
-	);
+    return (
+        <Panel className={className}>
+            <div className={styles.label}>
+                <Avatar size={'size-s'} />
+                <span>
+                    {user.firstname + ' ' + user.lastname}
+                    <br />
+                    <span className={styles.username}>{user.username}</span>
+                </span>
+            </div>
+        </Panel>
+    );
 };

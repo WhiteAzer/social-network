@@ -11,17 +11,17 @@ type Props = PropsWithClass & {
 }
 
 export const UserInfo: FC<Props> = ({ user, className }) => {
-	return (
-		<div className={classNames(styles.info, className)}>
-			<h1>{user.firstname + ' ' + user.lastname}</h1>
-			<UserBadges user={user} />
-			<UserStats user={user} />
-			<div className={styles.buttons}>
-				<Button size={'size-l'}>Message</Button>
-				<Button size={'size-l'} color={'secondary'}>
+    return (
+        <div className={classNames(styles.info, className)}>
+            <h1>{user.firstname + ' ' + user.lastname}</h1>
+            <UserBadges user={user} />
+            <UserStats user={user} />
+            <div className={styles.buttons}>
+                <Button size={'size-l'}>Message</Button>
+                <Button size={'size-l'} color={'secondary'}>
 					More
-				</Button>
-			</div>
-		</div>
-	);
+                </Button>
+            </div>
+        </div>
+    );
 };

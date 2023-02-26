@@ -10,17 +10,17 @@ PropsWithSize<'size-s' | 'size-m' | 'size-l'> & {
 }
 
 export const Button: FC<Props> = ({ size, className, color = 'primary', ...props }) => {
-	const { theme } = useContext(ColorContext);
+    const { theme } = useContext(ColorContext);
 
-	return (
-		<button
-			className={classNames(
-				styles.button,
-				styles[`button_${size}`],
-				styles[`button_${color}_${theme}`],
-				className
-			)}
-			{...props}
-		/>
-	);
+    return (
+        <button
+            className={classNames(
+                styles.button,
+                styles[`button_${size}`],
+                styles[`button_${color}_${theme}`],
+                className
+            )}
+            {...props}
+        />
+    );
 };
