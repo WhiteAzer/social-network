@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { Avatar } from '@components/Avatar/Avatar';
-import { PropsWithClass, User } from '../../../../types';
+import { type PropsWithClass, type User } from '../../../../types';
 import styles from './UserLabel.module.scss';
 import { Panel } from '@components/Panel/Panel';
 
 type Props = PropsWithClass & {
-	user: User;
-};
+  user: User
+}
 
 export const UserLabel: FC<Props> = ({ user, className }) => {
 	return (

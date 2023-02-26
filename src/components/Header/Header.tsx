@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { InputSearch } from '@components/InputSearch/InputSearch';
 import styles from './Header.module.scss';
 

@@ -1,105 +1,117 @@
-import { PropsWithChildren } from 'react'
+import { type PropsWithChildren } from 'react';
 
-export type PropsWithoutClassName<P> = P extends { className?: unknown } ? Omit<P, 'className'> : P
+export type PropsWithoutClassName<P> = P extends { className?: unknown }
+	? Omit<P, 'className'>
+	: P;
 
-export type PropsWithoutChildren<P> = P extends { children?: unknown } ? Omit<P, 'children'> : P
+export type PropsWithoutChildren<P> = P extends { children?: unknown }
+	? Omit<P, 'children'>
+	: P;
 
-export type DefaultProps<P = unknown> = PropsWithoutChildren<PropsWithoutClassName<P>> &
+export type DefaultProps<P = unknown> = PropsWithoutChildren<
+	PropsWithoutClassName<P>
+> &
 	PropsWithChildren &
-	PropsWithClass
+	PropsWithClass;
 
-export type PropsWithSize<S extends Size = Size, T = unknown> = T & { size: S }
+export type PropsWithSize<S extends Size = Size, T = unknown> = T & { size: S };
 
-export type PropsWithClass<T = unknown> = { className?: string } & T
+export type PropsWithClass<T = unknown> = { className?: string } & T;
 
-export type Size = `size-${Lowercase<'XS' | 'S' | 'M' | 'L'>}`
+export type Size = `size-${Lowercase<'XS' | 'S' | 'M' | 'L'>}`;
 
-export type Theme = 'light' | 'dark'
+export type Theme = 'light' | 'dark';
 
-export type Color = 'primary' | 'secondary'
+export type Color = 'primary' | 'secondary';
 
-export type ID = string
+export type ID = string;
 
-export type Gender = 'male' | 'female'
+export type Gender = 'male' | 'female';
 
-export type Location = {
-	city: string
-	country: string
+export interface Location {
+	city: string;
+	country: string;
 	coordinates: {
-		x: string
-		y: string
-	}
+		x: string;
+		y: string;
+	};
 }
 
-export type Role = 'admin' | 'user'
+export type Role = 'admin' | 'user';
 
-export type Content = {
-	text: string
-	images: Array<ID>
+export interface Content {
+	text: string;
+	images: ID[];
 }
 
-export type UserEntries = {
-	posts: Array<ID>
-	comments: Array<ID>
-	photos: Array<ID>
+export interface UserEntries {
+	posts: ID[];
+	comments: ID[];
+	photos: ID[];
 }
 
-export type Entry = {
-	id: ID
-	author: ID
-	likes: number
-	comments: Array<Comment>
-	createdAt: Date
-	updatedAt: Date
+export interface Entry {
+	id: ID;
+	author: ID;
+	likes: number;
+	comments: Comment[];
+	createdAt: Date;
+	updatedAt: Date;
 }
 
-export type User = {
-	id: ID
-	firstname: string
-	lastname: string
-	username: string
-	email: string
-	fullname: string
-	gender: Gender
-	avatar: ID
-	location: Location
-	roles: [Role]
-	entries: UserEntries
-	likes: UserEntries
-	friends: Array<ID>
-	following: Array<ID>
-	followers: Array<ID>
-	info: UserInfo
+export interface User {
+	id: ID;
+	firstname: string;
+	lastname: string;
+	username: string;
+	email: string;
+	gender: Gender;
+	avatar: ID;
+	location: Location;
+	roles: [Role];
+	entries: UserEntries;
+	likes: UserEntries;
+	friends: ID[];
+	following: ID[];
+	followers: ID[];
+	info: UserInfo;
 }
 
 export type Post = Entry & {
-	content: Content
-}
+	content: Content;
+};
 
 export type Comment = Entry & {
-	source: ID
-	reply: ID
-	content: Content
-}
+	source: ID;
+	reply: ID;
+	content: Content;
+};
 
 export type Photo = Entry & {
-	path: string
+	path: string;
+};
+
+export interface UserInfo {
+	links: UserLinks;
+	education: string;
+	status: string;
+	phone: string;
+	birthday: Date;
+	location: Location;
 }
 
-export type UserInfo = {
-	links: UserLinks
-	education: string
-	status: string
-	phone: string
-	birthday: null
-	location: Location
+export interface UserLinks {
+	instagram: string;
+	twitter: string;
+	facebook: string;
+	site: string;
 }
 
-export type UserLinks = {
-	instagram: string
-	twitter: string
-	facebook: string
-	site: string
+export interface UserL {
+	nameL: string;
 }
 
-export type Credentials = { email: string; password: string }
+export interface Credentials {
+	email: string;
+	password: string;
+}

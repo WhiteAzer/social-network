@@ -1,37 +1,35 @@
-import styles from './Authorization.module.scss'
-import { Input } from '@components/Input/Input'
-import { Button } from '@components/Button/Button'
-import React, { FC, useCallback, useState } from 'react'
-import { useFormFields } from './hooks/useFormFields'
-import { ValidationError } from './components/ValidationError/ValidationError'
-import { toast } from 'react-toastify'
-import { useDispatch } from 'react-redux'
-import { login } from '../../store/user/thunks'
-import { AppDispatch } from '../../store'
+import { Input } from '@components/Input/Input';
+import { Button } from '@components/Button/Button';
+import React, { type FC, useCallback } from 'react';
+import { useFormFields } from './hooks/useFormFields';
+import { toast } from 'react-toastify';
+import { login } from '../../store/user/thunks';
+import styles from './Authorization.module.scss';
+import { useAppDispatch } from '../../store/hooks/useAppDispatch';
 
 export const Authorization: FC = () => {
-	const formState = useFormFields()
-	const dispatch = useDispatch<AppDispatch>()
+	const formState = useFormFields();
+	const dispatch = useAppDispatch();
 
 	const handleSubmit = useCallback(
 		(e: React.FormEvent) => {
-			e.preventDefault()
+			e.preventDefault();
 
-			const email = formState.email.value
-			const password = formState.password.value
+			const email = formState.email.value;
+			const password = formState.password.value;
 			console.log({
 				email,
-				password,
-			})
+				password
+			});
 
 			if (email && password) {
-				dispatch(login({ email, password }))
+				dispatch(login({ email, password }));
 			} else {
-				toast.error('Bad inputs')
+				toast.error('Bad inputs');
 			}
 		},
 		[formState.email.value, formState.password.value]
-	)
+	);
 
 	return (
 		<>
@@ -49,5 +47,5 @@ export const Authorization: FC = () => {
 				</form>
 			</div>
 		</>
-	)
-}
+	);
+};

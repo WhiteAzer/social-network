@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import classNames from 'classnames';
-import { DefaultProps } from '../../types';
+import { type DefaultProps } from '../../types';
 import styles from './Panel.module.scss';
 
 export const Panel: FC<DefaultProps> = ({ children, className }) => {

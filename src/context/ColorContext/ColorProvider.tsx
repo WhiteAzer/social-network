@@ -1,18 +1,18 @@
-import React, { createContext, FC, PropsWithChildren } from 'react';
-import { Theme } from '../../types';
+import React, { createContext, type FC, type PropsWithChildren } from 'react';
+import { type Theme } from '../../types';
 
-type SVGProperties = {
-	color: string;
-};
+interface SVGProperties {
+  color: string
+}
 
-type ContextType = { theme: Theme; toggle: () => void; svg: SVGProperties };
+interface ContextType { theme: Theme, toggle: () => void, svg: SVGProperties }
 
 const value: ContextType = {
 	theme: 'light',
 	toggle: () => undefined,
 	svg: {
-		color: '#AEB6BF',
-	},
+		color: '#AEB6BF'
+	}
 };
 
 export const ColorContext = createContext<ContextType>(value);

@@ -1,16 +1,16 @@
-import React, { FC, useContext } from 'react';
+import React, { type FC, useContext } from 'react';
 import classNames from 'classnames';
-import { User, PropsWithSize, PropsWithClass } from '../../../../types';
+import { type User, type PropsWithSize, type PropsWithClass } from '../../../../types';
 import { Avatar } from '@components/Avatar/Avatar';
 import { Icon24MoreHorizontal as IconMore } from '@vkontakte/icons';
 import { ColorContext } from '../../../../context/ColorContext/ColorProvider';
 import styles from './UserStripe.module.scss';
 
 type Props = PropsWithSize &
-	PropsWithClass & {
-		user: User;
-		children?: string;
-	};
+PropsWithClass & {
+  user: User
+  children?: string
+}
 
 export const UserStripe: FC<Props> = ({ user, className, size, children }) => {
 	const { svg } = useContext(ColorContext);

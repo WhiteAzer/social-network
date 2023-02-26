@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { PropsWithClass, User } from '../../../../types';
+import React, { type FC } from 'react';
+import { type PropsWithClass, type User } from '../../../../types';
 import styles from './RequestCard.module.scss';
 import { Button } from '@components/Button/Button';
 import { Icon16Cancel as IconClose } from '@vkontakte/icons';
@@ -8,8 +8,8 @@ import { Avatar } from '@components/Avatar/Avatar';
 import classNames from 'classnames';
 
 type Props = PropsWithClass & {
-	user: User;
-};
+  user: User
+}
 
 export const RequestCard: FC<Props> = ({ user, className }) => {
 	return (

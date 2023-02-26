@@ -1,6 +1,4 @@
-import React, { FC } from 'react';
-import { Header } from '@components/Header/Header';
-import { Main } from '@components/Main/Main';
+import React, { type FC } from 'react';
 import { Panel } from '@components/Panel/Panel';
 import { users } from '../../data';
 import classNames from 'classnames';
@@ -28,8 +26,7 @@ export const HomePage: FC = () => {
 				<TitleCounter count={0}>Online</TitleCounter>
 				<Panel>
 					<UserStripe user={users[0]} size={'size-s'}>
-						20 min ago
-					</UserStripe>
+						20 min ago </UserStripe>
 				</Panel>
 			</div>
 		</>

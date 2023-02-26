@@ -1,9 +1,9 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { type FC, type PropsWithChildren } from 'react';
 import styles from './TitleCounter.module.scss';
 
 type Props = PropsWithChildren & {
-	count: number;
-};
+  count: number
+}
 
 export const TitleCounter: FC<Props> = ({ children, count }) => {
 	return (

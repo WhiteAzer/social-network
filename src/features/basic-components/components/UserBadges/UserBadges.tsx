@@ -1,15 +1,14 @@
-import React, { FC, useContext } from 'react';
-import { PropsWithClass, User } from '../../../../types';
+import React, { type FC, useContext } from 'react';
+import { type PropsWithClass, type User } from '../../../../types';
 import { Badge } from '@components/Badge/Badge';
-import { Icon16WorkOutline as IconJob } from '@vkontakte/icons';
-import { Icon16EducationOutline as IconEducation } from '@vkontakte/icons';
+import { Icon16WorkOutline as IconJob, Icon16EducationOutline as IconEducation } from '@vkontakte/icons';
 import { ColorContext } from '../../../../context/ColorContext/ColorProvider';
 import classNames from 'classnames';
 import styles from './UserBadges.module.scss';
 
 type Props = PropsWithClass & {
-	user: User;
-};
+  user: User
+}
 
 export const UserBadges: FC<Props> = ({ user, className }) => {
 	const { svg } = useContext(ColorContext);

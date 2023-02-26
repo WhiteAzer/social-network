@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
-import { PropsWithClass, User } from '../../../../types';
+import React, { type FC } from 'react';
+import { type PropsWithClass, type User } from '../../../../types';
 import { getShortNumber } from '../../../../utils';
 import styles from './UserStats.module.scss';
 
 type Props = PropsWithClass & {
-	user: User;
-};
+  user: User
+}
 
 export const UserStats: FC<Props> = ({ user }) => {
 	return (
