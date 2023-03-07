@@ -1,5 +1,14 @@
-.wrapper form {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+@use '@styles/variables.scss';
+
+.wrapper {
+	width: variables.$ui-auth-panels-width
+}
+
+.label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.input {
+	margin-bottom: 30px;
 }
