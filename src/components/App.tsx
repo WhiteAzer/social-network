@@ -2,8 +2,8 @@ import React, { type FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { HomePage } from '@pages/HomePage/HomePage';
 import { AuthorizationPage } from '@pages/AuthorizationPage/AuthorizationPage';
-import { PageLayout } from '@layouts/PageLayout/PageLayout';
 import { MainLayout } from '@layouts/MainLayout/MainLayout';
+import { PageLayout } from '@layouts/PageLayout/PageLayout';
 
 const App: FC = () => {
 	return (

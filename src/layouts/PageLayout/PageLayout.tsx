@@ -6,7 +6,7 @@ import style from './PageLayout.module.scss';
 import { Header } from '@components/Header/Header';
 import { Main } from '@components/Main/Main';
 
-const PageLayout: FC = () => {
+export const PageLayout: FC = () => {
 	return (
 		<div className={style.wrapper}>
 			<Header />
@@ -17,4 +17,3 @@ const PageLayout: FC = () => {
 		</div>
 	);
 };
-export default PageLayout;
