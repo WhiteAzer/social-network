@@ -1,0 +1,19 @@
+@use '@styles/variables.scss';
+
+.page {
+  width: calc(100vw - 2 * #{variables.$ui-padding-x});
+  height: calc(100vh - 2 * #{variables.$ui-padding-y});
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-bottom:20px;
+}
+
+.form {
+  margin-bottom:20px;
+}

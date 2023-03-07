@@ -1,0 +1,6 @@
+@use '@styles/variables.scss';
+
+.wrapper {
+  width: variables.$ui-auth-panels-width;
+  text-align: center;
+}
