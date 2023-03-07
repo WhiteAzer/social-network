@@ -1,13 +1,13 @@
 import { Input } from '@components/Input/Input';
 import { Button } from '@components/Button/Button';
 import React, { type FC, useCallback } from 'react';
-import { useFormFields } from './hooks/useFormFields';
+import { useFormFields } from '../../hooks/useFormFields';
 import { toast } from 'react-toastify';
-import { login } from '../../store/user/thunks';
-import styles from './Authorization.module.scss';
-import { useAppDispatch } from '../../store/hooks/useAppDispatch';
+import { login } from '@store/user/thunks';
+import styles from './AuthorizationForm.module.scss';
+import { useAppDispatch } from '@store/hooks/useAppDispatch';
 
-export const Authorization: FC = () => {
+export const AuthorizationForm: FC = () => {
 	const formState = useFormFields();
 	const dispatch = useAppDispatch();
 
@@ -19,7 +19,7 @@ export const Authorization: FC = () => {
 			const password = formState.password.value;
 			console.log({
 				email,
-				password
+				password,
 			});
 
 			if (email && password) {
