@@ -1,3 +1,5 @@
+@use '@styles/mixins.scss';
+
 $ui-border-radius: 12px;
 $ui-border-radius-s: 10px;
 
@@ -25,6 +27,20 @@ $ui-section-gap-y: 35px;
 
 $ui-box-shadow: rgba(17, 17, 26, 0.04) 0px 0px 15px;
 
+$ui-avatar-width-xs: 35px;
+$ui-avatar-height-xs: 35px;
+
+$ui-avatar-width-s: calc(#{$ui-text-font-size} + (#{$ui-padding-y-inline-component} * 2));
+$ui-avatar-height-s: $ui-avatar-width-s;
+
+$ui-avatar-width-m: 65px;
+$ui-avatar-height-m: 65px;
+
+$ui-avatar-width-l: 190px;
+$ui-avatar-height-l: 230px;
+
+
+
 %theme-light {
 	color: var(--ui-color-secondary-light);
 	background: var(--ui-color-primary-light);
@@ -33,4 +49,46 @@ $ui-box-shadow: rgba(17, 17, 26, 0.04) 0px 0px 15px;
 %theme-dark {
 	color: var(--ui-color-secondary-dark);
 	background: var(--ui-color-primary-dark);
+}
+
+.avatar_size-xs{
+	width: $ui-avatar-width-xs;
+	height: $ui-avatar-height-xs;
+	min-width: $ui-avatar-width-xs;
+	min-height: $ui-avatar-height-xs;
+}
+
+.avatar_size-s{
+	width: $ui-avatar-width-s;
+	height: $ui-avatar-height-s;
+	min-width: $ui-avatar-width-s;
+	min-height: $ui-avatar-height-s;
+}
+.avatar_size-m{
+	width: $ui-avatar-width-m;
+	height: $ui-avatar-height-m;
+	min-width: $ui-avatar-width-m;
+	min-height: $ui-avatar-height-m;
+}
+.avatar_size-l{
+	width: $ui-avatar-width-l;
+	height: $ui-avatar-height-l;
+	min-width: $ui-avatar-width-l;
+	min-height: $ui-avatar-height-l;
+}
+
+.button_size-s {
+	width: 65px;
+}
+
+.button_size-m {
+	width: 180px;
+}
+
+.button_size-l {
+	width: 100%;
+}
+
+#skeleton{
+	@include mixins.skeleton();
 }

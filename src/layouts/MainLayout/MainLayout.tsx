@@ -1,13 +1,13 @@
+import styles from './MainLayout.module.scss';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Main } from '../../components/Main/Main';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import style from './MainLayout.module.scss';
+import { Main } from '@components/Main/Main';
 
-const MainLayout = () => {
+export const MainLayout = () => {
 	return (
-		<div className={style.wrapper}>
+		<div className={styles.wrapper}>
 			<Main>
 				<Outlet />
 			</Main>
@@ -15,4 +15,3 @@ const MainLayout = () => {
 		</div>
 	);
 };
-export default MainLayout;

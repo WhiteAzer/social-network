@@ -1,11 +1,11 @@
-import React, { type FC, type InputHTMLAttributes, useContext } from 'react';
+import React, { FC, InputHTMLAttributes, useContext } from 'react';
+import styles from './InputSearch.module.scss';
 import { Icon16Search as IconSearch } from '@vkontakte/icons';
 import { Input } from '@components/Input/Input';
-import { ColorContext } from '../../context/ColorContext/ColorProvider';
 import classNames from 'classnames';
-import styles from './InputSearch.module.scss';
+import { ColorContext } from '@context/ColorContext/ColorProvider';
 
-type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
+type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>;
 
 export const InputSearch: FC<Props> = ({ className, ...props }) => {
 	const { svg } = useContext(ColorContext);

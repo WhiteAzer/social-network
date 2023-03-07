@@ -1,4 +1,4 @@
-import React, { type FC, type PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import styles from './Main.module.scss';
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {

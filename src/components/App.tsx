@@ -1,9 +1,9 @@
 import React, { type FC } from 'react';
-import { HomePage } from '../pages/HomePage/HomePage';
 import { Route, Routes } from 'react-router-dom';
-import MainLayout from '../layouts/MainLayout';
-import { AuthorizationPage } from '../pages/AuthorizationPage/AuthorizationPage';
-import PageLayout from '../layouts/PageLayout';
+import { HomePage } from '@pages/HomePage/HomePage';
+import { AuthorizationPage } from '@pages/AuthorizationPage/AuthorizationPage';
+import { PageLayout } from '@layouts/PageLayout/PageLayout';
+import { MainLayout } from '@layouts/MainLayout/MainLayout';
 
 const App: FC = () => {
 	return (

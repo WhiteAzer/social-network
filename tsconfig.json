@@ -1,25 +1,26 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
         "module": "ESNext",
         "moduleResolution": "node",
         "target": "ES5",
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
         "jsx": "react-jsx",
-        "baseUrl": ".",
         "paths": {
+            "@/*": ["src/*"],
             "@components/*" : ["src/components/*"],
-            "@features/*": ["features/*"],
-            "@services/*": ["services/*"],
-            "@styles/*": ["styles/*"],
-            "@assets/*": ["assets/*"],
-            "@data/*": ["data/*"],
-            "@store/*": ["store/*"],
-            "@hooks/*": ["hooks/*"],
-            "@utils/*": ["utils/*"],
-            "@pages/*": ["pages/*"],
-            "@types/*": ["types/*"],
-            "@context/*": ["context/*"]
+            "@features/*": ["src/features/*"],
+            "@services/*": ["src/services/*"],
+            "@styles/*": ["src/styles/*"],
+            "@assets/*": ["src/assets/*"],
+            "@data/*": ["src/data/*"],
+            "@store/*": ["src/store/*"],
+            "@hooks/*": ["src/hooks/*"],
+            "@utils/*": ["src/utils/*"],
+            "@pages/*": ["src/pages/*"],
+            "@types/*": ["src/types/*"],
+            "@context/*": ["src/context/*"],
+            "@layouts/*": ["src/layouts/*"]
         },
     },
     "ts-node": {
@@ -27,5 +28,4 @@
             "module": "CommonJS"
         }
     },
-    "include": ["src/**/*","Global.d.ts"],
 }

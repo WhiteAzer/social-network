@@ -19,6 +19,8 @@ const aliasesBuilder: WebpackBuilder<Aliases> = (options) => {
 		'@utils': path.join(options.paths.src, 'utils'),
 		'@pages': path.join(options.paths.src, 'pages'),
 		'@types': path.join(options.paths.src, 'types'),
+		'@context': path.join(options.paths.src, 'context'),
+		'@layouts': path.join(options.paths.src, 'layouts'),
 	};
 };
 

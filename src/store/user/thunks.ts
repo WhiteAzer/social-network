@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { type Credentials } from '../../types';
-import { serverAPI } from '../../axios/customAxios';
+import { serverAPI } from '@/axios/customAxios';
+import { Credentials } from '@/types';
 
 export const login = createAsyncThunk('auth/login', async (credentials: Credentials, thunkAPI) => {
 	try {
 		const resp = await serverAPI('/auth/login', {
 			method: 'post',
-			data: credentials
+			data: credentials,
 		});
 		return resp.data;
 	} catch (error: any) {
@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
 		try {
 			const resp = await serverAPI('/auth/register', {
 				method: 'post',
-				data: credentials
+				data: credentials,
 			});
 			return resp.data;
 		} catch (error: any) {

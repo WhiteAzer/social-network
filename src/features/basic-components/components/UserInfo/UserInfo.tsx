@@ -1,14 +1,14 @@
-import React, { type FC } from 'react';
-import { type PropsWithClass, type User } from '../../../../types';
-import classNames from 'classnames';
-import { UserStats } from '../UserStats/UserStats';
-import { Button } from '@components/Button/Button';
-import { UserBadges } from '../UserBadges/UserBadges';
 import styles from './UserInfo.module.scss';
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import { Button } from '@components/Button/Button';
+import { PropsWithClass, User } from '@/types';
+import { UserStats } from '@features/basic-components/components/UserStats/UserStats';
+import { UserBadges } from '@features/basic-components/components/UserBadges/UserBadges';
 
 type Props = PropsWithClass & {
-  user: User
-}
+	user: User;
+};
 
 export const UserInfo: FC<Props> = ({ user, className }) => {
 	return (

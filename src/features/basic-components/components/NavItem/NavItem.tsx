@@ -1,12 +1,12 @@
-import React, { type FC, type MouseEventHandler, type PropsWithChildren, type SVGProps } from 'react';
 import styles from './NavItem.module.scss';
+import React, { FC, MouseEventHandler, PropsWithChildren, SVGProps } from 'react';
 import classNames from 'classnames';
 
 type Props = PropsWithChildren & {
-  Icon: FC<SVGProps<SVGSVGElement>>
-  onClick?: MouseEventHandler<HTMLLIElement>
-  selected?: boolean
-}
+	Icon: FC<SVGProps<SVGSVGElement>>;
+	onClick?: MouseEventHandler<HTMLLIElement>;
+	selected?: boolean;
+};
 
 export const NavItem: FC<Props> = ({ selected, children, Icon, onClick }) => {
 	return (

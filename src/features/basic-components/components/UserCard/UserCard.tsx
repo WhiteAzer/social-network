@@ -1,14 +1,14 @@
-import React, { type FC } from 'react';
+import React, { FC } from 'react';
+import styles from './UserCard.module.scss';
 import { Panel } from '@components/Panel/Panel';
 import { Avatar } from '@components/Avatar/Avatar';
 import { UserInfo } from '../UserInfo/UserInfo';
-import { type PropsWithClass, type User } from '../../../../types';
 import classNames from 'classnames';
-import styles from './UserCard.module.scss';
+import { PropsWithClass, User } from '@/types';
 
 type Props = PropsWithClass & {
-  user: User
-}
+	user: User;
+};
 
 export const UserCard: FC<Props> = ({ user, className }) => {
 	return (

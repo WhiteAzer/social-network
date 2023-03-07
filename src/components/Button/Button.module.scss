@@ -7,18 +7,6 @@
   font-weight: inherit;
   padding: variables.$ui-padding-y-inline-component 0;
 
-  &_size-s {
-    width: 65px;
-  }
-
-  &_size-m {
-    width: 125px;
-  }
-
-  &_size-l {
-    width: 100%;
-  }
-
   &_primary_light {
     @extend %theme-light;
   }
@@ -32,4 +20,9 @@
 
   &_secondary_dark {
   }
+}
+
+.skeleton{
+  border-radius: variables.$ui-border-radius;
+  height: calc(#{variables.$ui-padding-y-inline-component}*2 + #{variables.$ui-text-font-size});
 }

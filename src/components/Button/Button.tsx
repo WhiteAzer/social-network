@@ -1,13 +1,13 @@
-import React, { type ButtonHTMLAttributes, type FC, useContext } from 'react';
-import classNames from 'classnames';
-import { type Color, type PropsWithSize } from '../../types';
-import { ColorContext } from '../../context/ColorContext/ColorProvider';
 import styles from './Button.module.scss';
+import React, { ButtonHTMLAttributes, FC, useContext } from 'react';
+import classNames from 'classnames';
+import { ColorContext } from '@context/ColorContext/ColorProvider';
+import { Color, PropsWithSize } from '@/types';
 
 type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> &
-PropsWithSize<'size-s' | 'size-m' | 'size-l'> & {
-  color?: Color
-}
+	PropsWithSize<'size-s' | 'size-m' | 'size-l'> & {
+		color?: Color;
+	};
 
 export const Button: FC<Props> = ({ size, className, color = 'primary', ...props }) => {
 	const { theme } = useContext(ColorContext);
@@ -16,11 +16,17 @@ export const Button: FC<Props> = ({ size, className, color = 'primary', ...props
 		<button
 			className={classNames(
 				styles.button,
-				styles[`button_${size}`],
+				`button_${size}`,
 				styles[`button_${color}_${theme}`],
 				className
 			)}
 			{...props}
 		/>
+	);
+};
+
+export const SkeletonButton: FC<Pick<Props, 'size' | 'className'>> = ({ className, size }) => {
+	return (
+		<div id={'skeleton'} className={classNames(styles.skeleton, `button_${size}`, className)} />
 	);
 };

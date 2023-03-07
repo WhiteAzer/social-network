@@ -1,16 +1,15 @@
-import { type PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
-export type PropsWithoutClassName<P> = P extends { className?: unknown }
-	? Omit<P, 'className'>
-	: P;
+export type AsyncState = {
+	status: 'idle' | 'failed' | 'loading' | 'succeed';
+	error: string | null;
+};
 
-export type PropsWithoutChildren<P> = P extends { children?: unknown }
-	? Omit<P, 'children'>
-	: P;
+export type PropsWithoutClassName<P> = P extends { className?: unknown } ? Omit<P, 'className'> : P;
 
-export type DefaultProps<P = unknown> = PropsWithoutChildren<
-	PropsWithoutClassName<P>
-> &
+export type PropsWithoutChildren<P> = P extends { children?: unknown } ? Omit<P, 'children'> : P;
+
+export type DefaultProps<P = unknown> = PropsWithoutChildren<PropsWithoutClassName<P>> &
 	PropsWithChildren &
 	PropsWithClass;
 
@@ -50,15 +49,6 @@ export interface UserEntries {
 	photos: ID[];
 }
 
-export interface Entry {
-	id: ID;
-	author: ID;
-	likes: number;
-	comments: Comment[];
-	createdAt: Date;
-	updatedAt: Date;
-}
-
 export interface User {
 	id: ID;
 	firstname: string;
@@ -73,8 +63,27 @@ export interface User {
 	likes: UserEntries;
 	friends: ID[];
 	following: ID[];
-	followers: ID[];
+	followers: Follower[];
 	info: UserInfo;
+}
+
+export type Follower = {
+	isViewed: boolean;
+	id: ID;
+};
+
+export type PartialUser = Pick<User, 'avatar' | 'firstname' | 'lastname' | 'id' | 'username'>;
+
+export type EntryType = 'post' | 'photo' | 'comment';
+
+export interface Entry {
+	id: ID;
+	author: ID;
+	likes: number;
+	comments: Comment[];
+	createdAt: Date;
+	updatedAt: Date;
+	type: EntryType;
 }
 
 export type Post = Entry & {
@@ -111,3 +120,18 @@ export interface Credentials {
 	email: string;
 	password: string;
 }
+
+export type Notification = {
+	id: ID;
+	receiver: ID;
+	owner: PartialUser;
+	date: Date;
+	isViewed: boolean;
+};
+
+export type NotificationType = 'like' | 'repost' | 'comment';
+
+export type UserNotification = Notification & {
+	type: NotificationType;
+	entry: Pick<Entry, 'type' | 'id'>;
+};

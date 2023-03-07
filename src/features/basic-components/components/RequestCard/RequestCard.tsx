@@ -1,22 +1,26 @@
-import React, { type FC } from 'react';
-import { type PropsWithClass, type User } from '../../../../types';
 import styles from './RequestCard.module.scss';
+import React, { FC } from 'react';
 import { Button } from '@components/Button/Button';
 import { Icon16Cancel as IconClose } from '@vkontakte/icons';
 import { Panel } from '@components/Panel/Panel';
 import { Avatar } from '@components/Avatar/Avatar';
 import classNames from 'classnames';
+import { PartialUser, PropsWithClass } from '@/types';
+import { getFullName } from '@/utils';
+import { Link } from 'react-router-dom';
 
 type Props = PropsWithClass & {
-  user: User
-}
+	user: PartialUser;
+};
 
 export const RequestCard: FC<Props> = ({ user, className }) => {
 	return (
 		<Panel className={classNames(styles.card, className)}>
 			<div className={styles.image}>
-				<Avatar size={'size-l'} />
-				<span className={styles.name}>{user.firstname + ' ' + user.lastname}</span>
+				<Link to={user.id}>
+					<Avatar size={'size-l'} />
+				</Link>
+				<span className={styles.name}>{getFullName(user)}</span>
 			</div>
 			<div className={styles.buttons}>
 				<Button size={'size-l'}>Accept</Button>

@@ -1,5 +1,8 @@
 import path from 'path';
-import { WebpackEnvironmentalVariable, WebpackPaths } from './configuration/types';
+import {
+	WebpackEnvironmentalVariable,
+	WebpackPaths,
+} from './configuration/types';
 import createConfig from './configuration';
 
 const paths: WebpackPaths = {
@@ -7,7 +10,7 @@ const paths: WebpackPaths = {
 	build: path.resolve(__dirname, 'build'),
 	extra: {
 		html: path.resolve(__dirname, 'public'),
-	}
+	},
 };
 
 export default ({ mode }: WebpackEnvironmentalVariable) =>

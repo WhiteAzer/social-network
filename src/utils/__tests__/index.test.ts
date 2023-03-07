@@ -1,4 +1,4 @@
-import { getShortNumber } from '../index';
+import { getShortNumber } from '@/utils';
 
 describe('Utils:', () => {
 	test(getShortNumber.name, () => {
