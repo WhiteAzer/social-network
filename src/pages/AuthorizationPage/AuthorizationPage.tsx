@@ -1,6 +1,6 @@
-import React, { type FC } from 'react';
-import { AuthorizationForm } from '@features/authorization/components/AuthorizationForm/AuthorizationForm';
 import styles from './AuthorizationPage.module.scss';
+import { FC } from 'react';
+import { AuthorizationForm } from '@features/authorization/components/AuthorizationForm/AuthorizationForm';
 import { RegistrationPanel } from '@features/authorization/components/RegistrationPanel/RegistrationPanel';
 
 export const AuthorizationPage: FC = () => {

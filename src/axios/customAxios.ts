@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const serverURL = 'http://localhost:2000';
+export const serverURL = 'https://zavod-backend.vercel.app';
 
 const RESTAPI_URL = serverURL + '/api';
 export const serverAPI = axios.create({

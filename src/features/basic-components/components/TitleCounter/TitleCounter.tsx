@@ -1,5 +1,5 @@
 import styles from './TitleCounter.module.scss';
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren & {
 	count: number;

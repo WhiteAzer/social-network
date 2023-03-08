@@ -90,5 +90,8 @@ $ui-auth-panels-width: 340px;
 }
 
 #skeleton{
+	-webkit-border-radius: $ui-border-radius;
+	-moz-border-radius: $ui-border-radius;
+	border-radius: $ui-border-radius;
 	@include mixins.skeleton();
 }

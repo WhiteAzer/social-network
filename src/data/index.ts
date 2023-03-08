@@ -1,4 +1,63 @@
 import { Photo, Post, User, UserNotification, Notification, Comment } from '@/types';
+export const notification: UserNotification = {
+	id: 'un0001',
+	receiver: 'u0002',
+	owner: {
+		id: 'u0001',
+		firstname: 'John',
+		lastname: 'Doe',
+		avatar: 'p0001',
+		username: '@johndoe',
+	},
+	isViewed: true,
+	date: new Date().toString(),
+	type: 'like',
+	entry: {
+		id: 'p0002',
+		type: 'comment',
+	},
+};
+
+export const photo: Photo = {
+	id: '1',
+	author: '2',
+	likes: 5,
+	comments: [],
+	createdAt: new Date().toString(),
+	updatedAt: new Date().toString(),
+	type: 'photo',
+	path: '/path/to/photo',
+};
+
+export const comment: Comment = {
+	id: '2',
+	author: '3',
+	likes: 2,
+	comments: [],
+	createdAt: new Date().toString(),
+	updatedAt: new Date().toString(),
+	type: 'comment',
+	source: '4',
+	reply: '5',
+	content: {
+		text: 'This is a comment',
+		images: [],
+	},
+};
+
+export const post: Post = {
+	id: '3',
+	author: '1',
+	likes: 10,
+	comments: [],
+	createdAt: new Date().toString(),
+	updatedAt: new Date().toString(),
+	type: 'post',
+	content: {
+		text: 'This is a post',
+		images: [],
+	},
+};
 
 export const user: User = {
 	id: '12345',
@@ -40,7 +99,7 @@ export const user: User = {
 		education: 'Harvard University',
 		status: 'Single',
 		phone: '555-1234',
-		birthday: new Date('1990-01-01'),
+		birthday: new Date('1990-01-01').toString(),
 		location: {
 			city: 'New York',
 			country: 'USA',
@@ -50,64 +109,5 @@ export const user: User = {
 			},
 		},
 	},
-};
-
-export const notification: UserNotification = {
-	id: 'un0001',
-	receiver: 'u0002',
-	owner: {
-		id: 'u0001',
-		firstname: 'John',
-		lastname: 'Doe',
-		avatar: 'p0001',
-		username: '@johndoe',
-	},
-	isViewed: true,
-	date: new Date(),
-	type: 'like',
-	entry: {
-		id: 'p0002',
-		type: 'comment',
-	},
-};
-
-export const photo: Photo = {
-	id: '1',
-	author: '2',
-	likes: 5,
-	comments: [],
-	createdAt: new Date(),
-	updatedAt: new Date(),
-	type: 'photo',
-	path: '/path/to/photo',
-};
-
-export const comment: Comment = {
-	id: '2',
-	author: '3',
-	likes: 2,
-	comments: [],
-	createdAt: new Date(),
-	updatedAt: new Date(),
-	type: 'comment',
-	source: '4',
-	reply: '5',
-	content: {
-		text: 'This is a comment',
-		images: [],
-	},
-};
-
-export const post: Post = {
-	id: '3',
-	author: '1',
-	likes: 10,
-	comments: [],
-	createdAt: new Date(),
-	updatedAt: new Date(),
-	type: 'post',
-	content: {
-		text: 'This is a post',
-		images: [],
-	},
+	notifications: [notification],
 };

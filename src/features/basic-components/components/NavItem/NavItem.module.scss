@@ -10,6 +10,7 @@
   column-gap: variables.$ui-gap-x;
 
   & > span {
+    text-transform: capitalize;
     color: var(--ui-color-darkblue);
     font-size: 16px;
   }

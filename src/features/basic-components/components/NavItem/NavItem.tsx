@@ -1,5 +1,5 @@
 import styles from './NavItem.module.scss';
-import React, { FC, MouseEventHandler, PropsWithChildren, SVGProps } from 'react';
+import { FC, MouseEventHandler, PropsWithChildren, SVGProps } from 'react';
 import classNames from 'classnames';
 
 type Props = PropsWithChildren & {

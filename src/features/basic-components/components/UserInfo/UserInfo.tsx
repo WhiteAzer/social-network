@@ -1,10 +1,9 @@
 import styles from './UserInfo.module.scss';
-import React, { FC } from 'react';
 import classNames from 'classnames';
-import { Button } from '@components/Button/Button';
+import { FC } from 'react';
 import { PropsWithClass, User } from '@/types';
-import { UserStats } from '@features/basic-components/components/UserStats/UserStats';
-import { UserBadges } from '@features/basic-components/components/UserBadges/UserBadges';
+import { UserBadges, UserStats } from '@features/basic-components';
+import { Button } from '@/components';
 
 type Props = PropsWithClass & {
 	user: User;

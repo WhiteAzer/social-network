@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
 import styles from './UserCard.module.scss';
-import { Panel } from '@components/Panel/Panel';
-import { Avatar } from '@components/Avatar/Avatar';
-import { UserInfo } from '../UserInfo/UserInfo';
+import { FC } from 'react';
 import classNames from 'classnames';
 import { PropsWithClass, User } from '@/types';
+import { Avatar, Panel } from '@/components';
+import { UserInfo } from '@features/basic-components';
 
 type Props = PropsWithClass & {
 	user: User;

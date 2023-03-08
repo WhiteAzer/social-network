@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes, useContext } from 'react';
+import { FC, InputHTMLAttributes, useContext } from 'react';
 import styles from './InputSearch.module.scss';
 import { Icon16Search as IconSearch } from '@vkontakte/icons';
 import { Input } from '@components/Input/Input';

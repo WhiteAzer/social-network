@@ -3,9 +3,10 @@
         "baseUrl": ".",
         "module": "ESNext",
         "moduleResolution": "node",
-        "target": "ES5",
+        "target": "es5",
         "esModuleInterop": true,
         "jsx": "react-jsx",
+        "allowJs": true,
         "paths": {
             "@/*": ["src/*"],
             "@components/*" : ["src/components/*"],

@@ -1,14 +1,13 @@
 import styles from './UserStripe.module.scss';
-import React, { type FC, useContext } from 'react';
 import classNames from 'classnames';
-import { Avatar, SkeletonAvatar } from '@components/Avatar/Avatar';
+import { FC, useContext } from 'react';
 import { Icon24MoreHorizontal as IconMore } from '@vkontakte/icons';
 import { PartialUser, PropsWithClass, PropsWithSize } from '@/types';
 import { ColorContext } from '@context/ColorContext/ColorProvider';
 import { Link } from 'react-router-dom';
 import { getFullName } from '@/utils';
-import { SkeletonButton } from '@components/Button/Button';
-import { SkeletonText } from '@components/SkeletonText/SkeletonText';
+import { SkeletonAvatar, SkeletonText } from '@features/skeletonui';
+import { Avatar } from '@/components';
 
 type Props = PropsWithSize &
 	PropsWithClass & {
@@ -42,7 +41,7 @@ export const SkeletonUserStripe: FC<Pick<Props, 'className' | 'size'>> = ({ clas
 	return (
 		<div className={classNames(styles.stripe, className)}>
 			<SkeletonAvatar size={size} className={styles.avatar} />
-			<SkeletonText font={14} lines={2} />
+			<SkeletonText lines={2} />
 		</div>
 	);
 };

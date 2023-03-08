@@ -1,8 +1,7 @@
 import { Input } from '@components/Input/Input';
 import { Button } from '@components/Button/Button';
-import React, { BaseSyntheticEvent, type FC, useCallback, useState } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { useFormFields } from './hooks/useFormFields';
-import { toast } from 'react-toastify';
 import { login } from '@store/user/thunks';
 import styles from './AuthorizationForm.module.scss';
 import { useAppDispatch } from '@store/hooks/useAppDispatch';
@@ -12,14 +11,26 @@ import classNames from 'classnames';
 import { validateEmail } from './helpers/validateEmail';
 import { validatePassword } from './helpers/validatePassword';
 import { ValidationError } from '@features/authorization/components/ValidationError/ValidationError';
+import { useAppSelector } from '@store/hooks/useAppSelector';
+import { authorizedUserSelector } from '@store/user/selectors';
+import { useNavigate } from 'react-router-dom';
+import { routes } from '@data/constants';
+import { splitRoute } from '@/utils';
+import { PropsWithClass } from '@/types';
 
-interface IAuthorizationForm {
-	className?: string;
-}
+type Props = PropsWithClass;
 
-export const AuthorizationForm: FC<IAuthorizationForm> = ({ className }) => {
+export const AuthorizationForm: FC<Props> = ({ className }) => {
 	const { email, password, isDataValid } = useFormFields();
 	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+	const { status, user } = useAppSelector(authorizedUserSelector);
+
+	useEffect(() => {
+		if (status === 'succeed') {
+			navigate('/' + splitRoute(routes.home)[0] + '/' + user.id);
+		}
+	}, [status]);
 
 	const handleSubmit = useCallback(
 		(e: React.FormEvent) => {
@@ -31,7 +42,6 @@ export const AuthorizationForm: FC<IAuthorizationForm> = ({ className }) => {
 				console.log({ email: email.value, password: password.value });
 			} else {
 				isDataValid.value && isDataValid.setValue(false);
-				//toast.error('Bad inputs');
 			}
 		},
 		[email.value, password.value]

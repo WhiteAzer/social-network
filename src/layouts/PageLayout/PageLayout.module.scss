@@ -1,2 +1,18 @@
-.wrapper {
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.section{
+    @include mixins.flexible(flex-start, stretch, column);
+    row-gap: variables.$ui-section-gap-y;
+}
+
+.middle{
+    flex-grow: 1;
+}
+
+.left{
+    flex-basis: calc(#{variables.$ui-avatar-width-l} + 2 * #{variables.$ui-padding-x});
+}
+.right{
+    flex-basis: 260px;
 }

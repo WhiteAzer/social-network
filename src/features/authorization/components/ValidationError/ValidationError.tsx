@@ -1,21 +1,20 @@
 import styles from './ValidationError.module.scss';
-import React, { type FC } from 'react';
 import classNames from 'classnames';
-import { Icon12Cancel as CloseIcon } from '@vkontakte/icons';
+import {FC} from 'react';
+import {Icon16Cancel as IconClose} from '@vkontakte/icons';
 import { Panel } from '@components/Panel/Panel';
 
-const CloseSize = 15;
 
-interface IProps {
-	closePanel: () => void;
+type Props = {
+	onClose: () => void;
 }
 
-export const ValidationError: FC<IProps> = ({ closePanel }) => {
+export const ValidationError: FC<Props> = ({ onClose }) => {
 	return (
 		<Panel className={classNames(styles.wrapper)}>
 			<p>Incorrect username or password.</p>
-			<div className={styles.close} onClick={closePanel}>
-				<CloseIcon width={CloseSize} height={CloseSize} />
+			<div className={styles.close} onClick={onClose}>
+				<IconClose />
 			</div>
 		</Panel>
 	);
