@@ -9,6 +9,8 @@ import { useAppDispatch } from '@store/hooks/useAppDispatch';
 import { PasswordInput } from '@features/authorization/components/PasswordInput/PasswordInput';
 import { Panel } from '@components/Panel/Panel';
 import classNames from 'classnames';
+import { validateEmail } from './helpers/validateEmail';
+import { validatePassword } from './helpers/validatePassword';
 
 interface IAuthorizationForm {
 	className?: string;
@@ -24,13 +26,13 @@ export const AuthorizationForm: FC<IAuthorizationForm> = ({ className }) => {
 
 			const email = formState.email.value;
 			const password = formState.password.value;
-			console.log({
-				email,
-				password,
-			});
 
-			if (email && password) {
+			if (validateEmail(email) && validatePassword(password)) {
 				dispatch(login({ email, password }));
+				console.log({
+					email,
+					password,
+				});
 			} else {
 				toast.error('Bad inputs');
 			}
