@@ -1,7 +1,8 @@
 @use '@styles/variables.scss';
 
 .panel {
-  padding: 0;
+  width: 100%;
+  padding: 0 !important;
 
   & > nav li:not(:last-child) {
     border-bottom: 1px solid var(--ui-color-grey-3);

@@ -1,13 +1,11 @@
 import styles from './RequestCard.module.scss';
-import React, { FC } from 'react';
-import { Button } from '@components/Button/Button';
-import { Icon16Cancel as IconClose } from '@vkontakte/icons';
-import { Panel } from '@components/Panel/Panel';
-import { Avatar } from '@components/Avatar/Avatar';
 import classNames from 'classnames';
+import { FC } from 'react';
+import { Icon16Cancel as IconClose } from '@vkontakte/icons';
 import { PartialUser, PropsWithClass } from '@/types';
 import { getFullName } from '@/utils';
 import { Link } from 'react-router-dom';
+import { Avatar, Button, Panel } from '@/components';
 
 type Props = PropsWithClass & {
 	user: PartialUser;

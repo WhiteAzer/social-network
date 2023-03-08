@@ -1,22 +1,17 @@
 import styles from './NotificationCard.module.scss';
-import { Panel } from '@components/Panel/Panel';
+import classNames from 'classnames';
 import { PropsWithClass, UserNotification } from '@/types';
-import React, { FC } from 'react';
-import { Button, SkeletonButton } from '@components/Button/Button';
-import { Avatar, SkeletonAvatar } from '@components/Avatar/Avatar';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { getFullName, getNotificationText } from '@/utils';
-import { notification } from '@/data';
-import { SkeletonText } from '@components/SkeletonText/SkeletonText';
-import classNames from 'classnames';
+import { Avatar, Button, Panel } from '@/components';
+import { SkeletonAvatar, SkeletonButton, SkeletonText } from '@features/skeletonui';
 
 type Props = PropsWithClass & {
 	notification: UserNotification;
 };
 
-export const NotificationCard: FC<Props> = ({
-	notification: { owner, id, receiver, entry, type },
-}) => {
+export const NotificationCard: FC<Props> = ({ notification: { owner, entry, type } }) => {
 	return (
 		<Panel className={styles.panel}>
 			<div className={styles.info}>
@@ -28,8 +23,8 @@ export const NotificationCard: FC<Props> = ({
 						<span className={styles.owner}>{getFullName(owner)}</span>
 						<br />
 						<span className={styles.text}>
-							{getNotificationText(notification.type)}
-							<Link to={notification.entry.id}>{entry.type}</Link>
+							{getNotificationText(type)}
+							<Link to={entry.id}>{entry.type}</Link>
 						</span>
 					</div>
 				</div>
@@ -45,7 +40,7 @@ export const SkeletonNotificationCard: FC<Pick<Props, 'className'>> = ({ classNa
 			<div className={styles.info}>
 				<SkeletonAvatar size={'size-s'} />
 				<div className={styles.content}>
-					<SkeletonText font={14} lines={2} />
+					<SkeletonText lines={2} />
 				</div>
 			</div>
 			<SkeletonButton size={'size-l'} />

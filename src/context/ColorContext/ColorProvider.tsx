@@ -1,4 +1,4 @@
-import React, { createContext, type FC, type PropsWithChildren } from 'react';
+import { createContext, FC, PropsWithChildren } from 'react';
 import { Theme } from '@/types';
 
 interface SVGProperties {

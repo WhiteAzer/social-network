@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify';
-import { Entry, EntryType, Notification, NotificationType, User } from '@/types';
+import { NotificationType } from '@/types';
+import { routes } from '@data/constants';
 
 export function handleError(payload) {
 	if (Array.isArray(payload)) {
@@ -48,4 +49,13 @@ export function getFullName<T extends { firstname: string; lastname: string }>({
 
 export function getEmptyArray(length: number) {
 	return new Array(length).fill(0);
+}
+
+export function splitRoute(route: string) {
+	const pattern = /[/:]/g;
+
+	return route
+		.replace(pattern, ' ')
+		.split(' ')
+		.filter((v) => !!v);
 }

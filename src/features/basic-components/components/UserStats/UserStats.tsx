@@ -1,5 +1,5 @@
 import styles from './UserStats.module.scss';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { PropsWithClass, User } from '@/types';
 import { getShortNumber } from '@/utils';
 

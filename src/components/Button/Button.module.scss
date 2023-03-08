@@ -21,8 +21,3 @@
   &_secondary_dark {
   }
 }
-
-.skeleton{
-  border-radius: variables.$ui-border-radius;
-  height: calc(#{variables.$ui-padding-y-inline-component}*2 + #{variables.$ui-text-font-size});
-}

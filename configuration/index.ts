@@ -22,7 +22,7 @@ const createWebpackConfiguration = (options: WebpackBuildOptions): webpack.Confi
 			alias: aliasesBuilder(options),
 		},
 		devServer: options.isDev ? serverBuilder(options) : undefined,
-		devtool: options.isDev ? 'eval-source-map' : undefined,
+		devtool: options.isDev ? 'inline-source-map' : undefined,
 		module: {
 			rules: loadersBuilder(options),
 		},

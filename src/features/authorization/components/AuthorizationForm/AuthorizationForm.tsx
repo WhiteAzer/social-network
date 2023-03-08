@@ -1,26 +1,35 @@
 import { Input } from '@components/Input/Input';
 import { Button } from '@components/Button/Button';
-import React, { type FC, useCallback } from 'react';
+import { FC, useCallback, FormEvent, useEffect } from 'react';
 import { useFormFields } from '../../hooks/useFormFields';
 import { toast } from 'react-toastify';
-import { login } from '@store/user/thunks';
+import { login, register } from '@store/user/thunks';
 import styles from './AuthorizationForm.module.scss';
 import { useAppDispatch } from '@store/hooks/useAppDispatch';
+import { useAppSelector } from '@store/hooks/useAppSelector';
+import { authorizedUserSelector } from '@store/user/selectors';
+import { useNavigate } from 'react-router-dom';
+import { routes } from '@data/constants';
+import { splitRoute } from '@/utils';
 
 export const AuthorizationForm: FC = () => {
+	const navigate = useNavigate();
+	const { status, user } = useAppSelector(authorizedUserSelector);
 	const formState = useFormFields();
 	const dispatch = useAppDispatch();
 
+	useEffect(() => {
+		if (status === 'succeed') {
+			navigate('/' + splitRoute(routes.home)[0] + '/' + user.id);
+		}
+	}, [status]);
+
 	const handleSubmit = useCallback(
-		(e: React.FormEvent) => {
+		(e: FormEvent) => {
 			e.preventDefault();
 
 			const email = formState.email.value;
 			const password = formState.password.value;
-			console.log({
-				email,
-				password,
-			});
 
 			if (email && password) {
 				dispatch(login({ email, password }));

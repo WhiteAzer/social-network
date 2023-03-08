@@ -1,54 +1,60 @@
 import styles from './NavSection.module.scss';
-import React, { FC, SVGProps, useState } from 'react';
+import { FC, SVGProps } from 'react';
 import {
 	Icon28HomeOutline as IconHome,
 	Icon28NewsfeedLinesOutline as IconNews,
-	Icon28Users3Outline as IconPeople,
 	Icon28PictureOutline as IconPhotos,
-	Icon28UserOutline as IconProfile,
 	Icon28SettingsOutline as IconSettings,
-	Icon28MailOutline as IconMessages,
 } from '@vkontakte/icons';
-import { Panel } from '@components/Panel/Panel';
-import { NavItem } from '@features/basic-components/components/NavItem/NavItem';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { routes } from '@data/constants';
+import { splitRoute } from '@/utils';
+import { Panel } from '@/components';
+import { NavItem } from '@features/basic-components';
 
-const icons: Array<{ text: string; component: FC<SVGProps<SVGSVGElement>> }> = [
+const icons: Array<{ icon: FC<SVGProps<SVGSVGElement>>; route: string }> = [
 	{
-		component: IconHome,
-		text: 'Home',
+		icon: IconHome,
+		route: routes.home,
 	},
 	{
-		component: IconNews,
-		text: 'News',
+		icon: IconNews,
+		route: routes.news,
 	},
 	{
-		component: IconPhotos,
-		text: 'Photos',
+		icon: IconPhotos,
+		route: routes.photos,
 	},
 	{
-		component: IconSettings,
-		text: 'Settings',
+		icon: IconSettings,
+		route: routes.settings,
 	},
 ];
 
 export const NavSection: FC = () => {
-	const [state, setState] = useState<string>(icons[0].component.displayName);
+	const { userID } = useParams();
+	const { pathname } = useLocation();
+	const navigate = useNavigate();
+
+	const path = splitRoute(pathname)[0];
 
 	return (
 		<Panel className={styles.panel}>
 			<nav>
 				<ul>
-					{icons.map(({ component, text }) => {
+					{icons.map(({ icon, route }, i) => {
+						const current = splitRoute(route);
+
 						return (
 							<NavItem
-								onClick={() => {
-									setState(component.displayName);
-								}}
-								key={component.displayName}
-								selected={component.displayName === state}
-								Icon={component}
+								key={i}
+								Icon={icon}
+								selected={current[0] === path}
+								onClick={() =>
+									navigate('/' + current[0] + (current[1] ? '/' + userID : ''))
+								}
 							>
-								{text}
+								{current[0]}
 							</NavItem>
 						);
 					})}

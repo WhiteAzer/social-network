@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { CSSProperties, PropsWithChildren } from 'react';
 
 export type AsyncState = {
 	status: 'idle' | 'failed' | 'loading' | 'succeed';
@@ -12,6 +12,10 @@ export type PropsWithoutChildren<P> = P extends { children?: unknown } ? Omit<P,
 export type DefaultProps<P = unknown> = PropsWithoutChildren<PropsWithoutClassName<P>> &
 	PropsWithChildren &
 	PropsWithClass;
+
+export type SkeletonProps = PropsWithClass & {
+	sx?: CSSProperties;
+};
 
 export type PropsWithSize<S extends Size = Size, T = unknown> = T & { size: S };
 
@@ -65,6 +69,7 @@ export interface User {
 	following: ID[];
 	followers: Follower[];
 	info: UserInfo;
+	notifications: Array<UserNotification>;
 }
 
 export type Follower = {
@@ -81,8 +86,8 @@ export interface Entry {
 	author: ID;
 	likes: number;
 	comments: Comment[];
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt: string;
+	updatedAt: string;
 	type: EntryType;
 }
 
@@ -105,7 +110,7 @@ export interface UserInfo {
 	education: string;
 	status: string;
 	phone: string;
-	birthday: Date;
+	birthday: string;
 	location: Location;
 }
 
@@ -125,7 +130,7 @@ export type Notification = {
 	id: ID;
 	receiver: ID;
 	owner: PartialUser;
-	date: Date;
+	date: string;
 	isViewed: boolean;
 };
 

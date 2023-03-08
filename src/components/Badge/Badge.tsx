@@ -1,5 +1,5 @@
 import styles from './Badge.module.scss';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 import { DefaultProps } from '@/types';
 

@@ -90,5 +90,8 @@ $ui-avatar-height-l: 230px;
 }
 
 #skeleton{
+	-webkit-border-radius: $ui-border-radius;
+	-moz-border-radius: $ui-border-radius;
+	border-radius: $ui-border-radius;
 	@include mixins.skeleton();
 }

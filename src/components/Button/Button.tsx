@@ -1,5 +1,5 @@
 import styles from './Button.module.scss';
-import React, { ButtonHTMLAttributes, FC, useContext } from 'react';
+import { ButtonHTMLAttributes, FC, useContext } from 'react';
 import classNames from 'classnames';
 import { ColorContext } from '@context/ColorContext/ColorProvider';
 import { Color, PropsWithSize } from '@/types';
@@ -22,11 +22,5 @@ export const Button: FC<Props> = ({ size, className, color = 'primary', ...props
 			)}
 			{...props}
 		/>
-	);
-};
-
-export const SkeletonButton: FC<Pick<Props, 'size' | 'className'>> = ({ className, size }) => {
-	return (
-		<div id={'skeleton'} className={classNames(styles.skeleton, `button_${size}`, className)} />
 	);
 };
