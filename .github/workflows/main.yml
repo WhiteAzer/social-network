@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 16
       - name: install
-        run: npm ci
+        run: npm i
       - name: testing
         run: npm run test:unit
       - name: linting
