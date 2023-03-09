@@ -1,41 +1,26 @@
-import styles from './AuthorizationForm.module.scss';
-import { FC, FormEvent, useCallback, useEffect } from 'react';
-import { useFormFields } from './hooks/useFormFields';
-import { login } from '@store/user/thunks';
-import { useAppDispatch } from '@store/hooks/useAppDispatch';
-import { PasswordInput } from '@features/authorization/components/PasswordInput/PasswordInput';
+import styles from './LoginForm.module.scss';
+import { FC, FormEvent, useCallback } from 'react';
 import classNames from 'classnames';
-import { validateEmail } from './helpers/validateEmail';
-import { validatePassword } from './helpers/validatePassword';
-import { ValidationError } from '@features/authorization/components/ValidationError/ValidationError';
-import { useAppSelector } from '@store/hooks/useAppSelector';
-import { authorizedUserSelector } from '@store/user/selectors';
-import { useNavigate } from 'react-router-dom';
-import { routes } from '@data/constants';
-import { splitRoute } from '@/utils';
-import { PropsWithClass } from '@/types';
 import { Button, Input, Panel } from '@/components';
+import {
+	Password,
+	useFormFields,
+	validateEmail,
+	validatePassword,
+	ValidationError,
+} from '@features/authorization';
+import { PropsWithClass } from '@/types/runtime-types';
 
 type Props = PropsWithClass;
 
-export const AuthorizationForm: FC<Props> = ({ className }) => {
+export const LoginForm: FC<Props> = ({ className }) => {
 	const { email, password, isDataValid } = useFormFields();
-	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
-	const { status, user } = useAppSelector(authorizedUserSelector);
-
-	useEffect(() => {
-		if (status === 'succeed') {
-			navigate('/' + splitRoute(routes.home)[0] + '/' + user.id);
-		}
-	}, [status]);
 
 	const handleSubmit = useCallback(
 		(e: FormEvent) => {
 			e.preventDefault();
 
 			if (validateEmail(email.value) && validatePassword(password.value)) {
-				dispatch(login({ email: email.value, password: password.value }));
 				!isDataValid.value && isDataValid.setValue(true);
 				console.log({ email: email.value, password: password.value });
 			} else {
@@ -60,7 +45,7 @@ export const AuthorizationForm: FC<Props> = ({ className }) => {
 					<label className={styles.label} htmlFor={'password_field'}>
 						Password
 					</label>
-					<PasswordInput
+					<Password
 						className={styles.input}
 						size={'size-l'}
 						id={'password_field'}

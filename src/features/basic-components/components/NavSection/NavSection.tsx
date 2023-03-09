@@ -6,11 +6,11 @@ import {
 	Icon28PictureOutline as IconPhotos,
 	Icon28SettingsOutline as IconSettings,
 } from '@vkontakte/icons';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { routes } from '@data/constants';
+import { useLocation } from 'react-router-dom';
 import { splitRoute } from '@/utils';
 import { Panel } from '@/components';
 import { NavItem } from '@features/basic-components';
+import { routes } from '@data/constants';
 
 const icons: Array<{ icon: FC<SVGProps<SVGSVGElement>>; route: string }> = [
 	{
@@ -32,10 +32,7 @@ const icons: Array<{ icon: FC<SVGProps<SVGSVGElement>>; route: string }> = [
 ];
 
 export const NavSection: FC = () => {
-	const { userID } = useParams();
 	const { pathname } = useLocation();
-	const navigate = useNavigate();
-
 	const path = splitRoute(pathname)[0];
 
 	return (
@@ -43,18 +40,9 @@ export const NavSection: FC = () => {
 			<nav>
 				<ul>
 					{icons.map(({ icon, route }, i) => {
-						const current = splitRoute(route);
-
 						return (
-							<NavItem
-								key={i}
-								Icon={icon}
-								selected={current[0] === path}
-								onClick={() =>
-									navigate('/' + current[0] + (current[1] ? '/' + userID : ''))
-								}
-							>
-								{current[0]}
+							<NavItem key={i} Icon={icon} selected={route === path}>
+								{route}
 							</NavItem>
 						);
 					})}

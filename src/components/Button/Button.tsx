@@ -1,8 +1,8 @@
 import styles from './Button.module.scss';
-import { ButtonHTMLAttributes, FC, useContext } from 'react';
 import classNames from 'classnames';
+import { ButtonHTMLAttributes, FC, useContext } from 'react';
 import { ColorContext } from '@context/ColorContext/ColorProvider';
-import { Color, PropsWithSize } from '@/types';
+import { Color, PropsWithSize } from '@/types/runtime-types';
 
 type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> &
 	PropsWithSize<'size-s' | 'size-m' | 'size-l'> & {

@@ -1,8 +1,6 @@
 import styles from './DefaultLayout.module.scss';
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Main } from '@components/Main/Main';
+import { Main } from '@/components';
 
 export const DefaultLayout = () => {
 	return (
@@ -10,7 +8,6 @@ export const DefaultLayout = () => {
 			<Main>
 				<Outlet />
 			</Main>
-			<ToastContainer autoClose={2000} />
 		</>
 	);
 };

@@ -2,13 +2,14 @@ import styles from './RequestCard.module.scss';
 import classNames from 'classnames';
 import { FC } from 'react';
 import { Icon16Cancel as IconClose } from '@vkontakte/icons';
-import { PartialUser, PropsWithClass } from '@/types';
 import { getFullName } from '@/utils';
 import { Link } from 'react-router-dom';
 import { Avatar, Button, Panel } from '@/components';
+import { PropsWithClass } from '@/types/runtime-types';
+import { IUser } from '@/types/data-types';
 
 type Props = PropsWithClass & {
-	user: PartialUser;
+	user: IUser;
 };
 
 export const RequestCard: FC<Props> = ({ user, className }) => {

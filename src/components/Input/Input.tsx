@@ -1,7 +1,7 @@
 import styles from './Input.module.scss';
 import classNames from 'classnames';
 import { FC, InputHTMLAttributes } from 'react';
-import { PropsWithSize } from '@/types';
+import { PropsWithSize } from '@/types/runtime-types';
 
 type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
 	PropsWithSize<'size-m' | 'size-l'>;

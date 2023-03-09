@@ -19,7 +19,6 @@
             "@hooks/*": ["src/hooks/*"],
             "@utils/*": ["src/utils/*"],
             "@pages/*": ["src/pages/*"],
-            "@types/*": ["src/types/*"],
             "@context/*": ["src/context/*"],
             "@layouts/*": ["src/layouts/*"]
         },

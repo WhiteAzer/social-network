@@ -2,16 +2,17 @@ import styles from './UserStripe.module.scss';
 import classNames from 'classnames';
 import { FC, useContext } from 'react';
 import { Icon24MoreHorizontal as IconMore } from '@vkontakte/icons';
-import { PartialUser, PropsWithClass, PropsWithSize } from '@/types';
 import { ColorContext } from '@context/ColorContext/ColorProvider';
 import { Link } from 'react-router-dom';
 import { getFullName } from '@/utils';
 import { SkeletonAvatar, SkeletonText } from '@features/skeletonui';
 import { Avatar } from '@/components';
+import { PropsWithClass, PropsWithSize } from '@/types/runtime-types';
+import { IUser } from '@/types/data-types';
 
 type Props = PropsWithSize &
 	PropsWithClass & {
-		user: PartialUser;
+		user: IUser;
 		children?: string;
 	};
 

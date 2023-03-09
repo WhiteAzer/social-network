@@ -1,14 +1,15 @@
 import styles from './NotificationCard.module.scss';
 import classNames from 'classnames';
-import { PropsWithClass, UserNotification } from '@/types';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { getFullName, getNotificationText } from '@/utils';
 import { Avatar, Button, Panel } from '@/components';
 import { SkeletonAvatar, SkeletonButton, SkeletonText } from '@features/skeletonui';
+import { PropsWithClass } from '@/types/runtime-types';
+import { IUserNotification } from '@/types/data-types';
 
 type Props = PropsWithClass & {
-	notification: UserNotification;
+	notification: IUserNotification;
 };
 
 export const NotificationCard: FC<Props> = ({ notification: { owner, entry, type } }) => {

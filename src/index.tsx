@@ -1,5 +1,4 @@
 import '@styles/index.scss';
-import 'react-toastify/dist/ReactToastify.css';
 import { createRoot } from 'react-dom/client';
 import { App } from '@/App';
 import { Provider } from 'react-redux';

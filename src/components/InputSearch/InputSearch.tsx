@@ -1,8 +1,8 @@
-import { FC, InputHTMLAttributes, useContext } from 'react';
 import styles from './InputSearch.module.scss';
+import classNames from 'classnames';
+import { FC, InputHTMLAttributes, useContext } from 'react';
 import { Icon16Search as IconSearch } from '@vkontakte/icons';
 import { Input } from '@components/Input/Input';
-import classNames from 'classnames';
 import { ColorContext } from '@context/ColorContext/ColorProvider';
 
 type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>;

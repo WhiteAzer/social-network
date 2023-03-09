@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { PropsWithClass, User } from '@/types';
+import { PropsWithClass } from '@/types/runtime-types';
+import { IUser } from '@/types/data-types';
 
 type Props = PropsWithClass & {
-	user: User;
+	user: IUser;
 };
 
-export const UserBadges: FC<Props> = ({ user, className }) => {
+export const UserBadges: FC<Props> = () => {
 	return <></>;
 };

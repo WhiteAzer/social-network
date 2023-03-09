@@ -1,16 +1,4 @@
-import { toast } from 'react-toastify';
-import { NotificationType } from '@/types';
-import { routes } from '@data/constants';
-
-export function handleError(payload) {
-	if (Array.isArray(payload)) {
-		payload.forEach((errorMessage) => {
-			toast.error(errorMessage);
-		});
-	} else if (typeof payload === 'string') {
-		toast.error(payload);
-	}
-}
+import { TNotificationType } from '@/types/data-types';
 
 export function getShortNumber(number: number): string {
 	let count = 0;
@@ -23,9 +11,9 @@ export function getShortNumber(number: number): string {
 	return Math.trunc(number) + 'K'.repeat(count);
 }
 
-export function getNotificationText(type: NotificationType): string {
+export function getNotificationText(type: TNotificationType): string {
 	// TODO: refactor with RegExp
-	const mapper: Record<NotificationType, string> = {
+	const mapper: Record<TNotificationType, string> = {
 		like: 'liked',
 		repost: 'reposted',
 		comment: 'commented',
@@ -38,13 +26,11 @@ export function getFullName<T extends { firstname: string; lastname: string }>({
 	firstname,
 	lastname,
 }: T): string {
-	return (
-		firstname[0].toUpperCase() +
-		firstname.slice(1).toLowerCase() +
-		' ' +
-		lastname[0].toUpperCase() +
-		lastname.slice(1).toLowerCase()
-	);
+	return capitalize(firstname) + ' ' + capitalize(lastname);
+}
+
+export function capitalize(line: string) {
+	return line[0].toUpperCase() + line.slice(1).toLowerCase();
 }
 
 export function getEmptyArray(length: number) {
@@ -52,10 +38,14 @@ export function getEmptyArray(length: number) {
 }
 
 export function splitRoute(route: string) {
-	const pattern = /[/:]/g;
+	const regexp = /[/:]/g;
 
 	return route
-		.replace(pattern, ' ')
+		.replace(regexp, ' ')
 		.split(' ')
 		.filter((v) => !!v);
+}
+
+export function joinRoutes(...routes: Array<string>) {
+	return '/' + routes.join('/') + '/';
 }

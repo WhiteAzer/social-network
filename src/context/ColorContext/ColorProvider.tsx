@@ -1,5 +1,5 @@
 import { createContext, FC, PropsWithChildren } from 'react';
-import { Theme } from '@/types';
+import { Theme } from '@/types/runtime-types';
 
 interface SVGProperties {
 	color: string;

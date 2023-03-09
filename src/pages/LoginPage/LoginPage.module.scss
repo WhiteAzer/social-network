@@ -1,0 +1,10 @@
+@use '@styles/variables.scss';
+@use '@styles/mixins.scss';
+
+.page {
+  width: calc(100vw - 2 * #{variables.$ui-padding-x});
+  height: calc(100vh - 2 * #{variables.$ui-padding-y});
+
+  @include mixins.flexible(center, center, column);
+  row-gap: variables.$ui-gap-y;
+}

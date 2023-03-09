@@ -1,13 +1,14 @@
 import styles from './UserLabel.module.scss';
 import { FC } from 'react';
-import { PartialUser, PropsWithClass } from '@/types';
 import { Link } from 'react-router-dom';
 import { getFullName } from '@/utils';
 import { Avatar, Panel } from '@/components';
 import { SkeletonAvatar, SkeletonText } from '@features/skeletonui';
+import { PropsWithClass } from '@/types/runtime-types';
+import { IUser } from '@/types/data-types';
 
 type Props = PropsWithClass & {
-	user: PartialUser;
+	user: IUser;
 };
 
 export const UserLabel: FC<Props> = ({ user, className }) => {

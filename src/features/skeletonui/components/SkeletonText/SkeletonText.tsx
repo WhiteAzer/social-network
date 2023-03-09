@@ -1,8 +1,8 @@
 import styles from './SkeletonText.module.scss';
 import { FC } from 'react';
 import classNames from 'classnames';
-import { SkeletonProps } from '@/types';
 import { getEmptyArray } from '@/utils';
+import { SkeletonProps } from '@/types/runtime-types';
 
 type Props = SkeletonProps & {
 	lines: number;

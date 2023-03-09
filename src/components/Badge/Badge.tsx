@@ -1,7 +1,7 @@
 import styles from './Badge.module.scss';
 import { FC } from 'react';
 import classNames from 'classnames';
-import { DefaultProps } from '@/types';
+import { DefaultProps } from '@/types/runtime-types';
 
 type Props = DefaultProps;
 

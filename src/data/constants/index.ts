@@ -1,8 +1,9 @@
 export const routes = {
-	home: '/home/:userID',
-	news: '/news',
-	settings: '/settings',
-	photos: '/photos/:userID',
-	auth: '/auth',
 	root: '/',
+	home: 'home',
+	news: 'news',
+	settings: 'settings',
+	photos: 'photos',
+	login: 'login',
+	signup: 'signup',
 };

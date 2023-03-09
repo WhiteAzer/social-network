@@ -1,11 +1,12 @@
 import styles from './Avatar.module.scss';
 import { FC } from 'react';
 import classNames from 'classnames';
-import { PartialUser, PropsWithClass, PropsWithSize } from '@/types';
+import { PropsWithClass, PropsWithSize } from '@/types/runtime-types';
+import { IUser } from '@/types/data-types';
 
 type Props = PropsWithSize &
 	PropsWithClass & {
-		user?: PartialUser;
+		user?: IUser;
 	};
 
 export const Avatar: FC<Props> = ({ size, className }) => {

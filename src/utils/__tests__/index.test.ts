@@ -1,4 +1,4 @@
-import { getShortNumber } from '@/utils';
+import { getShortNumber, joinRoutes } from '../index';
 
 describe('Utils:', () => {
 	test(getShortNumber.name, () => {
@@ -9,5 +9,10 @@ describe('Utils:', () => {
 		expect(getShortNumber(12345)).toBe('12K');
 		expect(getShortNumber(123457)).toBe('123K');
 		expect(getShortNumber(1234567)).toBe('1KK');
+	});
+
+	test(joinRoutes.name, () => {
+		expect(joinRoutes('news', 'user', 'latest')).toBe('/news/user/latest/');
+		expect(joinRoutes('news')).toBe('/news/');
 	});
 });
