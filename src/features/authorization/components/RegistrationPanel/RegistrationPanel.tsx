@@ -1,19 +1,18 @@
-import { Panel } from '@components/Panel/Panel';
-import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './RegistrationPanel.module.scss';
 import classNames from 'classnames';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
+import { PropsWithClass } from '@/types';
+import { Panel } from '@/components';
 
-interface IRegistrationPanel {
-	className?: string;
-}
+type Props = PropsWithClass;
 
-export const RegistrationPanel: FC<IRegistrationPanel> = ({ className }) => {
+export const RegistrationPanel: FC<Props> = ({ className }) => {
 	return (
 		<Panel className={classNames(styles.wrapper, className)}>
-			<p>
-				New to SN? <Link to={'/signup'}>Create an account.</Link>{' '}
-			</p>
+			<span>
+				New to SN? <Link to={'/signup'}>Create an account.</Link>
+			</span>
 		</Panel>
 	);
 };

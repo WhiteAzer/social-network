@@ -53,23 +53,50 @@ export interface UserEntries {
 	photos: ID[];
 }
 
+export interface Avatar {
+	id: ID;
+	path: string;
+}
+
 export interface User {
 	id: ID;
 	firstname: string;
 	lastname: string;
 	username: string;
-	email: string;
 	gender: Gender;
 	avatar: ID;
-	location: Location;
-	roles: [Role];
 	entries: UserEntries;
 	likes: UserEntries;
 	friends: ID[];
 	following: ID[];
 	followers: Follower[];
-	info: UserInfo;
 	notifications: Array<UserNotification>;
+}
+
+export interface UserInfo {
+	links: UserLinks;
+	education: string;
+	status: string;
+	phone: string;
+	birthday: string;
+	location: Location;
+}
+
+export interface UserLinks {
+	instagram: string;
+	twitter: string;
+	facebook: string;
+	site: string;
+}
+
+export type UserNotification = Notification & {
+	type: NotificationType;
+	entry: Pick<Entry, 'type' | 'id'>;
+};
+
+export interface UserCredentials {
+	email: string;
+	password: string;
 }
 
 export type Follower = {
@@ -105,27 +132,6 @@ export type Photo = Entry & {
 	path: string;
 };
 
-export interface UserInfo {
-	links: UserLinks;
-	education: string;
-	status: string;
-	phone: string;
-	birthday: string;
-	location: Location;
-}
-
-export interface UserLinks {
-	instagram: string;
-	twitter: string;
-	facebook: string;
-	site: string;
-}
-
-export interface Credentials {
-	email: string;
-	password: string;
-}
-
 export type Notification = {
 	id: ID;
 	receiver: ID;
@@ -135,8 +141,3 @@ export type Notification = {
 };
 
 export type NotificationType = 'like' | 'repost' | 'comment';
-
-export type UserNotification = Notification & {
-	type: NotificationType;
-	entry: Pick<Entry, 'type' | 'id'>;
-};

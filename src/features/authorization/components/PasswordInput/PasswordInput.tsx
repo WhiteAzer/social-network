@@ -1,27 +1,18 @@
-import React, { BaseSyntheticEvent, FC, useCallback, useState } from 'react';
 import styles from './PasswordInput.module.scss';
+import { ChangeEventHandler, FC } from 'react';
 import classNames from 'classnames';
-import { Input } from '@components/Input/Input';
-import { Icon12EyeSlashOutline as PasswordIcon } from '@vkontakte/icons';
+import { Icon12EyeSlashOutline as IconEye } from '@vkontakte/icons';
 import { usePasswordView } from '@features/authorization/components/PasswordInput/hooks/usePasswordView';
-import { PropsWithSize } from '@/types';
+import { PropsWithClass, PropsWithSize } from '@/types';
+import { Input } from '@/components';
 
-interface IPasswordInputProps {
+type Props = PropsWithClass<PropsWithSize<'size-m' | 'size-l'>> & {
 	value: string;
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onChange: ChangeEventHandler<HTMLInputElement>;
 	id: string;
-	size: 'size-m' | 'size-l';
-	className: string;
-}
+};
 
-const iconSize = 16;
-export const PasswordInput: FC<IPasswordInputProps> = ({
-	value,
-	onChange,
-	id,
-	size,
-	className,
-}) => {
+export const PasswordInput: FC<Props> = ({ value, onChange, id, size, className }) => {
 	const { isPasswordShowed, toggleIsPasswordView } = usePasswordView();
 
 	return (
@@ -40,7 +31,7 @@ export const PasswordInput: FC<IPasswordInputProps> = ({
 				onMouseDown={toggleIsPasswordView}
 				onMouseUp={toggleIsPasswordView}
 			>
-				<PasswordIcon width={iconSize} height={iconSize} />
+				<IconEye />
 			</div>
 		</div>
 	);

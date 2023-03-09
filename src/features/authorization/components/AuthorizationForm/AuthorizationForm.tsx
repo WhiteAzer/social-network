@@ -1,12 +1,9 @@
-import { Input } from '@components/Input/Input';
-import { Button } from '@components/Button/Button';
-import React, { FC, useCallback, useEffect } from 'react';
+import styles from './AuthorizationForm.module.scss';
+import { FC, FormEvent, useCallback, useEffect } from 'react';
 import { useFormFields } from './hooks/useFormFields';
 import { login } from '@store/user/thunks';
-import styles from './AuthorizationForm.module.scss';
 import { useAppDispatch } from '@store/hooks/useAppDispatch';
 import { PasswordInput } from '@features/authorization/components/PasswordInput/PasswordInput';
-import { Panel } from '@components/Panel/Panel';
 import classNames from 'classnames';
 import { validateEmail } from './helpers/validateEmail';
 import { validatePassword } from './helpers/validatePassword';
@@ -17,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { routes } from '@data/constants';
 import { splitRoute } from '@/utils';
 import { PropsWithClass } from '@/types';
+import { Button, Input, Panel } from '@/components';
 
 type Props = PropsWithClass;
 
@@ -33,7 +31,7 @@ export const AuthorizationForm: FC<Props> = ({ className }) => {
 	}, [status]);
 
 	const handleSubmit = useCallback(
-		(e: React.FormEvent) => {
+		(e: FormEvent) => {
 			e.preventDefault();
 
 			if (validateEmail(email.value) && validatePassword(password.value)) {
@@ -47,11 +45,11 @@ export const AuthorizationForm: FC<Props> = ({ className }) => {
 		[email.value, password.value]
 	);
 
-	const closeErrPanel = useCallback(() => isDataValid.setValue(true), []);
+	const onErrorClose = useCallback(() => isDataValid.setValue(true), []);
 
 	return (
 		<>
-			{!isDataValid.value && <ValidationError closePanel={closeErrPanel} />}
+			{!isDataValid.value && <ValidationError onClose={onErrorClose} />}
 			<Panel className={classNames(styles.wrapper, className)}>
 				<form onSubmit={handleSubmit}>
 					<label className={styles.label} htmlFor={'login_field'}>
