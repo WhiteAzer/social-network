@@ -27,10 +27,10 @@ export const LoginForm: FC<Props> = ({ className }) => {
 				isDataValid.value && isDataValid.setValue(false);
 			}
 		},
-		[email.value, password.value]
+		[email.value, password.value, isDataValid]
 	);
 
-	const onErrorClose = useCallback(() => isDataValid.setValue(true), []);
+	const onErrorClose = useCallback(() => isDataValid.setValue(true), [isDataValid]);
 
 	return (
 		<>
