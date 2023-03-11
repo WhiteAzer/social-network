@@ -1,18 +1,31 @@
 import styles from './PageLayout.module.scss';
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavSection, SkeletonUserLabel } from '@features/basic-components';
+import { NavSection, SkeletonUserLabel, UserLabel } from '@features/basic-components';
 import { Header, Main } from '@/components';
+import { useAppSelector } from '@store/hooks/useAppSelector';
+import { authorizedUserSelector } from '@store/slices/userSlice/selectors';
+import { useAppDispatch } from '@store/hooks/useAppDispatch';
+import { fetchOnReload } from '@store/slices/userSlice/thunks';
 
 export const PageLayout: FC = () => {
+	const { status, user } = useAppSelector(authorizedUserSelector);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		if (status === 'idle') {
+			dispatch(fetchOnReload());
+		}
+	}, [status]);
+
 	return (
 		<>
 			<div className={'container'}>
 				<Header />
 				<Main>
 					<div className={classNames(styles.section, styles.left)}>
-						<SkeletonUserLabel />
+						{status === 'succeed' ? <UserLabel user={user} /> : <SkeletonUserLabel />}
 						<NavSection />
 					</div>
 					<div className={classNames(styles.section, styles.middle)}>

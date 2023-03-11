@@ -18,16 +18,7 @@ export interface IContent {
 	images: TID[];
 }
 
-export interface IUserEntries {
-	posts: TID[];
-	comments: TID[];
-	photos: TID[];
-}
-
-export interface IAvatar {
-	id: TID;
-	path: string;
-}
+export type TAvatar = Pick<IPhoto, 'path' | 'id'>;
 
 export interface IUser {
 	id: TID;
@@ -35,14 +26,8 @@ export interface IUser {
 	lastname: string;
 	username: string;
 	gender: TGender;
-	avatar: TID;
-	entries: IUserEntries;
-	likes: IUserEntries;
+	avatar: TAvatar;
 	roles: Array<TRole>;
-	friends: TID[];
-	following: TID[];
-	followers: IFollower[];
-	notifications: Array<IUserNotification>;
 }
 
 export interface IUserInfo {
@@ -73,12 +58,12 @@ export interface IUserCredentials {
 
 export interface IFollower {
 	isViewed: boolean;
-	id: TID;
+	follower: IUser;
 }
 
 export interface IEntry {
 	id: TID;
-	author: TID;
+	author: IUser;
 	likes: number;
 	comments: Array<IComment>;
 	createdAt: string;
@@ -92,7 +77,7 @@ export interface IPost extends IEntry {
 
 export interface IComment extends IEntry {
 	source: TID;
-	reply: TID;
+	reply: TID | null;
 	content: IContent;
 }
 

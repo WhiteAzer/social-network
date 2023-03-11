@@ -1,7 +1,13 @@
 import { CSSProperties, PropsWithChildren } from 'react';
+import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
+import { RootState } from '@/store';
+
+export type DefaultThunkAction = ThunkAction<void, RootState, unknown, AnyAction>;
+
+export type AsyncStatus = 'idle' | 'failed' | 'loading' | 'succeed';
 
 export type AsyncState = {
-	status: 'idle' | 'failed' | 'loading' | 'succeed';
+	status: AsyncStatus;
 	error: string | null;
 };
 
