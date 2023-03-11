@@ -6,9 +6,14 @@ import { IUser } from '@/types/data-types';
 
 type Props = PropsWithSize &
 	PropsWithClass & {
-		user?: IUser;
+		user: IUser;
 	};
 
-export const Avatar: FC<Props> = ({ size, className }) => {
-	return <div className={classNames(styles.avatar, `avatar_${size}`, className)} />;
+export const Avatar: FC<Props> = ({ size, className, user }) => {
+	return (
+		<img
+			src={user.avatar.path}
+			className={classNames(styles.avatar, `avatar_${size}`, className)}
+		/>
+	);
 };

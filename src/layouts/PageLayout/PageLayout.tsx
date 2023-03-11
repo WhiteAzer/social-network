@@ -7,7 +7,7 @@ import { Header, Main } from '@/components';
 import { useAppSelector } from '@store/hooks/useAppSelector';
 import { authorizedUserSelector } from '@store/slices/userSlice/selectors';
 import { useAppDispatch } from '@store/hooks/useAppDispatch';
-import { fetchOnReload } from '@store/slices/userSlice/thunks';
+import { fetchUserAfterReload } from '@store/slices/userSlice/thunks';
 
 export const PageLayout: FC = () => {
 	const { status, user } = useAppSelector(authorizedUserSelector);
@@ -15,7 +15,7 @@ export const PageLayout: FC = () => {
 
 	useEffect(() => {
 		if (status === 'idle') {
-			dispatch(fetchOnReload());
+			dispatch(fetchUserAfterReload());
 		}
 	}, [status]);
 

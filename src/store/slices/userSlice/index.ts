@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AsyncState, AsyncStatus } from '@/types/runtime-types';
 import { IUser, IUserInfo } from '@/types/data-types';
+import { fetchInfo, fetchUser, fetchUserAfterReload, login } from '@store/slices/userSlice/thunks';
 
 type FetchedData<D> = AsyncState & {
-	data: D;
+	data: D | null;
 };
 
 type State = {
 	authorized: AsyncState & {
 		user: IUser | null;
-		extra: null;
 	};
-	current: AsyncState & {
-		user: IUser | null;
-		info: IUserInfo | null;
+	current: {
+		user: FetchedData<IUser>;
+		info: FetchedData<IUserInfo>;
 	};
 };
 
@@ -22,52 +22,70 @@ const initialState: State = {
 		user: null,
 		error: null,
 		status: 'idle',
-		extra: null,
 	},
 	current: {
 		user: null,
 		info: null,
-		status: 'idle',
-		error: null,
 	},
 };
 
 const userSlice = createSlice({
 	name: 'user',
 	initialState,
-	reducers: {
-		loadUser: {
-			reducer: (state, action: PayloadAction<{ slice: keyof State; user: IUser }>) => {
-				state[action.payload.slice].user = action.payload.user;
-			},
-			prepare: (slice: keyof State, { user: data }: any) => {
-				return {
-					payload: {
-						slice,
-						user: {
-							id: data.id,
-							firstname: data.firstname,
-							lastname: data.lastname,
-							avatar: data.avatar,
-							gender: data.gender,
-							username: data.username,
-							roles: data.roles,
-						} as IUser,
-					},
-				};
-			},
-		},
-		setStatus: (
-			state,
-			{ payload }: PayloadAction<{ slice: keyof State; status: AsyncStatus }>
-		) => {
-			state[payload.slice].status = payload.status;
-		},
-		setError: (state, { payload }: PayloadAction<{ slice: keyof State; error: string }>) => {
-			state[payload.slice].error = payload.error;
-		},
+	reducers: {},
+	extraReducers: (builder) => {
+		builder
+			.addCase(login.rejected, (state, action) => {
+				state.authorized.status = 'failed';
+				state.authorized.error = action.error?.message || String(action.error);
+			})
+			.addCase(login.pending, (state) => {
+				state.authorized.status = 'loading';
+			})
+			.addCase(login.fulfilled, (state, action) => {
+				state.authorized.user = action.payload;
+				state.authorized.status = 'succeed';
+			});
+
+		builder
+			.addCase(fetchUserAfterReload.rejected, (state, action) => {
+				state.authorized.status = 'failed';
+				state.authorized.error = action.error?.message || String(action.error);
+			})
+			.addCase(fetchUserAfterReload.pending, (state) => {
+				state.authorized.status = 'loading';
+			})
+			.addCase(fetchUserAfterReload.fulfilled, (state, action) => {
+				state.authorized.user = action.payload;
+				state.authorized.status = 'succeed';
+			});
+
+		builder
+			.addCase(fetchUser.rejected, (state, action) => {
+				state.current.user.status = 'failed';
+				state.current.user.error = action.error?.message || String(action.error);
+			})
+			.addCase(fetchUser.pending, (state) => {
+				state.current.user.status = 'loading';
+			})
+			.addCase(fetchUser.fulfilled, (state, action) => {
+				state.current.user.status = 'succeed';
+				state.current.user.data = action.payload;
+			});
+
+		builder
+			.addCase(fetchInfo.rejected, (state, action) => {
+				state.current.info.status = 'failed';
+				state.current.info.error = action.error?.message || String(action.error);
+			})
+			.addCase(fetchInfo.pending, (state) => {
+				state.current.info.status = 'loading';
+			})
+			.addCase(fetchInfo.fulfilled, (state, action) => {
+				state.current.info.status = 'succeed';
+				state.current.info.data = action.payload;
+			});
 	},
 });
 
-export const { loadUser, setStatus, setError } = userSlice.actions;
 export default userSlice.reducer;

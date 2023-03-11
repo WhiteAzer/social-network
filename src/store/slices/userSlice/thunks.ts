@@ -1,38 +1,49 @@
-import { IUserCredentials } from '@/types/data-types';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '@/axios';
-import { loadUser, setError, setStatus } from '@store/slices/userSlice/index';
-import { DefaultThunkAction } from '@/types/runtime-types';
+import { IUser, IUserCredentials, IUserInfo } from '@/types/data-types';
+import { extractInfo, extractUser } from '@store/utils';
+import { RootState } from '@/store';
+import { info as datainfo, user as datauser } from '@/data';
 
-export const login = (credentials: IUserCredentials): DefaultThunkAction => {
-	return async (dispatch, getState) => {
-		dispatch(setStatus({ slice: 'authorized', status: 'loading' }));
-		try {
-			const response = await api('/auth/login', {
-				method: 'POST',
-				data: credentials,
-			});
-			dispatch(loadUser('authorized', response.data));
-			dispatch(setStatus({ slice: 'authorized', status: 'succeed' }));
-		} catch (error: any) {
-			dispatch(setStatus({ slice: 'authorized', status: 'failed' }));
-			dispatch(setError({ slice: 'authorized', error: error.message || String(error) }));
-		}
-	};
-};
+export const login = createAsyncThunk('user/login', async (credentials: IUserCredentials) => {
+	const user = await api('/auth/login', {
+		method: 'POST',
+		data: credentials,
+	}).then(extractUser);
 
-export const fetchOnReload = (): DefaultThunkAction => {
-	return async (dispatch, getState) => {
-		dispatch(setStatus({ slice: 'authorized', status: 'loading' }));
-		try {
-			const response = await api('/auth/loginJWT', {
-				method: 'POST',
-			});
+	return datauser;
+});
 
-			dispatch(loadUser('authorized', response.data));
-			dispatch(setStatus({ slice: 'authorized', status: 'succeed' }));
-		} catch (error: any) {
-			dispatch(setStatus({ slice: 'authorized', status: 'failed' }));
-			dispatch(setError({ slice: 'authorized', error: error.message || String(error) }));
-		}
-	};
-};
+export const fetchUserAfterReload = createAsyncThunk('user/fetchUserAfterReload', async () => {
+	const user = await api('/auth/loginJWT', {
+		method: 'POST',
+	}).then(extractUser);
+
+	return datauser;
+});
+
+export const fetchUser = createAsyncThunk(
+	'user/fetchUser',
+	async (id: string, { getState }): Promise<IUser> => {
+		const authorized = (getState() as RootState).user.authorized.user;
+
+		if (id === authorized.id) return authorized;
+
+		const user = await api(`/user/${id}`, {
+			method: 'GET',
+		}).then(extractUser);
+
+		return datauser;
+	}
+);
+
+export const fetchInfo = createAsyncThunk(
+	'user/fetchInfo',
+	async (id: string): Promise<IUserInfo> => {
+		const info = await api(`/user/${id}`, {
+			method: 'GET',
+		}).then(extractInfo);
+
+		return datainfo;
+	}
+);

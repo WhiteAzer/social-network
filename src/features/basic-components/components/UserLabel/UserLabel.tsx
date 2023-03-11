@@ -16,7 +16,7 @@ export const UserLabel: FC<Props> = ({ user, className }) => {
 		<Panel className={className}>
 			<div className={styles.label}>
 				<Link to={'/home/' + user.id}>
-					<Avatar size={'size-s'} />
+					<Avatar size={'size-s'} user={user} />
 				</Link>
 				<span>
 					{getFullName(user)}
