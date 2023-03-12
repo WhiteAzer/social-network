@@ -22,7 +22,7 @@ export const UserStripe: FC<Props> = ({ user, className, size, children }) => {
 	return (
 		<div className={classNames(styles.stripe, styles[`stripe_${size}`], className)}>
 			<Link to={user.id}>
-				<Avatar className={styles.avatar} size={size} />
+				<Avatar className={styles.avatar} size={size} user={user} />
 			</Link>
 			<div>
 				<span className={styles.info}>

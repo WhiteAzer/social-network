@@ -1,38 +1,25 @@
-import { FC } from 'react';
 import styles from './Post.module.scss';
 import classNames from 'classnames';
+import { FC, useContext } from 'react';
 import { Panel } from '@/components';
 import { UserStripe } from '@features/basic-components';
-import { getPostAt } from './helpers/getPostAt';
 import { IPost, IUser } from '@/types/data-types';
 import { PropsWithClass } from '@/types/runtime-types';
-import { Icon20Like as LikeIcon } from '@vkontakte/icons';
-import { Icon24Comment as CommentIcon } from '@vkontakte/icons';
-
-const mockUser: IUser = {
-	id: '228',
-	firstname: 'string',
-	lastname: 'string',
-	username: 'string',
-	gender: 'male',
-	avatar: null,
-	entries: null,
-	likes: null,
-	roles: null,
-	friends: null,
-	following: null,
-	followers: null,
-	notifications: null,
-};
+import { Icon20Like as IconLike } from '@vkontakte/icons';
+import { Icon24Comment as IconComment } from '@vkontakte/icons';
+import { ColorContext } from '@context/ColorContext/ColorProvider';
+import { getPostAt } from '@features/basic-components/utils';
 
 type Props = PropsWithClass & {
 	post: IPost;
 };
 
 export const Post: FC<Props> = ({ post, className }) => {
+	const { svg } = useContext(ColorContext);
+
 	return (
-		<Panel>
-			<UserStripe size={'size-s'} user={mockUser} className={styles.userStripe}>
+		<Panel className={className}>
+			<UserStripe size={'size-s'} user={post.author} className={styles.userStripe}>
 				{getPostAt(+post.createdAt)}
 			</UserStripe>
 			<div className={styles.text}>{post.content.text}</div>
@@ -45,11 +32,11 @@ export const Post: FC<Props> = ({ post, className }) => {
 			<div className={styles.actionBtns}>
 				<div className={styles.actionBtns_item}>
 					<span>{post.likes}</span>
-					<LikeIcon fill={'#C4CCD6'} />
+					<IconLike fill={'#C4CCD6'} />
 				</div>
 				<div className={styles.actionBtns_item}>
 					<span>{post.comments.length}</span>
-					<CommentIcon fill={'#C4CCD6'} />
+					<IconComment fill={svg.color} />
 				</div>
 			</div>
 		</Panel>

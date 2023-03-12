@@ -43,7 +43,14 @@ export const fetchUser = createAsyncThunk(
 
 export const fetchInfo = createAsyncThunk(
 	'user/fetchInfo',
-	async (id: string): Promise<IUserInfo> => {
+	async (id: string, { getState }): Promise<IUserInfo> => {
+		const current = (getState() as RootState).user.current;
+
+		if (id === current.user.data?.id && current.info.data) {
+			console.log('assign current info');
+			return current.info.data;
+		}
+
 		const info = await api(`/user/${id}`, {
 			method: 'GET',
 		}).then(extractInfo);

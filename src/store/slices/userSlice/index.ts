@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AsyncState, AsyncStatus } from '@/types/runtime-types';
+import { createSlice } from '@reduxjs/toolkit';
+import { AsyncState } from '@/types/runtime-types';
 import { IUser, IUserInfo } from '@/types/data-types';
 import { fetchInfo, fetchUser, fetchUserAfterReload, login } from '@store/slices/userSlice/thunks';
 
