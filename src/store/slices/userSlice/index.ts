@@ -24,8 +24,16 @@ const initialState: State = {
 		status: 'idle',
 	},
 	current: {
-		user: null,
-		info: null,
+		user: {
+			status: 'idle',
+			data: null,
+			error: null,
+		},
+		info: {
+			status: 'idle',
+			data: null,
+			error: null,
+		},
 	},
 };
 

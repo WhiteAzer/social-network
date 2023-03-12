@@ -29,6 +29,13 @@ export function getFullName<T extends { firstname: string; lastname: string }>({
 	return capitalize(firstname) + ' ' + capitalize(lastname);
 }
 
+export function getShortName<T extends { firstname: string; lastname: string }>({
+	firstname,
+	lastname,
+}: T) {
+	return capitalize(firstname[0]) + '. ' + capitalize(lastname);
+}
+
 export function capitalize(line: string) {
 	return line[0].toUpperCase() + line.slice(1).toLowerCase();
 }

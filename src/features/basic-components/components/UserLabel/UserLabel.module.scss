@@ -6,6 +6,9 @@
   column-gap: variables.$ui-gap-x;
 
   & > span{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     line-height: variables.$ui-title-line-height;
     color: var(--ui-color-darkblue);
   }

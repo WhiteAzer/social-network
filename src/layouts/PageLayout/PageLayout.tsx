@@ -1,7 +1,7 @@
 import styles from './PageLayout.module.scss';
 import classNames from 'classnames';
 import { FC, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { NavSection, SkeletonUserLabel, UserLabel } from '@features/basic-components';
 import { Header, Main } from '@/components';
 import { useAppSelector } from '@store/hooks/useAppSelector';
@@ -12,10 +12,13 @@ import { fetchUserAfterReload } from '@store/slices/userSlice/thunks';
 export const PageLayout: FC = () => {
 	const { status, user } = useAppSelector(authorizedUserSelector);
 	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (status === 'idle') {
 			dispatch(fetchUserAfterReload());
+		} else if (status === 'failed') {
+			navigate('/login');
 		}
 	}, [status]);
 

@@ -1,7 +1,7 @@
 import styles from './UserLabel.module.scss';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { getFullName } from '@/utils';
+import { getFullName, getShortName } from '@/utils';
 import { Avatar, Panel } from '@/components';
 import { SkeletonAvatar, SkeletonText } from '@features/skeletonui';
 import { PropsWithClass } from '@/types/runtime-types';
@@ -19,7 +19,7 @@ export const UserLabel: FC<Props> = ({ user, className }) => {
 					<Avatar size={'size-s'} user={user} />
 				</Link>
 				<span>
-					{getFullName(user)}
+					{getShortName(user)}
 					<br />
 					<span className={styles.username}>{user.username}</span>
 				</span>

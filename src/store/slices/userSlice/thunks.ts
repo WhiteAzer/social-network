@@ -3,7 +3,6 @@ import { api } from '@/axios';
 import { IUser, IUserCredentials, IUserInfo } from '@/types/data-types';
 import { extractInfo, extractUser } from '@store/utils';
 import { RootState } from '@/store';
-import { info as datainfo, user as datauser } from '@/data';
 
 export const login = createAsyncThunk('user/login', async (credentials: IUserCredentials) => {
 	const user = await api('/auth/login', {
@@ -11,7 +10,7 @@ export const login = createAsyncThunk('user/login', async (credentials: IUserCre
 		data: credentials,
 	}).then(extractUser);
 
-	return datauser;
+	return user;
 });
 
 export const fetchUserAfterReload = createAsyncThunk('user/fetchUserAfterReload', async () => {
@@ -19,7 +18,7 @@ export const fetchUserAfterReload = createAsyncThunk('user/fetchUserAfterReload'
 		method: 'POST',
 	}).then(extractUser);
 
-	return datauser;
+	return user;
 });
 
 export const fetchUser = createAsyncThunk(
@@ -27,13 +26,18 @@ export const fetchUser = createAsyncThunk(
 	async (id: string, { getState }): Promise<IUser> => {
 		const authorized = (getState() as RootState).user.authorized.user;
 
-		if (id === authorized.id) return authorized;
+		if (id === authorized.id) {
+			console.log('assign authed user');
+			return authorized;
+		}
 
 		const user = await api(`/user/${id}`, {
 			method: 'GET',
 		}).then(extractUser);
 
-		return datauser;
+		console.log('assign fetched user');
+
+		return user;
 	}
 );
 
@@ -44,6 +48,6 @@ export const fetchInfo = createAsyncThunk(
 			method: 'GET',
 		}).then(extractInfo);
 
-		return datainfo;
+		return info;
 	}
 );
