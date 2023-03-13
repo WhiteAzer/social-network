@@ -4,6 +4,16 @@
 .info{
     @include mixins.flexible(flex-start, center, column);
     flex-grow: 1;
+    padding: 0 variables.$ui-padding-x;
+}
+
+.info, .badges{
+    row-gap: 5px;
+}
+
+.badges{
+    @include mixins.flexible(space-between, center, row);
+    flex-wrap: wrap;
 }
 
 .name{

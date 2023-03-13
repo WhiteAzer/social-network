@@ -2,11 +2,12 @@
 @use '@styles/variables.scss';
 
 .badge{
-    @include mixins.flexible(flex-start, center, row);
+    @include mixins.flexible(center, center, row);
     column-gap: 5px;
     padding: 5px 10px;
     color: var(--ui-color-grey-6);
     background: var(--ui-color-grey-3);
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.5);
     border-radius: variables.$ui-border-radius;
+    font-weight: 500;
 }

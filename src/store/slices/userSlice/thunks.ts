@@ -31,13 +31,9 @@ export const fetchUser = createAsyncThunk(
 			return authorized;
 		}
 
-		const user = await api(`/user/${id}`, {
+		return await api(`/user/${id}`, {
 			method: 'GET',
 		}).then(extractUser);
-
-		console.log('assign fetched user');
-
-		return user;
 	}
 );
 
@@ -51,10 +47,8 @@ export const fetchInfo = createAsyncThunk(
 			return current.info.data;
 		}
 
-		const info = await api(`/user/${id}`, {
+		return await api(`/user/${id}`, {
 			method: 'GET',
 		}).then(extractInfo);
-
-		return info;
 	}
 );

@@ -56,3 +56,10 @@ export function splitRoute(route: string) {
 export function joinRoutes(...routes: Array<string>) {
 	return '/' + routes.join('/') + '/';
 }
+
+export function getShortLocation<T extends { city: string; country: string }>({
+	city,
+	country,
+}: T) {
+	return country + ', ' + city;
+}

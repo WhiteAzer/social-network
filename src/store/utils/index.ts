@@ -15,11 +15,11 @@ export const extractUser = ({ data }: AxiosResponse): IUser => {
 
 export const extractInfo = ({ data }: AxiosResponse): IUserInfo => {
 	return {
-		links: data.user.links,
-		status: data.user.status,
-		location: data.user.location,
-		birthday: data.user.birthday,
-		phone: data.user.phone,
-		education: data.user.education,
+		links: data.user.info.links,
+		status: data.user.info.status,
+		location: data.user.info.location,
+		birthday: data.user.info.birthday,
+		phone: data.user.info.phone,
+		education: data.user.info.education,
 	};
 };

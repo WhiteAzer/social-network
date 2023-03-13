@@ -35,7 +35,7 @@ export const UserCard: FC<Props> = ({ className }) => {
 	return (
 		<Panel className={classNames(styles.card, className)}>
 			{current.user.status === 'succeed' ? (
-				<Avatar size={'size-l'} user={current.user.data} />
+				<Avatar size={'size-l'} path={current.user.data.avatar.path} />
 			) : (
 				<SkeletonAvatar size={'size-l'} />
 			)}
