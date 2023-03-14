@@ -16,7 +16,9 @@ export const App: FC = () => {
 					<Route path='photos' element={<PhotosPage />} />
 					<Route path='photos/:userID' element={<PhotosPage />} />
 					<Route path='settings' element={<SettingsPage />} />
+				</Route>
 
+				<Route element={<DefaultLayout />}>
 					<Route path={'auth/login'} element={<LoginPage />} />
 					<Route path={'auth/signup'} element={<h1>Hello its sign up page!</h1>} />
 				</Route>

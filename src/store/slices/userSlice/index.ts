@@ -6,6 +6,7 @@ import {
 	fetchUser,
 	loginByCookies,
 	loginByCredentials,
+	logout,
 } from '@store/slices/userSlice/thunks';
 
 type FetchedData<D> = AsyncState & {
@@ -71,6 +72,19 @@ const userSlice = createSlice({
 			.addCase(loginByCookies.fulfilled, (state, action) => {
 				state.authorized.user = action.payload;
 				state.authorized.status = 'succeed';
+			});
+
+		builder
+			.addCase(logout.rejected, (state, action) => {
+				state.authorized.status = 'failed';
+				state.authorized.error = action.error?.message || String(action.error);
+			})
+			.addCase(logout.pending, (state) => {
+				state.authorized.status = 'loading';
+			})
+			.addCase(logout.fulfilled, (state) => {
+				state.authorized.user = null;
+				state.authorized.status = 'idle';
 			});
 
 		builder
