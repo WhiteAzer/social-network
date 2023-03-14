@@ -67,8 +67,13 @@ export const LoginForm: FC<Props> = ({ className }) => {
 						{...password}
 					/>
 
-					<Button size={'size-l'} color={'primary'} type={'submit'}>
-						Login
+					<Button
+						disabled={status === 'loading'}
+						size={'size-l'}
+						color={'primary'}
+						type={'submit'}
+					>
+						{status === 'loading' ? 'Loading...' : 'Login'}
 					</Button>
 				</form>
 			</Panel>
