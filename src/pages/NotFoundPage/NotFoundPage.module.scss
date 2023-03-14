@@ -1,17 +1,23 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
-.page{
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    color: var(--ui-color-primary-light);
-    @include mixins.flexible();
+.page {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	color: var(--ui-color-primary-light);
+	@include mixins.flexible();
 
-    & h1{
-        text-align: center;
-        padding: variables.$ui-padding-y variables.$ui-padding-x;
-    }
+	.wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	& h1 {
+		text-align: center;
+		padding: variables.$ui-padding-y variables.$ui-padding-x;
+	}
 }
