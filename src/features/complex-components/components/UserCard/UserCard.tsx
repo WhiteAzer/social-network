@@ -28,7 +28,7 @@ export const UserCard: FC<Props> = ({ className }) => {
 			dispatch(fetchUser(params.userID || authorized.user.id));
 			dispatch(fetchInfo(params.userID || authorized.user.id));
 		} else if (authorized.status === 'failed') {
-			navigate('/login');
+			navigate('/auth/login');
 		}
 	}, [params, authorized]);
 

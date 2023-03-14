@@ -6,19 +6,14 @@ import { NavSection, SkeletonUserLabel, UserLabel } from '@features/basic-compon
 import { Header, Main } from '@/components';
 import { useAppSelector } from '@store/hooks/useAppSelector';
 import { authorizedUserSelector } from '@store/slices/userSlice/selectors';
-import { useAppDispatch } from '@store/hooks/useAppDispatch';
-import { loginByCookies } from '@store/slices/userSlice/thunks';
 
 export const PageLayout: FC = () => {
 	const { status, user } = useAppSelector(authorizedUserSelector);
-	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (status === 'idle') {
-			dispatch(loginByCookies());
-		} else if (status === 'failed') {
-			navigate('/login');
+		if (status === 'failed') {
+			navigate('/auth/login');
 		}
 	}, [status]);
 
