@@ -2,11 +2,11 @@
 @use '@styles/mixins.scss';
 
 .header {
-  @include mixins.flexible(space-between, center, row);
-  background: var(--ui-color-secondary-light);
-  border-radius: variables.$ui-border-radius variables.$ui-border-radius 0 0;
-  padding: variables.$ui-padding-y variables.$ui-padding-x;
-  border-bottom: 1px solid var(--ui-color-grey-3);
+	@include mixins.flexible(flex-end, center, row);
+	background: var(--ui-color-secondary-light);
+	border-radius: variables.$ui-border-radius variables.$ui-border-radius 0 0;
+	padding: variables.$ui-padding-y variables.$ui-padding-x;
+	border-bottom: 1px solid var(--ui-color-grey-3);
 }
 
 .logo {
