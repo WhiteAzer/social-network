@@ -59,6 +59,7 @@ const userSlice = createSlice({
 			.addCase(loginByCredentials.fulfilled, (state, action) => {
 				state.authorized.user = action.payload;
 				state.authorized.status = 'succeed';
+				localStorage.setItem('authorized', '1');
 			});
 
 		builder
@@ -72,6 +73,7 @@ const userSlice = createSlice({
 			.addCase(loginByCookies.fulfilled, (state, action) => {
 				state.authorized.user = action.payload;
 				state.authorized.status = 'succeed';
+				localStorage.setItem('authorized', '1');
 			});
 
 		builder
@@ -85,6 +87,7 @@ const userSlice = createSlice({
 			.addCase(logout.fulfilled, (state) => {
 				state.authorized.user = null;
 				state.authorized.status = 'idle';
+				localStorage.removeItem('authorized');
 			});
 
 		builder

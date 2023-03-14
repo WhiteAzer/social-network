@@ -1,7 +1,7 @@
 import styles from './PageLayout.module.scss';
 import classNames from 'classnames';
-import { FC, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 import { NavSection, SkeletonUserLabel, UserLabel } from '@features/basic-components';
 import { Header, Main } from '@/components';
 import { useAppSelector } from '@store/hooks/useAppSelector';
@@ -9,13 +9,6 @@ import { authorizedUserSelector } from '@store/slices/userSlice/selectors';
 
 export const PageLayout: FC = () => {
 	const { status, user } = useAppSelector(authorizedUserSelector);
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		if (status === 'failed') {
-			navigate('/auth/login');
-		}
-	}, [status]);
 
 	return (
 		<>

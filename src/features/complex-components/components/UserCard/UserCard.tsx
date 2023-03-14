@@ -6,7 +6,7 @@ import { Avatar, Panel } from '@/components';
 import { useAppSelector } from '@store/hooks/useAppSelector';
 import { authorizedUserSelector, currentUserSelector } from '@store/slices/userSlice/selectors';
 import { SkeletonAvatar } from '@features/skeletonui';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useAppDispatch } from '@store/hooks/useAppDispatch';
 import { fetchInfo, fetchUser } from '@store/slices/userSlice/thunks';
 import {
@@ -20,22 +20,19 @@ export const UserCard: FC<Props> = ({ className }) => {
 	const current = useAppSelector(currentUserSelector);
 	const authorized = useAppSelector(authorizedUserSelector);
 	const params = useParams();
-	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		if (authorized.status === 'succeed') {
 			dispatch(fetchUser(params.userID || authorized.user.id));
 			dispatch(fetchInfo(params.userID || authorized.user.id));
-		} else if (authorized.status === 'failed') {
-			navigate('/auth/login');
 		}
 	}, [params, authorized]);
 
 	return (
 		<Panel className={classNames(styles.card, className)}>
 			{current.user.status === 'succeed' ? (
-				<Avatar size={'size-l'} path={current.user.data.avatar.path} />
+				<Avatar size={'size-l'} src={current.user.data.avatar.path} />
 			) : (
 				<SkeletonAvatar size={'size-l'} />
 			)}

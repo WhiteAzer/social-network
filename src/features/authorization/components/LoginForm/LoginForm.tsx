@@ -1,5 +1,5 @@
 import styles from './LoginForm.module.scss';
-import { FC, FormEvent, useCallback, useEffect } from 'react';
+import { FC, FormEvent, useCallback, useEffect, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import { Button, Input, Panel } from '@/components';
 import {
@@ -19,9 +19,9 @@ import { useNavigate } from 'react-router-dom';
 type Props = PropsWithClass;
 
 export const LoginForm: FC<Props> = ({ className }) => {
+	const { status } = useAppSelector(authorizedUserSelector);
 	const { email, password, isDataValid } = useFormFields();
 	const dispatch = useAppDispatch();
-	const { status } = useAppSelector(authorizedUserSelector);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -33,14 +33,13 @@ export const LoginForm: FC<Props> = ({ className }) => {
 	const handleSubmit = useCallback(
 		(e: FormEvent) => {
 			e.preventDefault();
-			dispatch(loginByCredentials({ email: email.value, password: password.value }));
 
-			// if (validateEmail(email.value) && validatePassword(password.value)) {
-			// 	!isDataValid.value && isDataValid.setValue(true);
-			// 	dispatch(loginByCredentials({ email: email.value, password: password.value }));
-			// } else {
-			// 	isDataValid.value && isDataValid.setValue(false);
-			// }
+			if (validateEmail(email.value) && validatePassword(password.value)) {
+				!isDataValid.value && isDataValid.setValue(true);
+				dispatch(loginByCredentials({ email: email.value, password: password.value }));
+			} else {
+				isDataValid.value && isDataValid.setValue(false);
+			}
 		},
 		[email.value, password.value, isDataValid]
 	);
