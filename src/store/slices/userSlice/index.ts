@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AsyncState } from '@/types/runtime-types';
 import { IUser, IUserInfo } from '@/types/data-types';
-import { fetchInfo, fetchUser, fetchUserAfterReload, login } from '@store/slices/userSlice/thunks';
+import {
+	fetchInfo,
+	fetchUser,
+	loginByCookies,
+	loginByCredentials,
+} from '@store/slices/userSlice/thunks';
 
 type FetchedData<D> = AsyncState & {
 	data: D | null;
@@ -43,27 +48,27 @@ const userSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(login.rejected, (state, action) => {
+			.addCase(loginByCredentials.rejected, (state, action) => {
 				state.authorized.status = 'failed';
 				state.authorized.error = action.error?.message || String(action.error);
 			})
-			.addCase(login.pending, (state) => {
+			.addCase(loginByCredentials.pending, (state) => {
 				state.authorized.status = 'loading';
 			})
-			.addCase(login.fulfilled, (state, action) => {
+			.addCase(loginByCredentials.fulfilled, (state, action) => {
 				state.authorized.user = action.payload;
 				state.authorized.status = 'succeed';
 			});
 
 		builder
-			.addCase(fetchUserAfterReload.rejected, (state, action) => {
+			.addCase(loginByCookies.rejected, (state, action) => {
 				state.authorized.status = 'failed';
 				state.authorized.error = action.error?.message || String(action.error);
 			})
-			.addCase(fetchUserAfterReload.pending, (state) => {
+			.addCase(loginByCookies.pending, (state) => {
 				state.authorized.status = 'loading';
 			})
-			.addCase(fetchUserAfterReload.fulfilled, (state, action) => {
+			.addCase(loginByCookies.fulfilled, (state, action) => {
 				state.authorized.user = action.payload;
 				state.authorized.status = 'succeed';
 			});

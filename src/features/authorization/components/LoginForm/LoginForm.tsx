@@ -11,7 +11,7 @@ import {
 } from '@features/authorization';
 import { PropsWithClass } from '@/types/runtime-types';
 import { useAppDispatch } from '@store/hooks/useAppDispatch';
-import { login } from '@store/slices/userSlice/thunks';
+import { loginByCredentials } from '@store/slices/userSlice/thunks';
 import { useAppSelector } from '@store/hooks/useAppSelector';
 import { authorizedUserSelector } from '@store/slices/userSlice/selectors';
 import { useNavigate } from 'react-router-dom';
@@ -33,13 +33,14 @@ export const LoginForm: FC<Props> = ({ className }) => {
 	const handleSubmit = useCallback(
 		(e: FormEvent) => {
 			e.preventDefault();
+			dispatch(loginByCredentials({ email: email.value, password: password.value }));
 
-			if (validateEmail(email.value) && validatePassword(password.value)) {
-				!isDataValid.value && isDataValid.setValue(true);
-				dispatch(login({ email: email.value, password: password.value }));
-			} else {
-				isDataValid.value && isDataValid.setValue(false);
-			}
+			// if (validateEmail(email.value) && validatePassword(password.value)) {
+			// 	!isDataValid.value && isDataValid.setValue(true);
+			// 	dispatch(loginByCredentials({ email: email.value, password: password.value }));
+			// } else {
+			// 	isDataValid.value && isDataValid.setValue(false);
+			// }
 		},
 		[email.value, password.value, isDataValid]
 	);

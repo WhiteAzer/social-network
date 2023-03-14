@@ -4,16 +4,19 @@ import { IUser, IUserCredentials, IUserInfo } from '@/types/data-types';
 import { extractInfo, extractUser } from '@store/utils';
 import { RootState } from '@/store';
 
-export const login = createAsyncThunk('user/login', async (credentials: IUserCredentials) => {
-	const user = await api('/auth/login', {
-		method: 'POST',
-		data: credentials,
-	}).then(extractUser);
+export const loginByCredentials = createAsyncThunk(
+	'user/loginByCredentials',
+	async (credentials: IUserCredentials) => {
+		const user = await api('/auth/login', {
+			method: 'POST',
+			data: credentials,
+		}).then(extractUser);
 
-	return user;
-});
+		return user;
+	}
+);
 
-export const fetchUserAfterReload = createAsyncThunk('user/fetchUserAfterReload', async () => {
+export const loginByCookies = createAsyncThunk('user/loginByCookies', async () => {
 	const user = await api('/auth/loginJWT', {
 		method: 'POST',
 	}).then(extractUser);

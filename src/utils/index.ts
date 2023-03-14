@@ -37,7 +37,7 @@ export function getShortName<T extends { firstname: string; lastname: string }>(
 }
 
 export function capitalize(line: string) {
-	return line[0].toUpperCase() + line.slice(1).toLowerCase();
+	return line?.[0]?.toUpperCase() + line?.slice?.(1)?.toLowerCase();
 }
 
 export function getEmptyArray(length: number) {
