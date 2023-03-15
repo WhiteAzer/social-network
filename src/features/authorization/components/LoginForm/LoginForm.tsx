@@ -48,7 +48,9 @@ export const LoginForm: FC<Props> = ({ className }) => {
 
 	return (
 		<>
-			{!isDataValid.value && <ValidationError onClose={onErrorClose} />}
+			{!isDataValid.value && (
+				<ValidationError error={'Incorrect email or password!'} onClose={onErrorClose} />
+			)}
 			<Panel className={classNames(styles.wrapper, className)}>
 				<form onSubmit={handleSubmit}>
 					<label className={styles.label} htmlFor={'login_field'}>

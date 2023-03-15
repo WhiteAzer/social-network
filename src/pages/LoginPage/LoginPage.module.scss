@@ -2,9 +2,11 @@
 @use '@styles/mixins.scss';
 
 .page {
-  width: calc(100vw - 2 * #{variables.$ui-padding-x});
-  height: calc(100vh - 2 * #{variables.$ui-padding-y});
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   @include mixins.flexible(center, center, column);
   row-gap: variables.$ui-gap-y;
 }

@@ -31,16 +31,22 @@ export const UserCard: FC<Props> = ({ className }) => {
 
 	return (
 		<Panel className={classNames(styles.card, className)}>
-			{current.user.status === 'succeed' ? (
-				<Avatar size={'size-l'} src={current.user.data.avatar.path} />
-			) : (
-				<SkeletonAvatar size={'size-l'} />
-			)}
-			{current.info.status === 'succeed' && current.user.status === 'succeed' ? (
-				<UserInfo user={current.user.data} info={current.info.data} />
-			) : (
-				<SkeletonUserInfo />
-			)}
+			<div className={styles.info}>
+				{current.user.status === 'succeed' ? (
+					<Avatar size={'size-l'} src={current.user.data.avatar.path} />
+				) : (
+					<SkeletonAvatar size={'size-l'} />
+				)}
+				{current.info.status === 'succeed' && current.user.status === 'succeed' ? (
+					<UserInfo
+						isHome={authorized.user.id === current.user.data.id}
+						user={current.user.data}
+						info={current.info.data}
+					/>
+				) : (
+					<SkeletonUserInfo />
+				)}
+			</div>
 		</Panel>
 	);
 };

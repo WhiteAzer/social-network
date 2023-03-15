@@ -1,5 +1,5 @@
 import { IUser, IUserInfo } from '@/types/data-types';
-import image from '@assets/image.jpg';
+import image from '@assets/default-image-red.png';
 
 export const info: IUserInfo = {
 	links: {

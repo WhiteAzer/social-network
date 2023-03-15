@@ -3,10 +3,12 @@ import { api } from '@/axios';
 import { IUser, IUserCredentials, IUserInfo } from '@/types/data-types';
 import { extractInfo, extractUser } from '@store/utils';
 import { RootState } from '@/store';
+import { user as datauser, info as datainfo } from '@data/index';
 
 export const loginByCredentials = createAsyncThunk(
 	'user/loginByCredentials',
 	async (credentials: IUserCredentials) => {
+		return datauser;
 		const user = await api('/auth/login', {
 			method: 'POST',
 			data: credentials,
@@ -17,6 +19,7 @@ export const loginByCredentials = createAsyncThunk(
 );
 
 export const loginByCookies = createAsyncThunk('user/loginByCookies', async () => {
+	return datauser;
 	const user = await api('/auth/loginJWT', {
 		method: 'POST',
 	}).then(extractUser);
@@ -42,6 +45,7 @@ export const fetchUser = createAsyncThunk(
 			return authorized;
 		}
 
+		return datauser;
 		return await api(`/user/${id}`, {
 			method: 'GET',
 		}).then(extractUser);
@@ -58,6 +62,7 @@ export const fetchInfo = createAsyncThunk(
 			return current.info.data;
 		}
 
+		return datainfo;
 		return await api(`/user/${id}`, {
 			method: 'GET',
 		}).then(extractInfo);

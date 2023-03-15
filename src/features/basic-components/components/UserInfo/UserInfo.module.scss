@@ -1,6 +1,11 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
+.wrapper{
+    @include mixins.flexible(flex-start, stretch, column);
+    width: 100%;
+}
+
 .info{
     @include mixins.flexible(flex-start, center, column);
     flex-grow: 1;
@@ -14,6 +19,16 @@
 .badges{
     @include mixins.flexible(space-between, center, row);
     flex-wrap: wrap;
+    display: none;
+}
+
+.stats{
+    flex-grow:1;
+}
+
+.button_group{
+    @include mixins.flexible(space-between, center, row);
+    column-gap: variables.$ui-padding-x;
 }
 
 .name{
