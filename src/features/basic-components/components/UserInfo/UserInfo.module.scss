@@ -13,13 +13,12 @@
 }
 
 .info, .badges{
-    row-gap: 5px;
+    row-gap: variables.$ui-gap-y;
 }
 
 .badges{
     @include mixins.flexible(space-between, center, row);
     flex-wrap: wrap;
-    display: none;
 }
 
 .stats{
@@ -32,6 +31,6 @@
 }
 
 .name{
-    font-size: variables.$ui-title-font-size;
+    font-size: 23px;
     color: var(--ui-color-darkblue);
 }

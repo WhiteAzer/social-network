@@ -3,6 +3,7 @@
 .button {
 	display: block;
 	border-radius: variables.$ui-border-radius;
+	font-family: inherit;
 	box-shadow: var(--ui-color-grey-0) 0 0 10px;
 	font-weight: inherit;
 	padding: variables.$ui-padding-y-inline-component 0;

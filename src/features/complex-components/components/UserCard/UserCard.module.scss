@@ -7,7 +7,7 @@
 
 .info{
     @include mixins.flexible(space-between, stretch, row);
-    column-gap: variables.$ui-padding-x;
+    column-gap: calc(#{variables.$ui-padding-x} * 2);
 }
 
 .more > button{

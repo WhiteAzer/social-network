@@ -74,7 +74,7 @@ export const LoginForm: FC<Props> = ({ className }) => {
 						color={'primary'}
 						type={'submit'}
 					>
-						{status === 'loading' ? 'Loading...' : 'Login'}
+						Login
 					</Button>
 				</form>
 			</Panel>

@@ -1,0 +1,23 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.stripe{
+    @include mixins.flexible(flex-start, center, row);
+}
+
+.input{
+    margin-left: variables.$ui-gap-x;
+    background: inherit;
+    font-size: 16px !important;
+
+    &_skeleton{
+        font-size: 19px !important;
+        padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
+    }
+}
+
+.button{
+    margin-left: auto;
+    @include mixins.flexible();
+    column-gap: 5px;
+}
