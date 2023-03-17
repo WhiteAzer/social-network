@@ -1,5 +1,15 @@
 @use '@styles/mixins.scss';
 
+$ui-font-size-xs: 12px;
+$ui-font-size-s: 14px;
+$ui-font-size-m: 18px;
+$ui-font-size-l: 22px;
+
+$ui-line-height-xs: calc(#{$ui-font-size-xs} * 1.1);
+$ui-line-height-s: calc(#{$ui-font-size-s} * 1.1);
+$ui-line-height-m: calc(#{$ui-font-size-m} * 1.1);
+$ui-line-height-l: calc(#{$ui-font-size-l} * 1.1);
+
 $ui-border-radius: 12px;
 $ui-border-radius-s: 10px;
 
@@ -41,57 +51,66 @@ $ui-avatar-height-l: 230px;
 
 $ui-auth-panels-width: 340px;
 
+$ui-line-interval: 5px;
+
+$ui-section-left-width: calc(#{$ui-avatar-width-l} + 2 * #{$ui-padding-x});
+
 %theme-light {
-	color: var(--ui-color-secondary-light);
-	background: var(--ui-color-primary-light);
+    color: var(--ui-color-secondary-light);
+    background: var(--ui-color-primary-light);
 }
 
 %theme-dark {
-	color: var(--ui-color-secondary-dark);
-	background: var(--ui-color-primary-dark);
+    color: var(--ui-color-secondary-dark);
+    background: var(--ui-color-primary-dark);
 }
 
-.avatar_size-xs{
-	width: $ui-avatar-width-xs;
-	height: $ui-avatar-height-xs;
-	min-width: $ui-avatar-width-xs;
-	min-height: $ui-avatar-height-xs;
+.avatar_size-xs {
+    width: $ui-avatar-width-xs;
+    height: $ui-avatar-height-xs;
+    min-width: $ui-avatar-width-xs;
+    min-height: $ui-avatar-height-xs;
 }
 
-.avatar_size-s{
-	width: $ui-avatar-width-s;
-	height: $ui-avatar-height-s;
-	min-width: $ui-avatar-width-s;
-	min-height: $ui-avatar-height-s;
+.avatar_size-s {
+    width: $ui-avatar-width-s;
+    height: $ui-avatar-height-s;
+    min-width: $ui-avatar-width-s;
+    min-height: $ui-avatar-height-s;
 }
-.avatar_size-m{
-	width: $ui-avatar-width-m;
-	height: $ui-avatar-height-m;
-	min-width: $ui-avatar-width-m;
-	min-height: $ui-avatar-height-m;
+
+.avatar_size-m {
+    width: $ui-avatar-width-m;
+    height: $ui-avatar-height-m;
+    min-width: $ui-avatar-width-m;
+    min-height: $ui-avatar-height-m;
 }
-.avatar_size-l{
-	width: $ui-avatar-width-l;
-	height: $ui-avatar-height-l;
-	min-width: $ui-avatar-width-l;
-	min-height: $ui-avatar-height-l;
+
+.avatar_size-l {
+    width: $ui-avatar-width-l;
+    height: $ui-avatar-height-l;
+    min-width: $ui-avatar-width-l;
+    min-height: $ui-avatar-height-l;
 }
 
 .button_size-s {
-	width: 65px;
+    width: 65px;
+    min-width: 65px;
 }
 
 .button_size-m {
-	width: 120px;
+    width: 135px;
+    min-width: 135px;
 }
 
 .button_size-l {
-	width: 100%;
+    width: 100%;
+    min-width: 100%;
 }
 
-#skeleton{
-	-webkit-border-radius: $ui-border-radius;
-	-moz-border-radius: $ui-border-radius;
-	border-radius: $ui-border-radius;
-	@include mixins.skeleton();
+#skeleton {
+    -webkit-border-radius: $ui-border-radius;
+    -moz-border-radius: $ui-border-radius;
+    border-radius: $ui-border-radius;
+    @include mixins.skeleton();
 }

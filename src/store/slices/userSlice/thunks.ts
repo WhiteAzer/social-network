@@ -3,10 +3,17 @@ import { api } from '@/axios';
 import { IUser, IUserCredentials, IUserInfo } from '@/types/data-types';
 import { extractInfo, extractUser } from '@store/utils';
 import { RootState } from '@/store';
+import { info as datainfo, user as datauser } from '@data/index';
 
 export const loginByCredentials = createAsyncThunk(
 	'user/loginByCredentials',
-	async (credentials: IUserCredentials) => {
+	async (credentials: IUserCredentials): Promise<IUser> => {
+		return await new Promise((res) => {
+			setTimeout(() => {
+				res(datauser);
+			}, 2000);
+		});
+
 		const user = await api('/auth/login', {
 			method: 'POST',
 			data: credentials,
@@ -16,7 +23,13 @@ export const loginByCredentials = createAsyncThunk(
 	}
 );
 
-export const loginByCookies = createAsyncThunk('user/loginByCookies', async () => {
+export const loginByCookies = createAsyncThunk('user/loginByCookies', async (): Promise<IUser> => {
+	return await new Promise((res) => {
+		setTimeout(() => {
+			res(datauser);
+		}, 2000);
+	});
+
 	const user = await api('/auth/loginJWT', {
 		method: 'POST',
 	}).then(extractUser);
@@ -42,6 +55,12 @@ export const fetchUser = createAsyncThunk(
 			return authorized;
 		}
 
+		return await new Promise((res) => {
+			setTimeout(() => {
+				res(datauser);
+			}, 2000);
+		});
+
 		return await api(`/user/${id}`, {
 			method: 'GET',
 		}).then(extractUser);
@@ -57,6 +76,12 @@ export const fetchInfo = createAsyncThunk(
 			console.log('assign current info');
 			return current.info.data;
 		}
+
+		return await new Promise((res) => {
+			setTimeout(() => {
+				res(datainfo);
+			}, 2000);
+		});
 
 		return await api(`/user/${id}`, {
 			method: 'GET',

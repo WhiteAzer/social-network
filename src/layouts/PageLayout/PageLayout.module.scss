@@ -11,8 +11,8 @@
 }
 
 .left{
-    flex-basis: calc(#{variables.$ui-avatar-width-l} + 2 * #{variables.$ui-padding-x});
-    max-width: calc(#{variables.$ui-avatar-width-l} + 2 * #{variables.$ui-padding-x});
+    flex-basis: variables.$ui-section-left-width;
+    max-width: variables.$ui-section-left-width;
 }
 .right{
     flex-basis: 260px;

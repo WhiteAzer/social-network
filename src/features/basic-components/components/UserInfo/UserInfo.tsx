@@ -26,21 +26,9 @@ export const UserInfo: FC<Props> = ({ className, user, info, isHome }) => {
 		<div className={styles.wrapper}>
 			<div className={classNames(styles.info, className)}>
 				<h1 className={styles.name}>{getFullName(user)}</h1>
-				<div className={styles.badges}>
-					<Badge>
-						<IconLocation fill={svg.color} />
-						<span>{getShortLocation(info.location)}</span>
-					</Badge>
-				</div>
 			</div>
 			<div className={styles.stats}></div>
-			<div className={styles.button_group}>
-				{isHome ? (
-					<Button size={'size-l'}>Edit</Button>
-				) : (
-					<Button size={'size-l'}>Message</Button>
-				)}
-			</div>
+			<div className={styles.button_group}></div>
 		</div>
 	);
 };
@@ -49,17 +37,10 @@ export const SkeletonUserInfo: FC = () => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.info}>
-				<SkeletonText
-					sx={{ width: '65%', fontSize: 23 }}
-					className={styles.name}
-					lines={1}
-				/>
-				<SkeletonText sx={{ width: '35%', fontSize: 23 }} lines={1} />
+				<SkeletonText className={styles.name} />
 			</div>
 			<div className={styles.stats}></div>
-			<div className={styles.button_group}>
-				<SkeletonButton size={'size-l'} />
-			</div>
+			<div className={styles.button_group}></div>
 		</div>
 	);
 };

@@ -3,12 +3,5 @@
 
 
 .text{
-    height: 1em;
-    width: 100%;
-}
-
-.wrapper{
-    width: 100%;
-    @include mixins.flexible(flex-start, center, column);
-    row-gap: 5px;
+    color: transparent !important;
 }

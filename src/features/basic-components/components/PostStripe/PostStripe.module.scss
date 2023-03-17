@@ -1,23 +1,27 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
-.stripe{
+.stripe {
     @include mixins.flexible(flex-start, center, row);
 }
 
-.input{
-    margin-left: variables.$ui-gap-x;
+.input {
     background: inherit;
-    font-size: 16px !important;
+    margin-left: variables.$ui-gap-x;
 
-    &_skeleton{
-        font-size: 19px !important;
-        padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
+    &_skeleton {
+        width: 40%;
+        margin: variables.$ui-padding-y-inline-component 0 variables.$ui-padding-y-inline-component calc(#{variables.$ui-gap-x} + #{variables.$ui-padding-x-inline-component});
     }
 }
 
-.button{
+.input, .input_skeleton {
+    font-size: variables.$ui-font-size-m;
+    line-height: variables.$ui-line-height-m;
+}
+
+.button {
     margin-left: auto;
     @include mixins.flexible();
-    column-gap: 5px;
+    column-gap: 10px;
 }

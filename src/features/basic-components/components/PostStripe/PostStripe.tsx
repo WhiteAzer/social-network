@@ -32,11 +32,7 @@ export const PostStripe: FC<Props> = () => {
 			) : (
 				<>
 					<SkeletonAvatar size={'size-s'} />
-					<SkeletonText
-						lines={1}
-						sx={{ width: '25%' }}
-						className={classNames(styles.input, styles.input_skeleton)}
-					/>
+					<SkeletonText className={styles.input_skeleton} />
 					<SkeletonButton size={'size-m'} className={styles.button} />
 				</>
 			)}
