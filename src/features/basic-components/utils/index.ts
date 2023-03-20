@@ -29,7 +29,7 @@ const getAmPm = (time: number): string => {
 
 export const getTime = (time: number): string => {
 	const now = Date.now();
-	if (now - time < 24 * 60 * 60 * 1000) return 'today at $пше ыефегы{getAmPm(time)}';
+	if (now - time < 24 * 60 * 60 * 1000) return `today at ${getAmPm(time)}`;
 	else if (now - time < 48 * 60 * 60 * 1000) return `yesterday at ${getAmPm(time)}`;
 	else {
 		const date = new Date(time);

@@ -1,4 +1,4 @@
-import { getDiff, getPostAt, getTime } from '../../../utils';
+import { getDiff, getPostAt, getTime } from '../index';
 
 describe('Format post time:', () => {
 	test(getDiff.name, () => {

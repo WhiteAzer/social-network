@@ -9,5 +9,11 @@ type Props = PropsWithSize &
 	};
 
 export const Avatar: FC<Props> = ({ size, className, src }) => {
-	return <img src={src} className={classNames(styles.avatar, `avatar_${size}`, className)} />;
+	return (
+		<img
+			data-testid={'avatar'}
+			src={src}
+			className={classNames(styles.avatar, `avatar_${size}`, className)}
+		/>
+	);
 };

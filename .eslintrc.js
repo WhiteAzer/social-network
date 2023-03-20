@@ -9,6 +9,8 @@ module.exports = {
 		'plugin:react/recommended',
 		'plugin:react-hooks/recommended',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:jest-dom/recommended',
+		'plugin:testing-library/react',
 	],
 	overrides: [],
 	parser: '@typescript-eslint/parser',
@@ -16,7 +18,7 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint'],
+	plugins: ['react', '@typescript-eslint', 'jest-dom', 'testing-library'],
 	rules: {
 		'react/react-in-jsx-scope': 'off',
 		indent: ['error', 'tab', { SwitchCase: 1 }],

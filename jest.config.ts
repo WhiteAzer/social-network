@@ -7,6 +7,9 @@ export default {
 	// Automatically clear mock calls, instances, contexts and results before every test
 	clearMocks: true,
 
+	// The test environment that will be used for testing
+	testEnvironment: 'jsdom',
+
 	// An array of file extensions your modules use
 	moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
@@ -15,6 +18,19 @@ export default {
 
 	// An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
 	testPathIgnorePatterns: ['/node_modules/'],
+
+	// An array of directory names to be searched recursively up from the requiring module's location
+	moduleDirectories: ['node_modules'],
+
+	modulePaths: ['<rootDir>/src'],
+
+	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
+	moduleNameMapper: {
+		'\\.(jpg|jpeg|png)$': '<rootDir>/__mocks__/file-mock.ts',
+		'\\.s?css$': 'identity-obj-proxy',
+	},
+
+	setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
@@ -79,14 +95,6 @@ export default {
 	// The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
 	// maxWorkers: "50%",
 
-	// An array of directory names to be searched recursively up from the requiring module's location
-	// moduleDirectories: [
-	//   "node_modules"
-	// ],
-
-	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-	// moduleNameMapper: {},
-
 	// An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
 	// modulePathIgnorePatterns: [],
 
@@ -139,9 +147,6 @@ export default {
 
 	// A list of paths to snapshot serializer modules Jest should use for snapshot testing
 	// snapshotSerializers: [],
-
-	// The test environment that will be used for testing
-	// testEnvironment: "jest-environment-node",
 
 	// Options that will be passed to the testEnvironment
 	// testEnvironmentOptions: {},

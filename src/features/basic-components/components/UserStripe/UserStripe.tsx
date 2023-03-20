@@ -22,7 +22,7 @@ export const UserStripe: FC<Props> = ({ user, className, size, children }) => {
 	return (
 		<div className={classNames(styles.stripe, styles[`stripe_${size}`], className)}>
 			<Link to={user.id}>
-				<Avatar className={styles.avatar} size={size} user={user} />
+				<Avatar className={styles.avatar} size={size} src={user.avatar.path} />
 			</Link>
 			<div>
 				<span className={styles.info}>
@@ -42,7 +42,7 @@ export const SkeletonUserStripe: FC<Pick<Props, 'className' | 'size'>> = ({ clas
 	return (
 		<div className={classNames(styles.stripe, className)}>
 			<SkeletonAvatar size={size} className={styles.avatar} />
-			<SkeletonText lines={2} />
+			<SkeletonText />
 		</div>
 	);
 };

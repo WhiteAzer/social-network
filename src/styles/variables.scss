@@ -10,16 +10,15 @@ $ui-line-height-s: calc(#{$ui-font-size-s} * 1.1);
 $ui-line-height-m: calc(#{$ui-font-size-m} * 1.1);
 $ui-line-height-l: calc(#{$ui-font-size-l} * 1.1);
 
+$ui-padding-x: 20px;
+$ui-padding-y: 20px;
+
 $ui-border-radius: 12px;
+$ui-outer-border-radius: calc(#{$ui-border-radius} + #{$ui-padding-x});
 $ui-border-radius-s: 10px;
 
 $ui-padding-y-inline-component: 12px;
 $ui-padding-x-inline-component: 12px;
-
-$ui-text-font-size: 14px;
-$ui-title-font-size: 18px;
-
-$ui-title-line-height: 1.2em;
 
 $ui-font-weight-light: 400;
 $ui-font-weight-regular: 700;
@@ -29,8 +28,6 @@ $ui-font-weight-bold: 900;
 $ui-gap-x: 15px;
 $ui-gap-y: 15px;
 
-$ui-padding-x: 20px;
-$ui-padding-y: 20px;
 
 $ui-section-gap-x: 35px;
 $ui-section-gap-y: 35px;
@@ -40,7 +37,7 @@ $ui-box-shadow: rgba(17, 17, 26, 0.04) 0px 0px 15px;
 $ui-avatar-width-xs: 35px;
 $ui-avatar-height-xs: 35px;
 
-$ui-avatar-width-s: calc(#{$ui-text-font-size} + (#{$ui-padding-y-inline-component} * 2));
+$ui-avatar-width-s: calc(#{$ui-line-height-s} + (#{$ui-padding-y-inline-component} * 2));
 $ui-avatar-height-s: $ui-avatar-width-s;
 
 $ui-avatar-width-m: 65px;
@@ -99,8 +96,8 @@ $ui-section-left-width: calc(#{$ui-avatar-width-l} + 2 * #{$ui-padding-x});
 }
 
 .button_size-m {
-    width: 135px;
-    min-width: 135px;
+    width: 115px;
+    min-width: 115px;
 }
 
 .button_size-l {
