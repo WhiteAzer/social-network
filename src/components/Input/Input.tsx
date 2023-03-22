@@ -9,8 +9,9 @@ type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
 export const Input: FC<Props> = ({ type = 'text', className, size, ...props }) => {
 	return (
 		<input
+			data-testid={'input'}
 			type={type}
-			className={classNames(styles.input, styles[`input_${size}`], className)}
+			className={classNames(styles.input, `input_${size}`, className)}
 			{...props}
 		/>
 	);

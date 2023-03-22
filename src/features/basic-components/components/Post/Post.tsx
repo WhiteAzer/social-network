@@ -7,7 +7,6 @@ import { IPost, IUser } from '@/types/data-types';
 import { PropsWithClass } from '@/types/runtime-types';
 import { Icon20Like as IconLike } from '@vkontakte/icons';
 import { Icon24Comment as IconComment } from '@vkontakte/icons';
-import { ColorContext } from '@context/ColorContext/ColorProvider';
 import { getPostAt } from '@features/basic-components/utils';
 
 type Props = PropsWithClass & {
@@ -15,8 +14,6 @@ type Props = PropsWithClass & {
 };
 
 export const Post: FC<Props> = ({ post, className }) => {
-	const { svg } = useContext(ColorContext);
-
 	return (
 		<Panel className={className}>
 			<UserStripe size={'size-s'} user={post.author} className={styles.userStripe}>
@@ -32,11 +29,11 @@ export const Post: FC<Props> = ({ post, className }) => {
 			<div className={styles.actionBtns}>
 				<div className={styles.actionBtns_item}>
 					<span>{post.likes}</span>
-					<IconLike fill={'#C4CCD6'} />
+					<IconLike />
 				</div>
 				<div className={styles.actionBtns_item}>
 					<span>{post.comments.length}</span>
-					<IconComment fill={svg.color} />
+					<IconComment />
 				</div>
 			</div>
 		</Panel>

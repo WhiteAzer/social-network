@@ -7,13 +7,6 @@
   font-family: inherit;
   font-weight: variables.$ui-font-weight-regular;
   color: var(--ui-color-darkblue);
-
-  &_size-m {
-  }
-
-  &_size-l {
-    width: 100%;
-  }
 }
 
 .input::placeholder {

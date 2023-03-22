@@ -23,5 +23,5 @@
 .button {
     margin-left: auto;
     @include mixins.flexible();
-    column-gap: 10px;
+    column-gap: 5px;
 }

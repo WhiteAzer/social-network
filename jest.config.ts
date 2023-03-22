@@ -4,6 +4,11 @@
  */
 
 export default {
+	// The root directory that Jest should scan for tests and modules within
+	rootDir: '.',
+
+	// A list of paths to directories that Jest should use to search for files in
+	roots: ['<rootDir>'],
 	// Automatically clear mock calls, instances, contexts and results before every test
 	clearMocks: true,
 
@@ -22,12 +27,17 @@ export default {
 	// An array of directory names to be searched recursively up from the requiring module's location
 	moduleDirectories: ['node_modules'],
 
-	modulePaths: ['<rootDir>/src'],
+	modulePaths: ['<rootDir>/src/'],
 
 	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
 	moduleNameMapper: {
 		'\\.(jpg|jpeg|png)$': '<rootDir>/__mocks__/file-mock.ts',
 		'\\.s?css$': 'identity-obj-proxy',
+		'@/(.*)$': '$1',
+		'@store(.*)$': 'store$1',
+		'@types(.*)$': 'types$1',
+		'@hooks(.*)$': 'hooks$1',
+		'@features(.*)$': 'features$1',
 	},
 
 	setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
@@ -124,14 +134,6 @@ export default {
 
 	// Automatically restore mock state and implementation before every test
 	// restoreMocks: false,
-
-	// The root directory that Jest should scan for tests and modules within
-	// rootDir: undefined,
-
-	// A list of paths to directories that Jest should use to search for files in
-	// roots: [
-	//   "<rootDir>"
-	// ],
 
 	// Allows you to use a custom runner instead of Jest's default test runner
 	// runner: "jest-runner",

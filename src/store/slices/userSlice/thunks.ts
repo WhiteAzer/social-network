@@ -38,11 +38,9 @@ export const loginByCookies = createAsyncThunk('user/loginByCookies', async (): 
 });
 
 export const logout = createAsyncThunk('user/logout', async () => {
-	const user = await api('/auth/logout', {
+	return await api('/auth/logout', {
 		method: 'POST',
 	});
-
-	return null;
 });
 
 export const fetchUser = createAsyncThunk(

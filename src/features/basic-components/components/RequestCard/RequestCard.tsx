@@ -17,7 +17,7 @@ export const RequestCard: FC<Props> = ({ user, className }) => {
 		<Panel className={classNames(styles.card, className)}>
 			<div className={styles.image}>
 				<Link to={user.id}>
-					<Avatar size={'size-l'} />
+					<Avatar size={'size-l'} src={user.avatar.path} />
 				</Link>
 				<span className={styles.name}>{getFullName(user)}</span>
 			</div>

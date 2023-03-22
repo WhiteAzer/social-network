@@ -10,8 +10,6 @@ import {
 	Icon16EducationOutline as IconEducation,
 	Icon16PlaceOutline as IconLocation,
 } from '@vkontakte/icons';
-import { ColorContext } from '@context/ColorContext/ColorProvider';
-import { SkeletonBadge } from '@components/Badge/Badge';
 
 type Props = PropsWithClass & {
 	user: IUser;
@@ -20,8 +18,6 @@ type Props = PropsWithClass & {
 };
 
 export const UserInfo: FC<Props> = ({ className, user, info, isHome }) => {
-	const { svg } = useContext(ColorContext);
-
 	return (
 		<div className={styles.wrapper}>
 			<div className={classNames(styles.info, className)}>

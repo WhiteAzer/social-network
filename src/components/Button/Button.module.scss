@@ -7,20 +7,8 @@
 	box-shadow: var(--ui-color-grey-0) 0 0 10px;
 	font-weight: inherit;
 	padding: variables.$ui-padding-y-inline-component 0;
-
-	&_primary_light {
-		@extend %theme-light;
-	}
-
-	&_secondary_light {
-		color: var(--ui-color-darkblue);
-	}
-
-	&_primary_dark {
-	}
-
-	&_secondary_dark {
-	}
+	background: var(--ui-color-primary-light);
+	color: var(--ui-color-secondary-light);
 
 	&:disabled {
 		opacity: 0.5;

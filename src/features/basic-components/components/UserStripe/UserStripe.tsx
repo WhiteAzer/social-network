@@ -2,7 +2,6 @@ import styles from './UserStripe.module.scss';
 import classNames from 'classnames';
 import { FC, useContext } from 'react';
 import { Icon24MoreHorizontal as IconMore } from '@vkontakte/icons';
-import { ColorContext } from '@context/ColorContext/ColorProvider';
 import { Link } from 'react-router-dom';
 import { getFullName } from '@/utils';
 import { SkeletonAvatar, SkeletonText } from '@features/skeletonui';
@@ -17,8 +16,6 @@ type Props = PropsWithSize &
 	};
 
 export const UserStripe: FC<Props> = ({ user, className, size, children }) => {
-	const { svg } = useContext(ColorContext);
-
 	return (
 		<div className={classNames(styles.stripe, styles[`stripe_${size}`], className)}>
 			<Link to={user.id}>
@@ -32,7 +29,7 @@ export const UserStripe: FC<Props> = ({ user, className, size, children }) => {
 				</span>
 			</div>
 			<button>
-				<IconMore fill={svg.color} />
+				<IconMore />
 			</button>
 		</div>
 	);

@@ -26,6 +26,7 @@ module.exports = {
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
 		'no-extra-boolean-cast': 'off',
+		'testing-library/no-debugging-utils': 'off',
 	},
 	settings: {
 		react: {
