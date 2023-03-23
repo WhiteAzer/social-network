@@ -1,9 +1,9 @@
 @use '@styles/variables.scss';
 @use '@styles/mixins.scss';
 
-.avatar{
-  -webkit-border-radius: variables.$ui-border-radius;
-  -moz-border-radius: variables.$ui-border-radius;
-  border-radius: variables.$ui-border-radius;
-  object-fit: cover;
+.avatar {
+	-webkit-border-radius: variables.$ui-border-radius;
+	-moz-border-radius: variables.$ui-border-radius;
+	border-radius: variables.$ui-border-radius;
+	object-fit: cover;
 }

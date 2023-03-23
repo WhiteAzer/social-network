@@ -1,34 +1,34 @@
 @use '@styles/mixins.scss';
 
 .userStripe {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .text {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
-  margin-bottom: 15px;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 30px;
+	margin-bottom: 15px;
 }
 
 .imgs {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .actionBtns {
-  @include mixins.flexible(flex-start, center, row);
+	@include mixins.flexible(flex-start, center, row);
 
-  &_item {
-    cursor: pointer;
-    @include mixins.flexible(flex-start, center, row);
+	&_item {
+		cursor: pointer;
+		@include mixins.flexible(flex-start, center, row);
 
-    & > span {
-      margin-right: 5px;
-      color: var(--ui-color-blue);
-    }
+		& > span {
+			margin-right: 5px;
+			color: var(--ui-color-blue);
+		}
 
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
-  }
+		&:not(:last-child) {
+			margin-right: 20px;
+		}
+	}
 }

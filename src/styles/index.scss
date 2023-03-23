@@ -13,7 +13,7 @@
 	--ui-color-grey-5: #a7b6c7;
 	--ui-color-grey-6: #aeb6bf;
 	--ui-color-grey-7: #85929e;
-	--ui-color-red: #ffdbde
+	--ui-color-red: #ffdbde;
 }
 
 :root {
@@ -29,10 +29,10 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-size: variables.$ui-font-size-s;
-  font-weight: variables.$ui-font-weight-regular;
-  background-color: var(--ui-color-grey-1);
+	font-family: 'Montserrat', sans-serif;
+	font-size: variables.$ui-font-size-s;
+	font-weight: variables.$ui-font-weight-regular;
+	background-color: var(--ui-color-grey-1);
 }
 
 .container {

@@ -2,7 +2,7 @@
 @use '@styles/mixins.scss';
 
 .main {
-  @include mixins.flexible(space-between, flex-start, row);
-  column-gap: 110px;
-  padding: variables.$ui-padding-y variables.$ui-padding-x;
+	@include mixins.flexible(space-between, flex-start, row);
+	column-gap: 110px;
+	padding: variables.$ui-padding-y variables.$ui-padding-x;
 }

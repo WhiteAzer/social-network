@@ -1,17 +1,17 @@
 @use '@styles/variables.scss';
 
 .wrapper {
-  width: variables.$ui-auth-panels-width;
-  text-align: center;
-  margin-bottom: 10px;
-  background-color: var(--ui-color-red);
-  position: relative;
+	width: variables.$ui-auth-panels-width;
+	text-align: center;
+	margin-bottom: 10px;
+	background-color: var(--ui-color-red);
+	position: relative;
 }
 
 .close {
-  position: absolute;
-  padding: 5px;
-  cursor: pointer;
-  top: 0px;
-  right: 0px;
+	position: absolute;
+	padding: 5px;
+	cursor: pointer;
+	top: 0px;
+	right: 0px;
 }

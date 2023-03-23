@@ -50,58 +50,58 @@ $ui-line-interval: 5px;
 $ui-section-left-width: calc(#{$ui-avatar-width-l} + 2 * #{$ui-padding-x});
 
 .avatar_size-xs {
-    width: $ui-avatar-width-xs;
-    height: $ui-avatar-height-xs;
-    min-width: $ui-avatar-width-xs;
-    min-height: $ui-avatar-height-xs;
+	width: $ui-avatar-width-xs;
+	height: $ui-avatar-height-xs;
+	min-width: $ui-avatar-width-xs;
+	min-height: $ui-avatar-height-xs;
 }
 
 .avatar_size-s {
-    width: $ui-avatar-width-s;
-    height: $ui-avatar-height-s;
-    min-width: $ui-avatar-width-s;
-    min-height: $ui-avatar-height-s;
+	width: $ui-avatar-width-s;
+	height: $ui-avatar-height-s;
+	min-width: $ui-avatar-width-s;
+	min-height: $ui-avatar-height-s;
 }
 
 .avatar_size-m {
-    width: $ui-avatar-width-m;
-    height: $ui-avatar-height-m;
-    min-width: $ui-avatar-width-m;
-    min-height: $ui-avatar-height-m;
+	width: $ui-avatar-width-m;
+	height: $ui-avatar-height-m;
+	min-width: $ui-avatar-width-m;
+	min-height: $ui-avatar-height-m;
 }
 
 .avatar_size-l {
-    width: $ui-avatar-width-l;
-    height: $ui-avatar-height-l;
-    min-width: $ui-avatar-width-l;
-    min-height: $ui-avatar-height-l;
+	width: $ui-avatar-width-l;
+	height: $ui-avatar-height-l;
+	min-width: $ui-avatar-width-l;
+	min-height: $ui-avatar-height-l;
 }
 
 .button_size-s {
-    width: 65px;
-    min-width: 65px;
+	width: 65px;
+	min-width: 65px;
 }
 
 .button_size-m {
-    width: 115px;
-    min-width: 115px;
+	width: 115px;
+	min-width: 115px;
 }
 
 .button_size-l {
-    width: 100%;
-    min-width: 100%;
+	width: 100%;
+	min-width: 100%;
 }
 
 .input_size-m {
 }
 
 .input_size-l {
-    width: 100%;
+	width: 100%;
 }
 
 #skeleton {
-    -webkit-border-radius: $ui-border-radius;
-    -moz-border-radius: $ui-border-radius;
-    border-radius: $ui-border-radius;
-    @include mixins.skeleton();
+	-webkit-border-radius: $ui-border-radius;
+	-moz-border-radius: $ui-border-radius;
+	border-radius: $ui-border-radius;
+	@include mixins.skeleton();
 }

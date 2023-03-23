@@ -1,9 +1,9 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
-.search{
-  @include mixins.flexible(flex-start, center, row);
-  border-radius: variables.$ui-border-radius;
-  background: var(--ui-color-grey-3);
-  padding: 0 variables.$ui-padding-x-inline-component;
+.search {
+	@include mixins.flexible(flex-start, center, row);
+	border-radius: variables.$ui-border-radius;
+	background: var(--ui-color-grey-3);
+	padding: 0 variables.$ui-padding-x-inline-component;
 }

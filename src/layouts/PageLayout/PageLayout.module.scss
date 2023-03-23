@@ -1,19 +1,19 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
-.section{
-    @include mixins.flexible(flex-start, stretch, column);
-    row-gap: variables.$ui-section-gap-y;
+.section {
+	@include mixins.flexible(flex-start, stretch, column);
+	row-gap: variables.$ui-section-gap-y;
 }
 
-.middle{
-    flex-grow: 1;
+.middle {
+	flex-grow: 1;
 }
 
-.left{
-    flex-basis: variables.$ui-section-left-width;
-    max-width: variables.$ui-section-left-width;
+.left {
+	flex-basis: variables.$ui-section-left-width;
+	max-width: variables.$ui-section-left-width;
 }
-.right{
-    flex-basis: 260px;
+.right {
+	flex-basis: 260px;
 }

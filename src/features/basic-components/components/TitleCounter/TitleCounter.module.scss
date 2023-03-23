@@ -1,22 +1,22 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
-.wrapper{
-  @include mixins.flexible(flex-end, center, row);
-  padding: 0 variables.$ui-padding-x;
+.wrapper {
+	@include mixins.flexible(flex-end, center, row);
+	padding: 0 variables.$ui-padding-x;
 
-  & > span{
-    text-transform: uppercase;
-    color: var(--ui-color-grey-5);
-  }
+	& > span {
+		text-transform: uppercase;
+		color: var(--ui-color-grey-5);
+	}
 }
 
-.badge{
-  @include mixins.flexible();
-  background: var(--ui-color-primary-light);
-  color: var(--ui-color-secondary-light);
-  border-radius: 50%;
-  width: 1.2em;
-  height: 1.2em;
-  margin-left: auto;
+.badge {
+	@include mixins.flexible();
+	background: var(--ui-color-primary-light);
+	color: var(--ui-color-secondary-light);
+	border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em;
+	margin-left: auto;
 }

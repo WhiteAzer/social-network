@@ -1,14 +1,14 @@
 @use '@styles/variables.scss';
 
 .input {
-  background: var(--ui-color-grey-3);
-  padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
-  border-radius: variables.$ui-border-radius;
-  font-family: inherit;
-  font-weight: variables.$ui-font-weight-regular;
-  color: var(--ui-color-darkblue);
+	background: var(--ui-color-grey-3);
+	padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
+	border-radius: variables.$ui-border-radius;
+	font-family: inherit;
+	font-weight: variables.$ui-font-weight-regular;
+	color: var(--ui-color-darkblue);
 }
 
 .input::placeholder {
-  color: var(--ui-color-grey-5);
+	color: var(--ui-color-grey-5);
 }

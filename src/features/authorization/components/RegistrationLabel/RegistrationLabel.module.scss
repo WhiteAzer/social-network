@@ -2,11 +2,11 @@
 @use '@styles/mixins.scss';
 
 .wrapper {
-  width: variables.$ui-auth-panels-width;
-  text-align: center;
+	width: variables.$ui-auth-panels-width;
+	text-align: center;
 }
 
-.wrapper > span{
-  @include mixins.flexible();
-  column-gap: 5px;
+.wrapper > span {
+	@include mixins.flexible();
+	column-gap: 5px;
 }

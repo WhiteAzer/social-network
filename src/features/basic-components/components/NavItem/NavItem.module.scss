@@ -2,29 +2,30 @@
 @use '@styles/variables.scss';
 
 .item {
-    cursor: pointer;
+	cursor: pointer;
 }
 
-.item:not(:last-child){
-    margin-bottom: 35px;
+.item:not(:last-child) {
+	margin-bottom: 35px;
 }
 
 .info {
-    column-gap: variables.$ui-gap-x;
+	column-gap: variables.$ui-gap-x;
 
-    & > span {
-        text-transform: capitalize;
-        color: var(--ui-color-darkblue);
-        font-size: 16px;
-    }
+	& > span {
+		text-transform: capitalize;
+		color: var(--ui-color-darkblue);
+		font-size: 16px;
+	}
 }
 
-.item, .info {
-    @include mixins.flexible(flex-start, center, row);
+.item,
+.info {
+	@include mixins.flexible(flex-start, center, row);
 }
 
 .selected {
-    & > .info > span {
-        color: var(--ui-color-primary-light);
-    }
+	& > .info > span {
+		color: var(--ui-color-primary-light);
+	}
 }
