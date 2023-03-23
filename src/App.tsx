@@ -1,19 +1,39 @@
-import { FC } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { routes } from '@data/constants';
-import { DefaultLayout, PageLayout } from '@/layouts';
-import { AuthorizationPage, HomePage, NewsPage } from '@/pages';
+import { FC, useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { PageLayout } from '@/layouts';
+import { LoginPage, HomePage, NewsPage, PhotosPage, SettingsPage, NotFoundPage } from '@/pages';
+import { useAppDispatch } from '@store/hooks/useAppDispatch';
+import { loginByCookies } from '@store/slices/userSlice/thunks';
+import { RouteGuard } from '@/components';
 
 export const App: FC = () => {
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(loginByCookies());
+	}, []);
+
 	return (
 		<Routes>
-			<Route path={routes.auth} element={<DefaultLayout />}>
-				<Route index element={<AuthorizationPage />} />
+			<Route
+				path='/'
+				element={
+					<RouteGuard>
+						<PageLayout />
+					</RouteGuard>
+				}
+			>
+				<Route index element={<Navigate to={'/login'} />} />
+				<Route path='home' element={<HomePage />} />
+				<Route path='home/:userID' element={<HomePage />} />
+				<Route path='news' element={<NewsPage />} />
+				<Route path='photos' element={<PhotosPage />} />
+				<Route path='photos/:userID' element={<PhotosPage />} />
+				<Route path='settings' element={<SettingsPage />} />
 			</Route>
-			<Route path={routes.root} element={<PageLayout />}>
-				<Route path={routes.home} element={<HomePage />} />
-				<Route path={routes.news} element={<NewsPage />} />
-			</Route>
+			<Route path={'/login'} element={<LoginPage />} />
+			<Route path={'/signup'} element={<h1>Hello its sign up page!</h1>} />
+			<Route path='*' element={<NotFoundPage />} />
 		</Routes>
 	);
 };

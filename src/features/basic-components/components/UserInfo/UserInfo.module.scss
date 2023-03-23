@@ -1,29 +1,38 @@
 @use '@styles/mixins.scss';
 @use '@styles/variables.scss';
 
-.info{
-    color: var(--ui-color-darkblue);
-    text-align: center;
-    @include mixins.flexible(space-between, flex-start, column);
-
-    & > h1{
-        width: 100%;
-        text-align: center;
-        font-weight: variables.$ui-font-weight-regular;
-        font-size: 25px;
-        line-height: 25px;
-    }
-}
-
-.status{
-    line-height: variables.$ui-title-line-height;
-    font-weight: variables.$ui-font-weight-light;
-    color: var(--ui-color-grey-7);
-    font-size: 16px;
-}
-
-.buttons{
+.wrapper {
+    @include mixins.flexible(flex-start, stretch, column);
     width: 100%;
-    @include mixins.flexible(flex-start, center, row);
-    column-gap: variables.$ui-gap-x;
+}
+
+.info {
+    @include mixins.flexible(flex-start, center, column);
+    flex-grow: 1;
+    padding: 0 variables.$ui-padding-x;
+}
+
+.info, .badges {
+    row-gap: variables.$ui-gap-y;
+}
+
+.badges {
+    @include mixins.flexible(space-between, center, row);
+    flex-wrap: wrap;
+}
+
+.stats {
+    flex-grow: 1;
+}
+
+.button_group {
+    @include mixins.flexible(space-between, center, row);
+    column-gap: variables.$ui-padding-x;
+}
+
+.name {
+    text-align: center;
+    width: 100%;
+    font-size: 23px !important;
+    color: var(--ui-color-darkblue);
 }

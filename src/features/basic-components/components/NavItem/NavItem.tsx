@@ -1,6 +1,6 @@
 import styles from './NavItem.module.scss';
-import { FC, MouseEventHandler, PropsWithChildren, SVGProps } from 'react';
 import classNames from 'classnames';
+import { FC, MouseEventHandler, PropsWithChildren, SVGProps } from 'react';
 
 type Props = PropsWithChildren & {
 	Icon: FC<SVGProps<SVGSVGElement>>;

@@ -1,63 +1,48 @@
 import styles from './NavSection.module.scss';
-import { FC, SVGProps } from 'react';
+import { FC, useCallback } from 'react';
 import {
 	Icon28HomeOutline as IconHome,
 	Icon28NewsfeedLinesOutline as IconNews,
 	Icon28PictureOutline as IconPhotos,
 	Icon28SettingsOutline as IconSettings,
 } from '@vkontakte/icons';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { routes } from '@data/constants';
-import { splitRoute } from '@/utils';
 import { Panel } from '@/components';
 import { NavItem } from '@features/basic-components';
-
-const icons: Array<{ icon: FC<SVGProps<SVGSVGElement>>; route: string }> = [
-	{
-		icon: IconHome,
-		route: routes.home,
-	},
-	{
-		icon: IconNews,
-		route: routes.news,
-	},
-	{
-		icon: IconPhotos,
-		route: routes.photos,
-	},
-	{
-		icon: IconSettings,
-		route: routes.settings,
-	},
-];
+import { joinRoutes, splitRoute } from '@/utils';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const NavSection: FC = () => {
-	const { userID } = useParams();
-	const { pathname } = useLocation();
+	const path = splitRoute(useLocation().pathname)[0];
 	const navigate = useNavigate();
 
-	const path = splitRoute(pathname)[0];
+	const redirect = useCallback((path: string) => {
+		return () => navigate(joinRoutes(path));
+	}, []);
 
 	return (
 		<Panel className={styles.panel}>
 			<nav>
 				<ul>
-					{icons.map(({ icon, route }, i) => {
-						const current = splitRoute(route);
-
-						return (
-							<NavItem
-								key={i}
-								Icon={icon}
-								selected={current[0] === path}
-								onClick={() =>
-									navigate('/' + current[0] + (current[1] ? '/' + userID : ''))
-								}
-							>
-								{current[0]}
-							</NavItem>
-						);
-					})}
+					<NavItem Icon={IconHome} selected={path === 'home'} onClick={redirect('home')}>
+						Home
+					</NavItem>
+					<NavItem Icon={IconNews} selected={path === 'news'} onClick={redirect('news')}>
+						News
+					</NavItem>
+					<NavItem
+						Icon={IconPhotos}
+						selected={path === 'photos'}
+						onClick={redirect('photos')}
+					>
+						Photos
+					</NavItem>
+					<NavItem
+						Icon={IconSettings}
+						selected={path === 'settings'}
+						onClick={redirect('settings')}
+					>
+						Settings
+					</NavItem>
 				</ul>
 			</nav>
 		</Panel>

@@ -1,23 +1,17 @@
 @use '@styles/variables.scss';
 
 .button {
-  display: block;
-  border-radius: variables.$ui-border-radius;
-  box-shadow: var(--ui-color-grey-0) 0 0 10px;
-  font-weight: inherit;
-  padding: variables.$ui-padding-y-inline-component 0;
+	display: block;
+	border-radius: variables.$ui-border-radius;
+	font-family: inherit;
+	box-shadow: var(--ui-color-grey-0) 0 0 10px;
+	font-weight: inherit;
+	padding: variables.$ui-padding-y-inline-component 0;
+	background: var(--ui-color-primary-light);
+	color: var(--ui-color-secondary-light);
 
-  &_primary_light {
-    @extend %theme-light;
-  }
-
-  &_secondary_light {
-    color: var(--ui-color-darkblue);
-  }
-
-  &_primary_dark {
-  }
-
-  &_secondary_dark {
-  }
+	&:disabled {
+		opacity: 0.5;
+		cursor: initial;
+	}
 }

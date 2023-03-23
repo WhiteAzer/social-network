@@ -2,14 +2,13 @@ import styles from './PageLayout.module.scss';
 import classNames from 'classnames';
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import { useAppSelector } from '@store/hooks/useAppSelector';
-import { authorizedUserSelector } from '@store/user/selectors';
 import { NavSection, SkeletonUserLabel, UserLabel } from '@features/basic-components';
 import { Header, Main } from '@/components';
+import { useAppSelector } from '@store/hooks/useAppSelector';
+import { authorizedUserSelector } from '@store/slices/userSlice/selectors';
 
 export const PageLayout: FC = () => {
-	const { user } = useAppSelector(authorizedUserSelector);
+	const { status, user } = useAppSelector(authorizedUserSelector);
 
 	return (
 		<>
@@ -17,7 +16,7 @@ export const PageLayout: FC = () => {
 				<Header />
 				<Main>
 					<div className={classNames(styles.section, styles.left)}>
-						{!!user ? <UserLabel user={user} /> : <SkeletonUserLabel />}
+						{status === 'succeed' ? <UserLabel user={user} /> : <SkeletonUserLabel />}
 						<NavSection />
 					</div>
 					<div className={classNames(styles.section, styles.middle)}>
@@ -26,7 +25,6 @@ export const PageLayout: FC = () => {
 					<div className={classNames(styles.section, styles.right)}></div>
 				</Main>
 			</div>
-			<ToastContainer autoClose={2000} />
 		</>
 	);
 };

@@ -1,13 +1,14 @@
 import styles from './UserLabel.module.scss';
 import { FC } from 'react';
-import { PartialUser, PropsWithClass } from '@/types';
 import { Link } from 'react-router-dom';
-import { getFullName } from '@/utils';
+import { getShortName } from '@/utils';
 import { Avatar, Panel } from '@/components';
 import { SkeletonAvatar, SkeletonText } from '@features/skeletonui';
+import { PropsWithClass } from '@/types/runtime-types';
+import { IUser } from '@/types/data-types';
 
 type Props = PropsWithClass & {
-	user: PartialUser;
+	user: IUser;
 };
 
 export const UserLabel: FC<Props> = ({ user, className }) => {
@@ -15,13 +16,12 @@ export const UserLabel: FC<Props> = ({ user, className }) => {
 		<Panel className={className}>
 			<div className={styles.label}>
 				<Link to={'/home/' + user.id}>
-					<Avatar size={'size-s'} />
+					<Avatar size={'size-s'} src={user.avatar.path} />
 				</Link>
-				<span>
-					{getFullName(user)}
-					<br />
-					<span className={styles.username}>{user.username}</span>
-				</span>
+				<div className={styles.name}>
+					<div className={styles.shortname}>{getShortName(user)}</div>
+					<div className={styles.username}>{user.username}</div>
+				</div>
 			</div>
 		</Panel>
 	);
@@ -32,7 +32,10 @@ export const SkeletonUserLabel: FC<Pick<Props, 'className'>> = ({ className }) =
 		<Panel className={className}>
 			<div className={styles.label}>
 				<SkeletonAvatar size={'size-s'} />
-				<SkeletonText lines={2} />
+				<span className={styles.name}>
+					<SkeletonText className={styles.shortname} />
+					<SkeletonText className={styles.username} />
+				</span>
 			</div>
 		</Panel>
 	);

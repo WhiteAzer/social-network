@@ -3,6 +3,6 @@
 .panel{
   box-shadow: variables.$ui-box-shadow;
   background: var(--ui-color-secondary-light);
-  border-radius: variables.$ui-border-radius;
+  border-radius: variables.$ui-outer-border-radius;
   padding: variables.$ui-padding-y variables.$ui-padding-x;
 }

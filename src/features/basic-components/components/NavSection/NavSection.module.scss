@@ -2,17 +2,5 @@
 
 .panel {
   width: 100%;
-  padding: 0 !important;
-
-  & > nav li:not(:last-child) {
-    border-bottom: 1px solid var(--ui-color-grey-3);
-  }
-
-  & > nav li:first-child {
-    border-radius: 0 variables.$ui-border-radius 0 0;
-  }
-
-  & > nav li:last-child {
-    border-radius: 0 0 variables.$ui-border-radius 0;
-  }
+  padding: 0 variables.$ui-padding-x;
 }

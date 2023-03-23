@@ -6,12 +6,13 @@ import { Panel } from '@/components';
 
 type Props = {
 	onClose: () => void;
+	error: string;
 };
 
-export const ValidationError: FC<Props> = ({ onClose }) => {
+export const ValidationError: FC<Props> = ({ onClose, error }) => {
 	return (
 		<Panel className={classNames(styles.wrapper)}>
-			<p>Incorrect username or password.</p>
+			<p>{error}</p>
 			<div className={styles.close} onClick={onClose}>
 				<IconClose />
 			</div>

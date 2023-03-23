@@ -1,8 +1,0 @@
-@use '@styles/mixins.scss';
-@use '@styles/variables.scss';
-
-.badges{
-    width: 100%;
-    @include mixins.flexible(center, center, row);
-    gap: 10px;
-}

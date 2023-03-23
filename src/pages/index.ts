@@ -1,5 +1,6 @@
-export { AuthorizationPage } from './AuthorizationPage/AuthorizationPage';
+export { LoginPage } from './LoginPage/LoginPage';
 export { NewsPage } from './NewsPage/NewsPage';
 export { HomePage } from './HomePage/HomePage';
 export { PhotosPage } from './PhotosPage/PhotosPage';
 export { SettingsPage } from './SettingsPage/SettingsPage';
+export { NotFoundPage } from './NotFoundPage/NotFoundPage';

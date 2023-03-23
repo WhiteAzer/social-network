@@ -1,7 +1,7 @@
 import styles from './SkeletonAvatar.module.scss';
-import { FC } from 'react';
-import { PropsWithSize, SkeletonProps } from '@/types';
 import classNames from 'classnames';
+import { FC } from 'react';
+import { PropsWithSize, SkeletonProps } from '@/types/runtime-types';
 
 type Props = SkeletonProps & PropsWithSize;
 

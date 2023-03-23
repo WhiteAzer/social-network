@@ -1,25 +1,16 @@
 import styles from './Button.module.scss';
-import { ButtonHTMLAttributes, FC, useContext } from 'react';
 import classNames from 'classnames';
-import { ColorContext } from '@context/ColorContext/ColorProvider';
-import { Color, PropsWithSize } from '@/types';
+import { ButtonHTMLAttributes, FC } from 'react';
+import { PropsWithSize } from '@/types/runtime-types';
 
-type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> &
-	PropsWithSize<'size-s' | 'size-m' | 'size-l'> & {
-		color?: Color;
-	};
+type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+	PropsWithSize<'size-s' | 'size-m' | 'size-l'>;
 
-export const Button: FC<Props> = ({ size, className, color = 'primary', ...props }) => {
-	const { theme } = useContext(ColorContext);
-
+export const Button: FC<Props> = ({ size, className, ...props }) => {
 	return (
 		<button
-			className={classNames(
-				styles.button,
-				`button_${size}`,
-				styles[`button_${color}_${theme}`],
-				className
-			)}
+			data-testid={'button'}
+			className={classNames(styles.button, `button_${size}`, className)}
 			{...props}
 		/>
 	);
