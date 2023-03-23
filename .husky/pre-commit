@@ -9,4 +9,6 @@ npm run test:unit
 
 npm run build:dev
 
+npm run clean
+
 git add -A
