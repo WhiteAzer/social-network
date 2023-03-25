@@ -1,0 +1,20 @@
+@use '@styles/variables.scss';
+@use '@styles/mixins.scss';
+
+.card > *:not(:last-child) {
+	margin-bottom: variables.$ui-padding-y;
+}
+
+.info {
+	@include mixins.flexible(space-between, stretch, row);
+	column-gap: calc(#{variables.$ui-padding-x} * 2);
+}
+
+.more > button {
+	width: 100%;
+	-webkit-border-radius: variables.$ui-border-radius;
+	-moz-border-radius: variables.$ui-border-radius;
+	border-radius: variables.$ui-border-radius;
+	background: var(--ui-color-grey-3);
+	padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
+}

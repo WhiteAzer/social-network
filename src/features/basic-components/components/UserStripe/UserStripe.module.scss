@@ -1,0 +1,29 @@
+@use '@styles/variables.scss';
+@use '@styles/mixins.scss';
+
+.stripe {
+	@include mixins.flexible(flex-start, center, row);
+
+	& button {
+		@include mixins.flexible(center, center, row);
+		margin-left: auto;
+	}
+
+	&_size-xs .info {
+		font-size: 12px;
+		line-height: 17px;
+	}
+}
+
+.info {
+	color: var(--ui-color-darkblue);
+
+	& > .extra {
+		color: var(--ui-color-grey-7);
+		font-weight: variables.$ui-font-weight-light;
+	}
+}
+
+.avatar {
+	margin-right: variables.$ui-gap-x;
+}

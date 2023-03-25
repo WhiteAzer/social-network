@@ -1,27 +1,17 @@
 @use '@styles/variables.scss';
 
-.button{
-  display: block;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  &_size-s{
-    padding: 10px;
-  }
-  &_size-m{
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  &_size-l{
-    width: 100%;
-  }
-  &_primary{
-    background-color: var(--ui-color-primary);
-    color: var(--ui-color-secondary);
-  }
-  &_secondary{
-    background-color: var(--ui-color-secondary);
-    color: var(--ui-color-dark-blue);
-    border: 1px solid var(--ui-color-extralight-blue);
-  }
+.button {
+	display: block;
+	border-radius: variables.$ui-border-radius;
+	font-family: inherit;
+	box-shadow: var(--ui-color-grey-0) 0 0 10px;
+	font-weight: inherit;
+	padding: variables.$ui-padding-y-inline-component 0;
+	background: var(--ui-color-primary-light);
+	color: var(--ui-color-secondary-light);
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: initial;
+	}
 }

@@ -1,0 +1,26 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.panel {
+	@include mixins.flexible(center, stretch, column);
+	row-gap: variables.$ui-gap-y;
+}
+
+.info {
+	@include mixins.flexible(space-between, center, row);
+}
+
+.text {
+	font-weight: variables.$ui-font-weight-light;
+}
+
+.content {
+	margin-left: variables.$ui-gap-x;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.wrapper {
+}

@@ -1,0 +1,31 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.item {
+	cursor: pointer;
+}
+
+.item:not(:last-child) {
+	margin-bottom: 35px;
+}
+
+.info {
+	column-gap: variables.$ui-gap-x;
+
+	& > span {
+		text-transform: capitalize;
+		color: var(--ui-color-darkblue);
+		font-size: 16px;
+	}
+}
+
+.item,
+.info {
+	@include mixins.flexible(flex-start, center, row);
+}
+
+.selected {
+	& > .info > span {
+		color: var(--ui-color-primary-light);
+	}
+}

@@ -1,0 +1,43 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.card {
+	@include mixins.flexible(flex-start, stretch, column);
+	row-gap: variables.$ui-padding-y-inline-component;
+}
+
+.image {
+	position: relative;
+}
+
+.name {
+	color: var(--ui-color-secondary-light);
+	font-weight: variables.$ui-font-weight-bold;
+	font-size: 20px;
+	width: 100%;
+	line-height: 20px;
+	text-shadow: 0px 1px 10px #000000;
+	position: absolute;
+	-webkit-transform: translateY(-200%);
+	-moz-transform: translateY(-200%);
+	-ms-transform: translateY(-200%);
+	-o-transform: translateY(-200%);
+	transform: translateY(-200%);
+	top: 100%;
+	left: 0%;
+	text-align: center;
+}
+
+.buttons {
+	@include mixins.flexible(space-between, center, row);
+	column-gap: variables.$ui-gap-x;
+}
+
+.button {
+	@include mixins.flexible();
+	padding: variables.$ui-padding-y-inline-component variables.$ui-padding-x-inline-component;
+	border: 1px solid var(--ui-color-grey-0);
+	-webkit-border-radius: variables.$ui-border-radius;
+	-moz-border-radius: variables.$ui-border-radius;
+	border-radius: variables.$ui-border-radius;
+}

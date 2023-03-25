@@ -1,4 +1,107 @@
-$global-border-radius: 12px;
-$global-vertical-padding: 22px;
-$global-horizontal-padding: 22px;
-$global-gap: 17px;
+@use '@styles/mixins.scss';
+
+$ui-font-size-xs: 12px;
+$ui-font-size-s: 14px;
+$ui-font-size-m: 18px;
+$ui-font-size-l: 22px;
+
+$ui-line-height-xs: calc(#{$ui-font-size-xs} * 1.1);
+$ui-line-height-s: calc(#{$ui-font-size-s} * 1.1);
+$ui-line-height-m: calc(#{$ui-font-size-m} * 1.1);
+$ui-line-height-l: calc(#{$ui-font-size-l} * 1.1);
+
+$ui-padding-x: 16px;
+$ui-padding-y: 16px;
+
+$ui-border-radius: 8px;
+$ui-outer-border-radius: calc(#{$ui-border-radius} + #{$ui-padding-x});
+
+$ui-padding-y-inline-component: 10px;
+$ui-padding-x-inline-component: 10px;
+
+$ui-font-weight-light: 400;
+$ui-font-weight-regular: 700;
+$ui-font-weight-bold: 900;
+
+$ui-gap-x: 15px;
+$ui-gap-y: 15px;
+
+$ui-section-gap-x: 35px;
+$ui-section-gap-y: 35px;
+
+$ui-box-shadow: rgba(17, 17, 26, 0.04) 0px 0px 15px;
+
+$ui-avatar-width-xs: 35px;
+$ui-avatar-height-xs: 35px;
+
+$ui-avatar-width-s: calc(#{$ui-line-height-s} + (#{$ui-padding-y-inline-component} * 2));
+$ui-avatar-height-s: $ui-avatar-width-s;
+
+$ui-avatar-width-m: 65px;
+$ui-avatar-height-m: 65px;
+
+$ui-avatar-width-l: 190px;
+$ui-avatar-height-l: 230px;
+
+$ui-auth-panels-width: 340px;
+
+$ui-line-interval: 5px;
+
+$ui-section-left-width: calc(#{$ui-avatar-width-l} + 2 * #{$ui-padding-x});
+
+.avatar_size-xs {
+	width: $ui-avatar-width-xs;
+	height: $ui-avatar-height-xs;
+	min-width: $ui-avatar-width-xs;
+	min-height: $ui-avatar-height-xs;
+}
+
+.avatar_size-s {
+	width: $ui-avatar-width-s;
+	height: $ui-avatar-height-s;
+	min-width: $ui-avatar-width-s;
+	min-height: $ui-avatar-height-s;
+}
+
+.avatar_size-m {
+	width: $ui-avatar-width-m;
+	height: $ui-avatar-height-m;
+	min-width: $ui-avatar-width-m;
+	min-height: $ui-avatar-height-m;
+}
+
+.avatar_size-l {
+	width: $ui-avatar-width-l;
+	height: $ui-avatar-height-l;
+	min-width: $ui-avatar-width-l;
+	min-height: $ui-avatar-height-l;
+}
+
+.button_size-s {
+	width: 65px;
+	min-width: 65px;
+}
+
+.button_size-m {
+	width: 115px;
+	min-width: 115px;
+}
+
+.button_size-l {
+	width: 100%;
+	min-width: 100%;
+}
+
+.input_size-m {
+}
+
+.input_size-l {
+	width: 100%;
+}
+
+#skeleton {
+	-webkit-border-radius: $ui-border-radius;
+	-moz-border-radius: $ui-border-radius;
+	border-radius: $ui-border-radius;
+	@include mixins.skeleton();
+}

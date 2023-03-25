@@ -1,16 +1,17 @@
-import React, { FC, HTMLAttributes } from 'react';
-import { Size } from '../../types';
 import styles from './Input.module.scss';
 import classNames from 'classnames';
+import { FC, InputHTMLAttributes } from 'react';
+import { PropsWithSize } from '@/types/runtime-types';
 
-type Props = HTMLAttributes<HTMLInputElement> & {
-	size: Extract<Size, 'size-m' | 'size-l'>;
-};
+type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
+	PropsWithSize<'size-m' | 'size-l'>;
 
-export const Input: FC<Props> = ({ size, className, ...props }) => {
+export const Input: FC<Props> = ({ type = 'text', className, size, ...props }) => {
 	return (
 		<input
-			className={classNames(styles.input, styles[`input_${size}`], className)}
+			data-testid={'input'}
+			type={type}
+			className={classNames(styles.input, `input_${size}`, className)}
 			{...props}
 		/>
 	);

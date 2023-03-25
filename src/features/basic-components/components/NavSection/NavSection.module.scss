@@ -1,0 +1,6 @@
+@use '@styles/variables.scss';
+
+.panel {
+	width: 100%;
+	padding: 0 variables.$ui-padding-x;
+}

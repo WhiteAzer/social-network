@@ -1,0 +1,6 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.button {
+	height: calc(#{variables.$ui-padding-y-inline-component}* 2 + 1rem);
+}

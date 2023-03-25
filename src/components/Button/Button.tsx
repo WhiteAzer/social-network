@@ -1,21 +1,16 @@
-import React, { FC, HTMLAttributes } from 'react';
-import classNames from 'classnames';
-import { Size, Theme } from '../../types';
 import styles from './Button.module.scss';
+import classNames from 'classnames';
+import { ButtonHTMLAttributes, FC } from 'react';
+import { PropsWithSize } from '@/types/runtime-types';
 
-type Props = HTMLAttributes<HTMLButtonElement> & {
-	size: Exclude<Size, 'size-xs'>;
-	theme: Theme;
-};
+type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+	PropsWithSize<'size-s' | 'size-m' | 'size-l'>;
 
-export const Button: FC<Props> = ({ theme, size, className, ...props }) => {
+export const Button: FC<Props> = ({ size, className, ...props }) => {
 	return (
 		<button
-			className={classNames(
-				styles.button,
-				styles[`button_${size}`],
-				styles[`button_${theme}`]
-			)}
+			data-testid={'button'}
+			className={classNames(styles.button, `button_${size}`, className)}
 			{...props}
 		/>
 	);

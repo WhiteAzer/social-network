@@ -1,11 +1,8 @@
-import React, { FC, PropsWithChildren } from 'react';
 import styles from './Panel.module.scss';
 import classNames from 'classnames';
+import { FC } from 'react';
+import { DefaultProps } from '@/types/runtime-types';
 
-type Props = PropsWithChildren & {
-	className?: string;
-};
-
-export const Panel: FC<Props> = ({ children, className }) => {
+export const Panel: FC<DefaultProps> = ({ children, className }) => {
 	return <div className={classNames(styles.panel, className)}>{children}</div>;
 };

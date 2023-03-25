@@ -1,0 +1,38 @@
+@use '@styles/mixins.scss';
+@use '@styles/variables.scss';
+
+.label {
+	@include mixins.flexible(flex-start, center, row);
+	column-gap: variables.$ui-gap-x;
+}
+
+.name {
+	flex-grow: 1;
+	max-width: calc(
+		#{variables.$ui-section-left-width} - 2 * #{variables.$ui-padding-x} - #{variables.$ui-avatar-width-s} -
+			#{variables.$ui-gap-x}
+	);
+}
+
+.name > *:not(:last-child) {
+	margin-bottom: variables.$ui-line-interval;
+}
+
+.shortname,
+.username {
+	font-size: variables.$ui-font-size-s;
+	line-height: variables.$ui-line-height-s;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.shortname {
+	font-weight: variables.$ui-font-weight-regular;
+	color: var(--ui-color-darkblue);
+}
+
+.username {
+	font-weight: variables.$ui-font-weight-light;
+	color: var(--ui-color-grey-5);
+}

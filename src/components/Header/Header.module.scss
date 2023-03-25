@@ -1,15 +1,10 @@
 @use '@styles/variables.scss';
 @use '@styles/mixins.scss';
 
-.header{
-  @include mixins.flexible(space-between, center, row);
-  background: #FFFFFF;
-  border-radius: variables.$global-border-radius variables.$global-border-radius 0 0;
-  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
-  border-bottom: 2px solid var(--ui-color-grey);
-}
-
-.logo_wrapper{
-  @include mixins.flexible(flex-start, center, row);
-  column-gap: 0.5em;
+.header {
+	@include mixins.flexible(flex-end, center, row);
+	background: var(--ui-color-secondary-light);
+	border-radius: variables.$ui-border-radius variables.$ui-border-radius 0 0;
+	padding: variables.$ui-padding-y variables.$ui-padding-x;
+	border-bottom: 1px solid var(--ui-color-grey-3);
 }

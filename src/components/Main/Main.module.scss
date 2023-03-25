@@ -1,7 +1,8 @@
 @use '@styles/variables.scss';
+@use '@styles/mixins.scss';
 
 .main {
-  display: grid;
-  grid-template-columns: 285px 2fr 285px;
-  padding: variables.$global-vertical-padding variables.$global-horizontal-padding;
+	@include mixins.flexible(space-between, flex-start, row);
+	column-gap: 110px;
+	padding: variables.$ui-padding-y variables.$ui-padding-x;
 }
